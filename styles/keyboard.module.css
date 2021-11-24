@@ -1,0 +1,32 @@
+#piano {
+    width: 400px;
+}
+.whiteKey, .temp {
+  stroke: #555555;
+  fill: #FFFFF7;
+}
+.blackKey {
+  stroke: #979797;
+  fill: #4b4b4b;
+}
+.whiteKeyText {
+  font-size: 1.3em;
+  pointer-events: none;
+  user-select: none;
+}
+.blackKeyText {
+  font-size: 1em;
+  fill: #fff;
+  font-weight: 200;
+  pointer-events: none;
+  user-select: none;
+}
+.show {
+  fill: #0070f3;
+}
+.show ~ text {
+  fill: #fff;
+}
+.hide {
+  display:none;
+}

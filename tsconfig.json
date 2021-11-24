@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "util/midievents.ts",
+    "util/notes.ts",
+    "components/compound/randomnote.tsx",
+    "components/units/maths.tsx",
+    "components/units/keyboard.tsx",
+    "components/units/osccontrols.tsx",
+    "components/units/audiograph.tsx",
+    "util/maths.test.ts",
+    "./jest-setup.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
