@@ -2,7 +2,6 @@
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
  */
-
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   // All imported modules in your tests should be mocked automatically
@@ -138,7 +137,7 @@ export default {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  // testEnvironment: "jsdom",
+  // testEnvironment: "node",
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -192,4 +191,33 @@ export default {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+  moduleNameMapper: {
+    /* Handle CSS imports (with CSS modules)
+    https://jestjs.io/docs/webpack#mocking-css-modules */
+    '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
+
+    // Handle CSS imports (without CSS modules)
+    '^.+\\.(css|sass|scss)$': '<rootDir>/__mocks__/styleMock.js',
+
+    /* Handle image imports
+    https://jestjs.io/docs/webpack#handling-static-assets */
+    '^.+\\.(jpg|jpeg|png|gif|webp|avif|svg)$':
+      '<rootDir>/__mocks__/fileMock.js',
+  },
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
+  testEnvironment: 'jsdom',
+  transform: {
+    /* Use babel-jest to transpile tests with the next/babel preset
+    https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object */
+    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: [
+      'next/babel',
+      //['@babel/preset-env', {targets: {node: 'current'}}],
+      //'@babel/preset-typescript'
+    ] }],
+  },
+  transformIgnorePatterns: [
+    '/node_modules/',
+    '^.+\\.module\\.(css|sass|scss)$',
+  ],
 };

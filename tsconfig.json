@@ -34,7 +34,7 @@
     "components/units/osccontrols.tsx",
     "components/units/audiograph.tsx",
     "util/maths.test.ts",
-    "./jest-setup.ts"
+    "jest.setup.js"
   ],
   "exclude": [
     "node_modules"
