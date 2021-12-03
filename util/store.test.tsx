@@ -1,11 +1,22 @@
-import { render, screen } from "@testing-library/react"
+import { render } from "@testing-library/react"
+import { Provider } from "react-redux"
+import { START_AUDIO, Store } from "./store"
+import { AudioContext } from 'standardized-audio-context-mock';
 
 describe("Store:", () => {
-    it("Should work", () => {
-        render(<h1></h1>)
-        expect(screen.getByRole("heading")).toBeInTheDocument()
+    const ac = global.AudioContext
+    beforeEach(() => {
+        global.AudioContext = AudioContext;
+        render(<Provider store={Store} />)
     })
-    it("definitely work", () => {
-        expect(true).toBe(true)
+    afterEach(() => {
+        global.AudioContext = ac
+    })
+    it("Store should have only context and it should be null on initialization", () => {
+        expect(Store.getState()).toStrictEqual({context: null})
+    })
+    it("Should create its own AudioContext", () => {
+        Store.dispatch({type: START_AUDIO})
+        expect(Store.getState()).toStrictEqual({context: new AudioContext()})
     })
 })
