@@ -38,10 +38,9 @@ export function FromFreq(freq: number) {
     return StdNote(Note.fromFreq(freq))
 }
 
-export function RandomNote(debug = false) {
+export function RandomNote() {
     let note = randomFromArray(notes) + randomFromArray(accidentals) + randomFromArray(octaves);
     let out = StdNote(note)
-    debug ? console.log(out): null
     return out;
 }
 
