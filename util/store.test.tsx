@@ -6,7 +6,7 @@ import { AudioContext } from 'standardized-audio-context-mock';
 describe("Store:", () => {
     const ac = global.AudioContext
     beforeEach(() => {
-        global.AudioContext = AudioContext;
+        global.AudioContext = AudioContext as any;
         render(<Provider store={Store} />)
     })
     afterEach(() => {
