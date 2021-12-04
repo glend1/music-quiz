@@ -3,7 +3,7 @@ import { Provider } from "react-redux"
 import { START_AUDIO, Store } from "./store"
 import { AudioContext } from 'standardized-audio-context-mock';
 
-describe("Store:", () => {
+describe("Store: This is used to save a reference to the global AudioContext", () => {
     const ac = global.AudioContext
     beforeEach(() => {
         global.AudioContext = AudioContext as any;
