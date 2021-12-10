@@ -11,6 +11,7 @@ export type IArray<Type> = {
   clear: () => void;
 }
 
+//TODO set defaults
 export function useArray<Type>(defaultValue: Type[] = []): IArray<Type> {
   const [array, setArray] = useState(defaultValue)
 
@@ -26,12 +27,12 @@ export function useArray<Type>(defaultValue: Type[] = []): IArray<Type> {
     setArray(a => [
       ...a.slice(0, index),
       newElement,
-      ...a.slice(index + 1, a.length - 1),
+      ...a.slice(index + 1, a.length),
     ])
   }
 
   function remove(index: number) {
-    setArray(a => [...a.slice(0, index), ...a.slice(index + 1, a.length - 1)])
+    setArray(a => [...a.slice(0, index), ...a.slice(index + 1, a.length)])
   }
 
   function clear() {
@@ -82,6 +83,7 @@ export function useInterval() {
   return { set, clear }
 }
 
+//TODO not sure i should keep this hook
 export function useFormState(defaultValue: string): [string, ChangeEventHandler<HTMLInputElement | HTMLSelectElement>] {
   const [state, setState] = useState(defaultValue)
 
@@ -111,6 +113,7 @@ export function useStopwatch(defaultValue: number) {
   function stop() {
     if (interval) {
       clearInterval(interval);
+      setIntervalState(null)
     }
   }
   function reset() {
