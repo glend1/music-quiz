@@ -9,10 +9,10 @@ type IAnswer = {
 }
 
 export function Answer({ question, answer }: IAnswer) {
-  const {i: hits, increment: incrementHits, set: setHits} = useCounter(0)
-  const {i: misses, increment: incrementMisses, set: setMisses} = useCounter(0)
+  const {i: hits, increment: incrementHits, set: setHits} = useCounter()
+  const {i: misses, increment: incrementMisses, set: setMisses} = useCounter()
   const [message, setMessage] = useState("no attempt")
-  const {time, start, stop, reset} = useStopwatch(0)
+  const {time, start, stop, reset} = useStopwatch()
   const {array: history, push: pushHistory, clear: clearHistory} = useArray<IHistory>()
   useEffect(() => {
       if (answer?.find(el => el?.midi == question?.midi)) {

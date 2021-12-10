@@ -35,7 +35,7 @@ describe("customHooks", () => {
     describe("UseBoolean: This create a stateful boolean object", () => {
         var boolean: RenderResult<{ bool: boolean; set: Dispatch<SetStateAction<boolean>>; toggle: () => void; }>
         beforeEach(() => {
-            ({ result: boolean } = renderHook(() => hooks.useBoolean(false)))
+            ({ result: boolean } = renderHook(() => hooks.useBoolean()))
         })
         it("toggle: Should return true", () => {
             act(() => {boolean.current.toggle()})
@@ -102,7 +102,7 @@ describe("customHooks", () => {
         var stopwatch: RenderResult<{ time: number; start: () => void; stop: () => void; reset: () => void; }>
         beforeEach(() => {
             jest.useFakeTimers();
-            ({ result: stopwatch } = renderHook(() => hooks.useStopwatch(0)))
+            ({ result: stopwatch } = renderHook(() => hooks.useStopwatch()))
         })
         afterEach(() => {
             jest.useRealTimers()

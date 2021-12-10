@@ -12,7 +12,7 @@ import { Input } from 'webmidi';
 
 export function MidiControls(answer: IArray<IStdNote>) {
     const [audioEvent, setAudioEvent] = useState<((type: string, data: IStdNote) => void) | undefined>()
-    const {bool: hideKeyboard, toggle: toggleKeyboard} = useBoolean(false)
+    const {bool: hideKeyboard, toggle: toggleKeyboard} = useBoolean()
     const {bool: sharp, toggle: toggleSharp} = useBoolean(true)
     const [octave, setOctave] = useFormState("4")
     const [midiDevice, setMidiDevice] = useState<Input | false>(false)

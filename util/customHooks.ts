@@ -11,7 +11,6 @@ export type IArray<Type> = {
   clear: () => void;
 }
 
-//TODO set defaults
 export function useArray<Type>(defaultValue: Type[] = []): IArray<Type> {
   const [array, setArray] = useState(defaultValue)
 
@@ -42,7 +41,7 @@ export function useArray<Type>(defaultValue: Type[] = []): IArray<Type> {
   return { array, set: setArray, push, filter, update, remove, clear }
 }
 
-export function useBoolean(defaultValue: boolean) {
+export function useBoolean(defaultValue = false) {
   const [bool, setBool] = useState(defaultValue)
 
   function toggle() {
@@ -52,7 +51,7 @@ export function useBoolean(defaultValue: boolean) {
   return { bool, set: setBool, toggle }
 }
 
-export function useCounter(defaultValue: number) {
+export function useCounter(defaultValue = 0) {
   const [i, setI] = useState(defaultValue)
 
   function increment(j = 1) {
@@ -92,7 +91,7 @@ export function useFormState(defaultValue: string): [string, ChangeEventHandler<
   return [state, setFromForm]
 }
 
-export function useStopwatch(defaultValue: number) {
+export function useStopwatch(defaultValue = 0) {
   const [time, setTimer] = useState(defaultValue)
   const [interval, setIntervalState] = useState<NodeJS.Timer | null>(null)
   var offset = 0;

@@ -10,7 +10,7 @@ export type IHistory = {
 type History= {history: IHistory[]}
 
 export function HistoryTable({history}: History) {
-    const {bool: results, toggle: toggleResults} = useBoolean(false)
+    const {bool: results, toggle: toggleResults} = useBoolean()
             var misses = 0, position = 1, totalMisses = 0, totalTime = 0;
     return (
         <>
