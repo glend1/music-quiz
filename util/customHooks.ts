@@ -83,7 +83,6 @@ export function useInterval() {
   return { set, clear }
 }
 
-//TODO not sure i should keep this hook
 export function useFormState(defaultValue: string): [string, ChangeEventHandler<HTMLInputElement | HTMLSelectElement>] {
   const [state, setState] = useState(defaultValue)
 
