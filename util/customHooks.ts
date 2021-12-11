@@ -52,30 +52,32 @@ export function useBoolean(defaultValue = false) {
 }
 
 export function useCounter(defaultValue = 0) {
-  const [i, setI] = useState(defaultValue)
+  const [counter, setCounter] = useState(defaultValue)
 
   function increment(j = 1) {
-    setI(i + j)
+    setCounter(counter + j)
   }
 
   function decrement(j = 1) {
-    setI(i - j)
+    setCounter(counter - j)
   }
 
-  return { i, set: setI, increment, decrement }
+  return { i: counter, set: setCounter, increment, decrement }
 }
 
 export function useInterval() {
-  const ref: MutableRefObject<NodeJS.Timer | null > = useRef(null);
+  const [reference, setReference] = useState<number | undefined>()
 
   function set(callback: () => void, delay: number) {
-    ref.current = setInterval(callback, delay)
+    if (!reference) {
+      setReference(window.setInterval(callback, delay))
+    }
   }
 
   function clear() {
-    if (ref.current) {
-      clearInterval(ref.current)
-      ref.current = null
+    if (reference) {
+      clearInterval(reference)
+      setReference(undefined)
     }
   }
 
@@ -93,7 +95,7 @@ export function useFormState(defaultValue: string): [string, ChangeEventHandler<
 
 export function useStopwatch(defaultValue = 0) {
   const [time, setTimer] = useState(defaultValue)
-  const [interval, setIntervalState] = useState<NodeJS.Timer | null>(null)
+  const {set: startInterval, clear: stopInterval} = useInterval()
   var offset = 0;
   function delta() {
     let now = Date.now()
@@ -106,17 +108,11 @@ export function useStopwatch(defaultValue = 0) {
   }
   function start() {
       offset = Date.now();
-      setIntervalState(setInterval(update, 1))
-  }
-  function stop() {
-    if (interval) {
-      clearInterval(interval);
-      setIntervalState(null)
-    }
+      startInterval(update, 1)
   }
   function reset() {
-    stop()
+    stopInterval()
     setTimer(0)
   }
-  return { time: Round(time/1000, 2), start, stop, reset }
+  return { time: Round(time/1000, 2), start, stop: stopInterval, reset }
 }
