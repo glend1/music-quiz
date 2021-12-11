@@ -12,7 +12,7 @@ type IPitch = {
 
 export function DetectPitch({cb}: IPitch) {
   const audioContext = useSelector((state: State) => state.context )
-  const {bool: listening, toggle: toggleListening} = useBoolean()
+  const {bool: listening, toggle: toggleListening} = useBoolean(false)
   const {set: setPitch, clear: clearPitch} = useInterval()
   useEffect(() => {
     if(listening) {
