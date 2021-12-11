@@ -67,14 +67,27 @@ describe("customHooks", () => {
         afterEach(() => {
             jest.useRealTimers()
         })
-        it("set: This should be called 10 times", () => {
+        it("set: Should be called 10 times", () => {
             act(() => {
                 interval.current.set(callback, 100)    
                 jest.advanceTimersByTime(1000);
             })
             expect(callback).toHaveBeenCalledTimes(10);
         })
-        it("clear: This should clear the interval", () => {
+        it("set: Should not override the timer if one is already active", () => {
+            act(() => {
+                interval.current.set(callback, 100)    
+                jest.advanceTimersByTime(1000);
+            })
+            var secondCallback = jest.fn();
+            act(() => {
+                interval.current.set(secondCallback, 100)    
+                jest.advanceTimersByTime(1000);
+            })
+            expect(callback).toHaveBeenCalledTimes(20);
+            expect(secondCallback).toHaveBeenCalledTimes(0);
+        })
+        it("clear: Should clear the interval", () => {
             act(() => {
                 interval.current.set(callback, 100)    
                 jest.advanceTimersByTime(1000);
@@ -91,7 +104,7 @@ describe("customHooks", () => {
         beforeEach(() => {
             ({ result: formState } = renderHook(() => hooks.useFormState("test")))
         })
-        it("should be able to set state", () => {
+        it("setFromForm: Should be able to set state", () => {
             act(() => {
                 formState.current[1](<any>{target: {value: "change"}})
             })
@@ -107,14 +120,14 @@ describe("customHooks", () => {
         afterEach(() => {
             jest.useRealTimers()
         })
-        it("start: should start the timer", () => {
+        it("start: Should start the timer", () => {
             act(() => {
                 stopwatch.current.start()
                 jest.advanceTimersByTime(1568)
             })
             expect(stopwatch.current.time).toBe(1.57)
         })
-        it("stop: should stop the timer", () => {
+        it("stop: Should stop the timer", () => {
             act(() => {
                 stopwatch.current.start()
                 jest.advanceTimersByTime(1568)
@@ -125,7 +138,7 @@ describe("customHooks", () => {
             })
             expect(stopwatch.current.time).toBe(1.57)
         })
-        it("reset: should reset the timer", () => {
+        it("reset: Should reset the timer", () => {
             act(() => {
                 stopwatch.current.start()
                 jest.advanceTimersByTime(1568)
