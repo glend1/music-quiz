@@ -1,75 +1,71 @@
-import { MouseEventHandler } from "react";
+import { useCallback } from "react";
 import { Input } from "webmidi";
+import { AudioEvent } from "../components/compound/midicontrols";
 import { IArray } from "./customHooks";
 import { INote, IStdNote, normalizeMidi, normalizeNote} from "./notes"
 
-export function midiEvents(answer: IArray<IStdNote>, sharp: boolean, octave: number, audioEvent?: ((type: string, data: IStdNote) => void), midiDevice?: Input | false) {
-    function filter(data: IStdNote) { 
-        return (obj: IStdNote) => { 
-            if (data != null && obj != null) {
-                return obj.name != data.name 
-            } else {
-                return false
+export function MidiEvents(answer: IArray<IStdNote>, sharp: boolean, octave: number, audioEvent?: AudioEvent, midiDevice?: Input | false) {
+    const start = useCallback((data: IStdNote | null) => {
+        if (data) {
+            if (audioEvent) {
+                audioEvent("start", data)
             }
-        } 
-    }
-   function midiKeyboard() {
+            answer.push(data)
+        }
+    }, [audioEvent, answer])
+    const stop = useCallback((data: IStdNote | null) => {
+        if (data) {
+            if (audioEvent) {
+                audioEvent("stop", data)
+            }
+            answer.filter((obj) => {return obj.name != data.name })
+        }
+    }, [audioEvent, answer])
+   const midiKeyboard = useCallback(() => {
         if (midiDevice) {
             midiDevice.addListener('noteon', "all", (e) => {
                 let data = normalizeMidi(e.note.number, sharp)
-                if (audioEvent) {
-                    audioEvent("start", data)
-                }
-                answer.push(data)
+                start(data)
             });
             midiDevice.addListener('noteoff', "all", (e) => {
                 let data =  normalizeMidi(e.note.number, sharp)
-                if (audioEvent) {
-                    audioEvent("stop", data)
-                }
-                answer.filter(filter(data))
+                stop(data)
             });
         }
-    }
-
-    const mouse: MouseEventHandler<SVGGElement> = (e) => {
-            let data = normalizeNote((e.target as SVGElement).dataset as INote, octave, sharp)
-            function contains() {
-                if (data) {
-                    for (let i = 0; i < answer.array.length; i++) {
-                        if (answer.array[i]?.name === data.name) { return true }
+    }, [start, stop, midiDevice, sharp])
+    const mouse = useCallback((e : React.MouseEvent<SVGElement>): void  => {
+        let data = normalizeNote((e.target as SVGElement).dataset as INote, octave, sharp)
+        function contains() {
+            if (data) {
+                for (let i = 0; i < answer.array.length; i++) {
+                    if (answer.array[i]) {
+                        return answer.array[i]!.name === data.name
                     }
                 }
-                return false
             }
+            return false
+        }
+        if (data) {
+            console.log(data)
             if (!contains()) {
-                if (audioEvent) {
-                    audioEvent("start", data)
-                }
-                answer.push(data)
+                start(data)
             } else {
-                if (audioEvent) {
-                    audioEvent("stop", data)
-                }
-                answer.filter(filter(data))
+                stop(data)
             }
         }
-    function key(event: INote, type: string) {
-            let data = normalizeNote(event, octave, sharp)
-            switch (type) {
-                case "keydown":
-                    if (audioEvent) {
-                        audioEvent("start", data)
-                    }
-                    answer.push(data)
-                    break;
-                case "keyup":
-                    if (audioEvent) {
-                        audioEvent("stop", data)
-                    }
-                    answer.filter(filter(data))
-                    break;
-            }
+    }, [start, stop, octave, sharp, answer])
+    const key = useCallback((event: INote, type: string) => {
+        let data = normalizeNote(event, octave, sharp)
+        switch (type) {
+            case "keydown":
+                start(data)
+                break;
+            case "keyup":
+                stop(data)
+                break;
+            default:
+                throw 'Event not recognized'
         }
+    }, [start, stop, octave, sharp])
     return { midiKeyboard, key, mouse }
 }

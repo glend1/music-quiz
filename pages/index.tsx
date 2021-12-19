@@ -14,6 +14,7 @@ export default function Index() {
   const answer = useArray<IStdNote>()
   //TODO add something about scales?
   //TODO sort eslint
+  //TODO use undefinted
   return (
     <>
     <div className={styles.float}>

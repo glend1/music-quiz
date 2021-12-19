@@ -5,18 +5,20 @@ import { Piano } from '../units/piano';
 import { Keyboard } from '../units/keyboard';
 import keyboardStyles from '../../styles/keyboard.module.css'
 import { IArray, useBoolean, useFormState } from '../../util/customHooks';
-import { midiEvents } from '../../util/midievents';
+import { MidiEvents } from '../../util/midievents';
 import { clearListeners } from '../units/midiinput';
 import { IStdNote } from '../../util/notes';
 import { Input } from 'webmidi';
 
+export type AudioEvent = (type: string, data: IStdNote) => void
+
 export function MidiControls(answer: IArray<IStdNote>) {
-    const [audioEvent, setAudioEvent] = useState<((type: string, data: IStdNote) => void) | undefined>()
+    const [audioEvent, setAudioEvent] = useState<AudioEvent | undefined>()
     const {bool: hideKeyboard, toggle: toggleKeyboard} = useBoolean()
     const {bool: sharp, toggle: toggleSharp} = useBoolean(true)
     const [octave, setOctave] = useFormState("4")
     const [midiDevice, setMidiDevice] = useState<Input | false>(false)
-    const {midiKeyboard, key, mouse} = midiEvents(answer, sharp, parseInt(octave), audioEvent, midiDevice)
+    const {midiKeyboard, key, mouse} = MidiEvents(answer, sharp, parseInt(octave), audioEvent, midiDevice)
     useEffect(() => {
         midiKeyboard()
         return () => {
