@@ -46,7 +46,6 @@ export function MidiEvents(answer: IArray<IStdNote>, sharp: boolean, octave: num
             return false
         }
         if (data) {
-            console.log(data)
             if (!contains()) {
                 start(data)
             } else {
