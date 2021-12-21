@@ -1,10 +1,10 @@
 import styles from '../styles/Index.module.css'
-import { RandomNoteComponent } from '../components/compound/randomnote';
+import { RandomNote } from '../components/compound/randomnote';
 import { MidiControls } from '../components/compound/midicontrols';
 import { AudioControls } from '../components/compound/audiocontrols';
 import { Answer } from '../components/compound/answer';
 import { AudioContext } from '../components/units/audiocontext';
-import { Maths } from '../components/units/maths';
+import { Interval } from '../components/units/interval';
 import { useState } from 'react';
 import { useArray } from '../util/customHooks';
 import { IStdNote } from '../util/notes';
@@ -23,24 +23,24 @@ export default function Index() {
       </div>
     <div className={styles.container}>
       <div className={styles.card}>
-        <h2>random</h2>
-        <RandomNoteComponent {...question} />
+        <h2>Random</h2>
+        <RandomNote {...question} />
       </div>
       <div className={styles.card}>
-        <h2>midi note</h2>
+        <h2>Midi note</h2>
         <MidiControls {...answer} />
       </div>
       <div className={styles.card}>
-        <h2>audio input note</h2>
+        <h2>Audio input note</h2>
         <AudioControls />
       </div>
       <div className={styles.card}>
-        <h2>maths</h2>
-        <Maths {...question} />
+        <h2>Interval</h2>
+        <Interval {...question} />
       </div>
     </div>
     <div className={styles.card}>
-        <h2>answer</h2>
+        <h2>Answer</h2>
         <Answer question={question[0]} answer={answer.array} />
       </div>
     </>

@@ -59,7 +59,7 @@ export type IInt = {
     transposeBy: string;
 }
 
-export function createInterval(direction: String): IInt | void {
+export function createInterval(direction: String): IInt | undefined {
     let range = []
     for (let i = 0; i <= 12; i++) {range.push(i)}
     let random = range[Math.floor(Math.random() * range.length)]

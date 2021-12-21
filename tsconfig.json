@@ -29,7 +29,7 @@
     "util/midievents.ts",
     "util/notes.ts",
     "components/compound/randomnote.tsx",
-    "components/units/maths.tsx",
+    "components/units/interval.tsx",
     "components/units/keyboard.tsx",
     "components/units/osccontrols.tsx",
     "components/units/audiograph.tsx",

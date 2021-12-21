@@ -1,11 +1,11 @@
 import { Stave } from '../units/stave';
-import { IStdNote, RandomNote } from '../../util/notes';
+import { IStdNote, RandomNote as NewRandomNote } from '../../util/notes';
 import { Dispatch, SetStateAction, useState } from 'react';
 
-export function RandomNoteComponent({1: setQuestion }: [IStdNote, Dispatch<SetStateAction<IStdNote>>]) {
+export function RandomNote({1: setQuestion }: [IStdNote, Dispatch<SetStateAction<IStdNote>>]) {
     const [random, setRandom] = useState<IStdNote>()
     function newQuestion() {
-        let data = RandomNote()
+        let data = NewRandomNote()
         setRandom(data)
         setQuestion(data)
     }
