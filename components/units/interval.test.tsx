@@ -17,6 +17,8 @@ describe("Interval Component", () => {
         })
         expect(screen.getByRole("heading")).toHaveTextContent('Ascending Tritone')
     })
+})
+describe("Edge Cases", () => {
     it("Should fail to generate an interval", () => {
         const { result: question } = renderHook(() => useState<IStdNote>(null))
         render(<Interval {...question.current} />)
