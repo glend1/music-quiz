@@ -16,8 +16,6 @@ export function Stave({id, notation}: IStave) {
     }); 
   }, [notation])
   return (
-    <>
-      { notation != "" ? <div className={styles.stave} id={id}></div> : "" }
-    </>
+      <div className={styles.stave} id={id}></div> 
   )
 }
