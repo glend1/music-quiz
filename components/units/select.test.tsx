@@ -1,13 +1,12 @@
 import { render, waitFor, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { ChangeEvent } from 'react'
 import { Select } from './select'
 
 describe("Select", () => {
     it("Should have the correct data", async () => {
         var container: HTMLElement
         await waitFor(() => {
-            ({container} = render(<Select label={'label'} array={["data1", "data2", "data3"]} id={'test'} cb={function (event: ChangeEvent<HTMLSelectElement>): void {} } />))
+            ({container} = render(<Select label={'label'} array={["data1", "data2", "data3"]} id={'test'} cb={function (): void {} } />))
         }).then(() => {
             expect(container.querySelector('#test')).toBeTruthy()
             expect(container.querySelector('label')).toHaveTextContent("label")
