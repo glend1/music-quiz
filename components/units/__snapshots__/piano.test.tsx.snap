@@ -1,0 +1,623 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Piano Should render a correct Piano 1`] = `
+<body>
+  <div>
+    <div
+      id="piano"
+    >
+      <svg
+        viewBox="0 0 560 400"
+        width="100%"
+      >
+        <g
+          width="80"
+        >
+          <path
+            class="whiteKey key "
+            d="M 0 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            data-natural="C"
+            rx="15"
+            ry="15"
+            x="0"
+          />
+          <text
+            class="whiteKeyText"
+            text-anchor="middle"
+            x="40"
+            y="380"
+          >
+            C
+          </text>
+        </g>
+        <g
+          width="80"
+        >
+          <path
+            class="whiteKey key "
+            d="M 80 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            data-natural="D"
+            rx="15"
+            ry="15"
+            x="80"
+          />
+          <text
+            class="whiteKeyText"
+            text-anchor="middle"
+            x="120"
+            y="380"
+          >
+            D
+          </text>
+        </g>
+        <g
+          width="40"
+        >
+          <path
+            class="blackKey key "
+            d="M 60 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            data-flat="Db"
+            data-sharp="C#"
+            rx="8"
+            ry="8"
+            x="60"
+          />
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="80"
+            y="235"
+          >
+            D
+            ♭
+          </text>
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="80"
+            y="215"
+          >
+            C
+            ♯
+          </text>
+        </g>
+        <g
+          width="80"
+        >
+          <path
+            class="whiteKey key "
+            d="M 160 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            data-natural="E"
+            rx="15"
+            ry="15"
+            x="160"
+          />
+          <text
+            class="whiteKeyText"
+            text-anchor="middle"
+            x="200"
+            y="380"
+          >
+            E
+          </text>
+        </g>
+        <g
+          width="40"
+        >
+          <path
+            class="blackKey key "
+            d="M 140 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            data-flat="Eb"
+            data-sharp="D#"
+            rx="8"
+            ry="8"
+            x="140"
+          />
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="160"
+            y="235"
+          >
+            E
+            ♭
+          </text>
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="160"
+            y="215"
+          >
+            D
+            ♯
+          </text>
+        </g>
+        <g
+          width="80"
+        >
+          <path
+            class="whiteKey key "
+            d="M 240 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            data-natural="F"
+            rx="15"
+            ry="15"
+            x="240"
+          />
+          <text
+            class="whiteKeyText"
+            text-anchor="middle"
+            x="280"
+            y="380"
+          >
+            F
+          </text>
+        </g>
+        <g
+          width="80"
+        >
+          <path
+            class="whiteKey key "
+            d="M 320 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            data-natural="G"
+            rx="15"
+            ry="15"
+            x="320"
+          />
+          <text
+            class="whiteKeyText"
+            text-anchor="middle"
+            x="360"
+            y="380"
+          >
+            G
+          </text>
+        </g>
+        <g
+          width="40"
+        >
+          <path
+            class="blackKey key "
+            d="M 300 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            data-flat="Gb"
+            data-sharp="F#"
+            rx="8"
+            ry="8"
+            x="300"
+          />
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="320"
+            y="235"
+          >
+            G
+            ♭
+          </text>
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="320"
+            y="215"
+          >
+            F
+            ♯
+          </text>
+        </g>
+        <g
+          width="80"
+        >
+          <path
+            class="whiteKey key "
+            d="M 400 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            data-natural="A"
+            rx="15"
+            ry="15"
+            x="400"
+          />
+          <text
+            class="whiteKeyText"
+            text-anchor="middle"
+            x="440"
+            y="380"
+          >
+            A
+          </text>
+        </g>
+        <g
+          width="40"
+        >
+          <path
+            class="blackKey key "
+            d="M 380 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            data-flat="Ab"
+            data-sharp="G#"
+            rx="8"
+            ry="8"
+            x="380"
+          />
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="400"
+            y="235"
+          >
+            A
+            ♭
+          </text>
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="400"
+            y="215"
+          >
+            G
+            ♯
+          </text>
+        </g>
+        <g
+          width="80"
+        >
+          <path
+            class="whiteKey key "
+            d="M 480 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            data-natural="B"
+            rx="15"
+            ry="15"
+            x="480"
+          />
+          <text
+            class="whiteKeyText"
+            text-anchor="middle"
+            x="520"
+            y="380"
+          >
+            B
+          </text>
+        </g>
+        <g
+          width="40"
+        >
+          <path
+            class="blackKey key "
+            d="M 460 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            data-flat="Bb"
+            data-sharp="A#"
+            rx="8"
+            ry="8"
+            x="460"
+          />
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="480"
+            y="235"
+          >
+            B
+            ♭
+          </text>
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="480"
+            y="215"
+          >
+            A
+            ♯
+          </text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Piano displayHighlight Should highlight 1 natural, 1 sharp and 1 flat note 1`] = `
+<body>
+  <div>
+    <div
+      id="piano"
+    >
+      <svg
+        viewBox="0 0 560 400"
+        width="100%"
+      >
+        <g
+          width="80"
+        >
+          <path
+            class="whiteKey key show"
+            d="M 0 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            data-natural="C"
+            rx="15"
+            ry="15"
+            x="0"
+          />
+          <text
+            class="whiteKeyText"
+            text-anchor="middle"
+            x="40"
+            y="380"
+          >
+            C
+          </text>
+        </g>
+        <g
+          width="80"
+        >
+          <path
+            class="whiteKey key "
+            d="M 80 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            data-natural="D"
+            rx="15"
+            ry="15"
+            x="80"
+          />
+          <text
+            class="whiteKeyText"
+            text-anchor="middle"
+            x="120"
+            y="380"
+          >
+            D
+          </text>
+        </g>
+        <g
+          width="40"
+        >
+          <path
+            class="blackKey key "
+            d="M 60 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            data-flat="Db"
+            data-sharp="C#"
+            rx="8"
+            ry="8"
+            x="60"
+          />
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="80"
+            y="235"
+          >
+            D
+            ♭
+          </text>
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="80"
+            y="215"
+          >
+            C
+            ♯
+          </text>
+        </g>
+        <g
+          width="80"
+        >
+          <path
+            class="whiteKey key "
+            d="M 160 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            data-natural="E"
+            rx="15"
+            ry="15"
+            x="160"
+          />
+          <text
+            class="whiteKeyText"
+            text-anchor="middle"
+            x="200"
+            y="380"
+          >
+            E
+          </text>
+        </g>
+        <g
+          width="40"
+        >
+          <path
+            class="blackKey key show"
+            d="M 140 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            data-flat="Eb"
+            data-sharp="D#"
+            rx="8"
+            ry="8"
+            x="140"
+          />
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="160"
+            y="235"
+          >
+            E
+            ♭
+          </text>
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="160"
+            y="215"
+          >
+            D
+            ♯
+          </text>
+        </g>
+        <g
+          width="80"
+        >
+          <path
+            class="whiteKey key "
+            d="M 240 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            data-natural="F"
+            rx="15"
+            ry="15"
+            x="240"
+          />
+          <text
+            class="whiteKeyText"
+            text-anchor="middle"
+            x="280"
+            y="380"
+          >
+            F
+          </text>
+        </g>
+        <g
+          width="80"
+        >
+          <path
+            class="whiteKey key "
+            d="M 320 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            data-natural="G"
+            rx="15"
+            ry="15"
+            x="320"
+          />
+          <text
+            class="whiteKeyText"
+            text-anchor="middle"
+            x="360"
+            y="380"
+          >
+            G
+          </text>
+        </g>
+        <g
+          width="40"
+        >
+          <path
+            class="blackKey key show"
+            d="M 300 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            data-flat="Gb"
+            data-sharp="F#"
+            rx="8"
+            ry="8"
+            x="300"
+          />
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="320"
+            y="235"
+          >
+            G
+            ♭
+          </text>
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="320"
+            y="215"
+          >
+            F
+            ♯
+          </text>
+        </g>
+        <g
+          width="80"
+        >
+          <path
+            class="whiteKey key "
+            d="M 400 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            data-natural="A"
+            rx="15"
+            ry="15"
+            x="400"
+          />
+          <text
+            class="whiteKeyText"
+            text-anchor="middle"
+            x="440"
+            y="380"
+          >
+            A
+          </text>
+        </g>
+        <g
+          width="40"
+        >
+          <path
+            class="blackKey key "
+            d="M 380 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            data-flat="Ab"
+            data-sharp="G#"
+            rx="8"
+            ry="8"
+            x="380"
+          />
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="400"
+            y="235"
+          >
+            A
+            ♭
+          </text>
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="400"
+            y="215"
+          >
+            G
+            ♯
+          </text>
+        </g>
+        <g
+          width="80"
+        >
+          <path
+            class="whiteKey key "
+            d="M 480 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            data-natural="B"
+            rx="15"
+            ry="15"
+            x="480"
+          />
+          <text
+            class="whiteKeyText"
+            text-anchor="middle"
+            x="520"
+            y="380"
+          >
+            B
+          </text>
+        </g>
+        <g
+          width="40"
+        >
+          <path
+            class="blackKey key "
+            d="M 460 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            data-flat="Bb"
+            data-sharp="A#"
+            rx="8"
+            ry="8"
+            x="460"
+          />
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="480"
+            y="235"
+          >
+            B
+            ♭
+          </text>
+          <text
+            class="blackKeyText"
+            text-anchor="middle"
+            x="480"
+            y="215"
+          >
+            A
+            ♯
+          </text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</body>
+`;
