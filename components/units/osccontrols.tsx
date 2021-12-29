@@ -35,14 +35,14 @@ export function OscControls({ setAudioEvent }: IOsc) {
                   audioContext.currentTime
                 );
               }
-              if (osc.start) osc.start();
+              osc.start();
               heldPush({ data: data, oscilator: osc });
               break;
             case "stop":
               heldFilter((i) => {
                 if (i.oscilator != null) {
                   if (data?.midi == i.data.midi) {
-                    if (i.oscilator.stop) i.oscilator.stop();
+                    i.oscilator.stop();
                   }
                 }
                 return data?.midi != i.data.midi;
@@ -70,7 +70,7 @@ export function OscControls({ setAudioEvent }: IOsc) {
               <Select id="wave_type" label="Wave Type" array={["triangle", "sine", "square", "sawtooth"]} cb={setWave}/>
             </>) : (<div></div> )}
         </form>
-      ) : ("Please Start AudioContext")}
+      ) : (<p>Please Start AudioContext</p>)}
     </>
   );
 }
