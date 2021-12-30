@@ -9,7 +9,7 @@ describe("Piano", () => {
         expect(container.baseElement).toMatchSnapshot()
     })
     describe("callback", () => {
-        it("test", async () => {
+        it("Should call the callback", async () => {
             const callback = jest.fn();
             var element: HTMLElement
             await waitFor(() => {
