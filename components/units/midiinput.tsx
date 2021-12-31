@@ -30,7 +30,7 @@ export function MidiInput({setMidiDevice}: IInput) {
     }, [])
     return (
         <form>
-            {(error) ? "Midi not available in this browser" : <Select id="midi_select" label="Select a Midi Device" array={midiInputs} cb={selectAction}/>}
+            {(error) ? <p>Midi not available in this browser</p> : <Select id="midi_select" label="Select a Midi Device" array={midiInputs} cb={selectAction}/>}
         </form>
     )
 }
