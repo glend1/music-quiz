@@ -62,7 +62,7 @@ export function OscControls({ setAudioEvent }: IOsc) {
   return (
     <>
       {audioContext ? (
-        <form>
+        <form autoComplete="off">
           <button onClick={togglePlaying}>{play ? "Mute" : "Unmute"}</button>
           {play ? (<>
               <label htmlFor="volume">Volume</label>

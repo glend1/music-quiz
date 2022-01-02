@@ -28,13 +28,13 @@ export function MidiControls(answer: IArray<IStdNote>) {
     return (
         <>
             <div>
-                <input type="checkbox" id="sharp" name="sharp" defaultChecked={sharp} onChange={toggleSharp} />
+                <input autoComplete="off" type="checkbox" id="sharp" name="sharp" defaultChecked={sharp} onChange={toggleSharp} />
                 <label htmlFor="sharp">Sharp?</label>
             </div>
             <MidiInput setMidiDevice={setMidiDevice}/>
             <OscControls setAudioEvent={setAudioEvent}/>
             <div>
-                <input type="checkbox" id="keyboard_visibility" name="keyboard_visibility" defaultChecked={hideKeyboard} onChange={toggleKeyboard} />
+                <input autoComplete="off" type="checkbox" id="keyboard_visibility" name="keyboard_visibility" defaultChecked={hideKeyboard} onChange={toggleKeyboard} />
                 <label htmlFor="keyboard_visibility">Show Keyboard?</label>
             </div>
             <div id="keyboard_section" className={!hideKeyboard ? keyboardStyles.hide : ""}>

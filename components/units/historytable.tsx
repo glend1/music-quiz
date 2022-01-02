@@ -15,7 +15,7 @@ export function HistoryTable({history}: History) {
     return (
         <>
         <div>
-                <input type="checkbox" id="results_visibility" name="results_visibility" defaultChecked={results} onChange={toggleResults} />
+                <input autoComplete="off" type="checkbox" id="results_visibility" name="results_visibility" defaultChecked={results} onChange={toggleResults} />
                 <label htmlFor="results_visibility">Show Results?</label>
             </div>
             <table className={!results ? historyStyles.hide : ""}>
