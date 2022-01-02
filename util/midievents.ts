@@ -39,7 +39,9 @@ export function MidiEvents(answer: IArray<IStdNote>, sharp: boolean, octave: num
             if (data) {
                 for (let i = 0; i < answer.array.length; i++) {
                     if (answer.array[i]) {
-                        return answer.array[i]!.name === data.name
+                        if (answer.array[i]!.name === data.name) {
+                            return true
+                        }
                     }
                 }
             }
