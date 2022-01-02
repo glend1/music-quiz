@@ -15,15 +15,17 @@ export function Answer({ question, answer }: IAnswer) {
   const {time, start, stop, reset} = useStopwatch()
   const {array: history, push: pushHistory, clear: clearHistory} = useArray<IHistory>()
   useEffect(() => {
-      if (answer?.find(el => el?.midi == question?.midi)) {
-        setMessage("correct")
-        reset()
-        incrementHits()
-        pushHistory({type: "hit", time})
-      } else {
-        setMessage("wrong")
-        incrementMisses()
-        pushHistory({type: "miss", time})
+      if (answer.length >= 1) {
+        if (answer.find(el => el?.midi == question?.midi)) {
+          setMessage("correct")
+          reset()
+          incrementHits()
+          pushHistory({type: "hit", time})
+        } else {
+          setMessage("wrong")
+          incrementMisses()
+          pushHistory({type: "miss", time})
+        }
       }
   }, [answer])
   return (
