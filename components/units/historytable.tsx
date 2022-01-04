@@ -1,6 +1,5 @@
 import { Round } from "../../util/maths";
 import { useBoolean } from "../../util/customHooks";
-import historyStyles from "../../styles/historytable.module.css"
 
 export type IHistory = {
     type: "hit" | "miss",
@@ -10,7 +9,7 @@ export type IHistory = {
 type History= {history: IHistory[]}
 
 export function HistoryTable({history}: History) {
-    const {bool: results, toggle: toggleResults} = useBoolean()
+    const {bool: results, toggle: toggleResults} = useBoolean(false)
             var misses = 0, position = 1, totalMisses = 0, totalTime = 0;
     return (
         <>
@@ -18,7 +17,8 @@ export function HistoryTable({history}: History) {
                 <input autoComplete="off" type="checkbox" id="results_visibility" name="results_visibility" defaultChecked={results} onChange={toggleResults} />
                 <label htmlFor="results_visibility">Show Results?</label>
             </div>
-            <table className={!results ? historyStyles.hide : ""}>
+            {results ?
+            <table>
                 <thead>
                     <tr>
                         <td key="position">position</td>
@@ -27,8 +27,7 @@ export function HistoryTable({history}: History) {
                     </tr>
                 </thead>
                 <tbody>
-                    {
-                    history?.map((entry) => {
+                    {history.map((entry) => {
                         switch(entry.type) {
                             case "miss":
                                 misses++
@@ -58,6 +57,7 @@ export function HistoryTable({history}: History) {
                 }</td>
                 </tr></tfoot>
             </table>
+            : ""}
             </>
     )
 }
