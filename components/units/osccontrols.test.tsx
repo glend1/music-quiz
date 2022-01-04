@@ -46,7 +46,7 @@ describe("OscControls", () => {
         expect(slider.value).toBe("20")
     })
     it("Should play a pitch", () => {
-        //TODO this doesn't work
+        //TODO more tests need to be done
         /*const { result: state } = renderHook(() => useState<((type: string, data: IStdNote) => void)>())
         render(<Provider store={Store}><OscControls setAudioEvent={state.current[1]}></OscControls></Provider>)
         Store.dispatch({type: START_AUDIO})
