@@ -30,8 +30,7 @@ export function DetectPitch({cb}: IPitch) {
           }, 100)
         });  
       }
-    }
-    return () => {
+    } else {
       clearPitch()
     }
   }, [listening])  
