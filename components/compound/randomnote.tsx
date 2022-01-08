@@ -12,7 +12,7 @@ export function RandomNote({1: setQuestion }: [IStdNote, Dispatch<SetStateAction
     return (
         <>
             <button onClick={newQuestion}>New Question</button>
-            <Stave notation={random?.abc} id="question"/>
+            {random ? <Stave notation={random.abc} id="question"/> : ""}
         </>
     )
 }
