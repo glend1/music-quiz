@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import styles from '../../styles/stave.module.css'
+import { renderAbc } from 'abcjs'
 
 type IStave = {
   id: string,
@@ -8,12 +9,10 @@ type IStave = {
 
 export function Stave({id, notation}: IStave) {
   useEffect(() => {
-    import("abcjs").then((module) => {
-      var suffix = "2|"
-      if (notation != null) {
-        module.renderAbc(id, `X:1\nK:C\n[${notation}${suffix}]\n`, { scale: 1.5 })
-      }
-    }); 
+    if (notation != null) {
+      const suffix = "2|"
+      renderAbc(id, `X:1\nK:C\n[${notation}${suffix}]\n`, { scale: 1.5 })
+    }
   }, [notation])
   return (
       <div className={styles.stave} id={id}></div> 
