@@ -12,7 +12,7 @@ export function AudioControls() {
                 <h2>{freq.clarity}%</h2>
                 <AudioGraph freq={freq.pitch}/>
               </>
-            : <div>{"No freqency found"}</div>
+            : ""
             }
         </>
     )
