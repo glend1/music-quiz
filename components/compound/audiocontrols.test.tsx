@@ -24,7 +24,6 @@ describe("audiocontrols", () => {
         render(<Provider store={Store}><AudioControls /></Provider>)
         Store.dispatch({type: START_AUDIO})
         fireEvent.click(screen.getByRole("button"))
-        screen.getByText("")
         global.AudioContext = ac
     })
 })
