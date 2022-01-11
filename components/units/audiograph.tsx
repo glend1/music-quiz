@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Midi, Note } from "@tonaljs/tonal";
 import { Chart, Tick } from 'chart.js';
 
-type IGraph = { freq: number }
+type IGraph = { freq: number | null }
 
 export function AudioGraph({freq}: IGraph) {
     const ctx = useRef<HTMLCanvasElement>(null)
@@ -59,37 +59,38 @@ export function AudioGraph({freq}: IGraph) {
             })
         }
     }, [])
-    useEffect(() => {
-        if (freq != null && chart != null) {
+        if (chart != null) {
             let working = chart.data.datasets[0].data
-            let nearest = Midi.toMidi(Note.fromFreq(freq));
-            if (nearest) {
-                let min = nearest - offset
-                let max = nearest + offset
-                let yScale = chart.options.scales!.y!
-                yScale.min = Note.get(Midi.midiToNoteName(min)).freq!
-                yScale.max = Note.get(Midi.midiToNoteName(max)).freq!
-                let labels: string[] = []
-                let ticks: Tick[] = []
-                for (let i = min; i <= max; i++) {
-                    labels.push(Midi.midiToNoteName(i))
-                    let isMajor = (Note.get(Midi.midiToNoteName(i)).alt == 0) ? true : false
-                    ticks.push({major:isMajor, value: Midi.midiToFreq(i)})
+            if (freq != null) {
+                let nearest = Midi.toMidi(Note.fromFreq(freq));
+                if (nearest) {
+                    let min = nearest - offset
+                    let max = nearest + offset
+                    let yScale = chart.options.scales!.y!
+                    yScale.min = Note.get(Midi.midiToNoteName(min)).freq!
+                    yScale.max = Note.get(Midi.midiToNoteName(max)).freq!
+                    let labels: string[] = []
+                    let ticks: Tick[] = []
+                    for (let i = min; i <= max; i++) {
+                        labels.push(Midi.midiToNoteName(i))
+                        let isMajor = (Note.get(Midi.midiToNoteName(i)).alt == 0) ? true : false
+                        ticks.push({major:isMajor, value: Midi.midiToFreq(i)})
+                    }
+                    yScale.afterBuildTicks = (e) => {
+                        e.ticks = ticks
+                    }
+                    yScale.ticks!.callback = (_, index) => {
+                        return labels[index]
+                    }
                 }
-                working.push(freq)
-                if (working.length >= history/1.5) {
-                    working.shift()
-                }
-                yScale.afterBuildTicks = (e) => {
-                    e.ticks = ticks
-                }
-                yScale.ticks!.callback = (_, index) => {
-                    return labels[index]
-                }
-                chart.update()    
             }
+            working.push(freq)
+            if (working.length >= history/1.5) {
+                working.shift()
+            }
+            console.log(working)
+            chart.update()    
         }
-    }, [freq])
     return (
         <div id={styles.graphContainer}>
             <canvas id="audioGraph" ref={ctx}></canvas>

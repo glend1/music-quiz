@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useBoolean, useInterval } from '../../util/customHooks';
 import { State } from '../../util/store';
 
-export type IFreq = {pitch: number, clarity: number}
+export type IFreq = {pitch: number | null, clarity: number}
 
 type IPitch = {
   cb: Dispatch<SetStateAction<IFreq | undefined>>
@@ -26,7 +26,11 @@ export function DetectPitch({cb}: IPitch) {
           setPitch(() => {
             analyserNode.getFloatTimeDomainData(input);
             const [pitch, clarity] = detector.findPitch(input, audioContext.sampleRate);
-            cb({pitch: (Math.round(pitch * 1000) / 1000), clarity: (Math.round(clarity * 100))});
+            if (pitch >= 32.11) {
+              cb({pitch: (Math.round(pitch * 1000) / 1000), clarity: (Math.round(clarity * 100))});
+            } else {
+              cb({pitch: null, clarity: 0});
+            }
           }, 100)
         });  
       }

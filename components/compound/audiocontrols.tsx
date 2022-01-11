@@ -7,7 +7,7 @@ export function AudioControls() {
     return (
         <>
             <DetectPitch cb={setFreq}/>
-            { freq?.pitch ?
+            { freq ?
               <>
                 <h2>{freq.clarity}%</h2>
                 <AudioGraph freq={freq.pitch}/>
