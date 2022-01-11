@@ -12,9 +12,11 @@ import { IStdNote } from '../util/notes';
 export default function Index() {
   const question = useState<IStdNote>(null)
   const answer = useArray<IStdNote>()
-  //TODO add something about scales?
   //TODO sort eslint
   //TODO use undefinted
+  //TODO chord finder.
+  //TODO show scales for a chord
+  //TODO play a note as an answer
   return (
     <>
     <div className={styles.float}>
@@ -31,7 +33,7 @@ export default function Index() {
         <MidiControls {...answer} />
       </div>
       <div className={styles.card}>
-        <h2>Audio input note</h2>
+        <h2>Audio input pitch</h2>
         <AudioControls />
       </div>
       <div className={styles.card}>
