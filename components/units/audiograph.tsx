@@ -88,7 +88,6 @@ export function AudioGraph({freq}: IGraph) {
             if (working.length >= history/1.5) {
                 working.shift()
             }
-            console.log(working)
             chart.update()    
         }
     return (
