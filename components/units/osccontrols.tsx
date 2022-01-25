@@ -2,9 +2,8 @@ import { useSelector } from "react-redux";
 import { Select } from "./select";
 import { useArray, useFormState } from "../../util/customHooks";
 import { Dispatch, MouseEventHandler, SetStateAction, useEffect, useState } from "react";
-import { Midi } from "@tonaljs/tonal";
 import { State } from "../../util/store";
-import { IStdNote } from "../../util/notes";
+import { IStdNote, midiToFrequency } from "../../util/notes";
 
 type IOsc = {setAudioEvent: Dispatch<SetStateAction<((type: string, data: IStdNote) => void) | undefined>>}
 
@@ -31,7 +30,7 @@ export function OscControls({ setAudioEvent }: IOsc) {
               volume.gain.value = parseInt(volumeState) / 100;
               if (data?.midi) {
                 osc.frequency.setValueAtTime(
-                  Midi.midiToFreq(data.midi),
+                  midiToFrequency(data.midi),
                   audioContext.currentTime
                 );
               }
@@ -70,7 +69,7 @@ export function OscControls({ setAudioEvent }: IOsc) {
               <Select id="wave_type" label="Wave Type" array={["triangle", "sine", "square", "sawtooth"]} cb={setWave}/>
             </>) : (<div></div> )}
         </form>
-      ) : (<p>Please Start AudioContext</p>)}
+      ) : (<div>Please Start AudioContext</div>)}
     </>
   );
 }

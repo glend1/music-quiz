@@ -34,25 +34,25 @@ describe("RandomNote: Returns a random StdNote", () => {
         expect(Notes.RandomNote()).toEqual({ note: 'C4', name: 'C', octave: 4, abc: 'C', midi: 60 })
     })
 })
-describe("controlOctave: returns Ascending or Decending randomly depending on the passed in Octave", () => {
+describe("clampOctave: returns Ascending or Decending randomly depending on the passed in Octave", () => {
     describe("this will test the random functionality", () => {
         afterAll(() => {
             jest.spyOn(global.Math, 'random').mockRestore();
         })
         it("Should return a Ascending if random is less than .5", () => {
             jest.spyOn(global.Math, 'random').mockReturnValue(0.4);
-            expect(Notes.controlOctave(4)).toEqual("Descending")
+            expect(Notes.clampOctave(4)).toEqual("Descending")
         })
         it("Should return a Ascending if random is greater than .5", () => {
             jest.spyOn(global.Math, 'random').mockReturnValue(0.6);
-            expect(Notes.controlOctave(4)).toEqual("Ascending")
+            expect(Notes.clampOctave(4)).toEqual("Ascending")
         })
     })
     it("Should return Ascending if the passed in octave is 1", () => {
-        expect(Notes.controlOctave(1)).toEqual("Ascending")
+        expect(Notes.clampOctave(1)).toEqual("Ascending")
     })
     it("Should return Descending if the passed in octave is 7", () => {
-        expect(Notes.controlOctave(7)).toEqual("Descending")
+        expect(Notes.clampOctave(7)).toEqual("Descending")
     })
 })
 describe("normalizeMidi: returns a StdNote", () => {

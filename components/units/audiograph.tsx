@@ -1,14 +1,13 @@
 import styles from '../../styles/audiograph.module.css'
 import { useEffect, useRef, useState } from 'react';
-import { Midi, Note } from "@tonaljs/tonal";
 import { Chart, Tick } from 'chart.js';
+import { isMajor, midiToFrequency, midiToNoteName, offsetNotesFromFrequency } from '../../util/notes';
 
 type IGraph = { freq: number | null }
 
 export function AudioGraph({freq}: IGraph) {
     const ctx = useRef<HTMLCanvasElement>(null)
     const history = 40;
-    const offset = 2;
     const [chart, setChart] = useState<Chart<"line">>()
     useEffect(() => {
         if (chart == null) {
@@ -62,19 +61,16 @@ export function AudioGraph({freq}: IGraph) {
         if (chart != null) {
             let working = chart.data.datasets[0].data
             if (freq != null) {
-                let nearest = Midi.toMidi(Note.fromFreq(freq));
-                if (nearest) {
-                    let min = nearest - offset
-                    let max = nearest + offset
+                let offset = offsetNotesFromFrequency(freq, 2)
+                if (offset) {
                     let yScale = chart.options.scales!.y!
-                    yScale.min = Note.get(Midi.midiToNoteName(min)).freq!
-                    yScale.max = Note.get(Midi.midiToNoteName(max)).freq!
+                    yScale.min = offset.minfreq
+                    yScale.max = offset.maxfreq
                     let labels: string[] = []
                     let ticks: Tick[] = []
-                    for (let i = min; i <= max; i++) {
-                        labels.push(Midi.midiToNoteName(i))
-                        let isMajor = (Note.get(Midi.midiToNoteName(i)).alt == 0) ? true : false
-                        ticks.push({major:isMajor, value: Midi.midiToFreq(i)})
+                    for (let i = offset.min; i <= offset.max; i++) {
+                        labels.push(midiToNoteName(i))
+                        ticks.push({major:isMajor(i), value: midiToFrequency(i)})
                     }
                     yScale.afterBuildTicks = (e) => {
                         e.ticks = ticks

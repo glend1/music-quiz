@@ -22,6 +22,6 @@ describe("Edge Cases", () => {
     it("Should fail to generate an interval", () => {
         const { result: question } = renderHook(() => useState<IStdNote>(null))
         render(<Interval {...question.current} />)
-        expect(screen.getByText("Create a Question first")).toBeInTheDocument()
+        expect(screen.getByText("Please create a Question first")).toBeInTheDocument()
     })
 })
