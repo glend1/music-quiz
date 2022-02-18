@@ -23,11 +23,11 @@ export function MidiEvents(answer: IArray<IStdNote>, sharp: boolean, octave: num
     }, [audioEvent, answer])
    const midiKeyboard = useCallback(() => {
         if (midiDevice) {
-            midiDevice.addListener('noteon', "all", (e) => {
+            midiDevice.addListener('noteon', (e) => {
                 let data = normalizeMidi(e.note.number, sharp)
                 start(data)
             });
-            midiDevice.addListener('noteoff', "all", (e) => {
+            midiDevice.addListener('noteoff', (e) => {
                 let data =  normalizeMidi(e.note.number, sharp)
                 stop(data)
             });

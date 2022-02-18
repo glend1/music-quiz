@@ -18,10 +18,8 @@ export function Round(i : number, dp: number) : number {
     })
     return Object.keys(output)
   }
-  export function bitwiseRotation(bitString: string, callback: (chroma: string) => void, direction: "Left" | "Right" = "Left") {
-    rotateArray([...bitString], (array) => { callback(array.join(""))}, direction, [...bitString])
-  }
-function compareArrays<T>( a: Array<T>, b: Array<T>){
+
+export function compareArrays<T>( a: Array<T>, b: Array<T>){
   if(a.length !== b.length) return false;
   for(var i=0;i<a.length;i++){
        if(a[i]!==b[i]) return false;
@@ -29,17 +27,8 @@ function compareArrays<T>( a: Array<T>, b: Array<T>){
   return true;
 }
 
-function rotateArray<T>(original: Array<T>, callback: (array: Array<T>) => void, direction: "Left" | "Right" = "Left", current = [...original]) {
-  callback(current)
-  if (direction == "Left") {
-      let first = current.shift() as T
-      current.push(first)
-  } else {
-      let last = current.pop() as T
-      current.unshift(last)
-  }
-  if (!compareArrays(original, current)) {
-      rotateArray(original, callback, direction, current)
-  }
+export function arrayContainsArray<T>(array: Array<T>, wholeArray: Array<T>, fn: (i: T, j: T) => boolean) {
+  return array.every((i) => {
+    return !wholeArray.every((j) => { return !fn(i, j)})
+  })
 }
-

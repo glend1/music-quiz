@@ -1,4 +1,4 @@
-import WebMidi, { Input, WebMidiEventConnected, WebMidiEventDisconnected } from 'webmidi';
+import { WebMidi, Input, PortEvent } from 'webmidi';
 import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { Select } from './select';
 import { useArray } from '../../util/customHooks'
@@ -14,29 +14,28 @@ export function MidiInput({setMidiDevice}: IInput) {
     }
     const {array: midiInputs, push: midiPush, filter: midiFilter} = useArray(["none"])
     const [error, setError] = useState<Error | undefined>();
-    function isInput(e: WebMidiEventConnected | WebMidiEventDisconnected) { return e.port.type === "input"}
+    function isInput(e: PortEvent) { return e.port.type === "input"}
     useEffect(() => {
-        WebMidi.enable(function (err) {
-            if (err) {
-                setError(err)
-                return false;
-            }
-            WebMidi.addListener("connected", (e) => {if (isInput(e)) {midiPush(e.port.name)}});
-            WebMidi.addListener("disconnected", (e) => {if (isInput(e)) {midiFilter((str) => {return str != e.port.name})}});
+        WebMidi.addListener("connected", (e) => { if (isInput(e)) {midiPush(e.port.name)}});
+        WebMidi.addListener("disconnected", (e) => {
+            e.port.removeListener()
+            if (isInput(e)) {midiFilter((str) => {return str != e.port.name})}
+        });
+        WebMidi.
+        enable().
+        catch((err) => {
+            setError(err)
         })
-        return () => {
-            clearListeners();
-        }
     }, [])
     return (
         <form>
-            {(error) ? <p>Midi not available in this browser</p> : <Select id="midi_select" label="Select a Midi Device" array={midiInputs} cb={selectAction}/>}
+            {(error) ? <div>Midi not available in this browser</div> : <Select id="midi_select" label="Select a Midi Device" array={midiInputs} cb={selectAction}/>}
         </form>
     )
 }
 
 export function clearListeners() {
     WebMidi.inputs.forEach(e => {
-        e.removeListener();
+        e.removeListener()
     })
 }

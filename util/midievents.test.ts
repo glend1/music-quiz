@@ -35,7 +35,7 @@ describe("midiEvents: These are the events used in midicontrols component", () =
         var array: RenderResult<IArray<IStdNote>>
         function fireEvent(inputType: string, note: { note: { number: number; }; }) {
             let i: any = {
-                addListener(type: string, channel: string, fn: (e: any) => void) {
+                addListener(type: string, fn: (e: any) => void) {
                     if (type == inputType) {
                         fn(note)
                     }

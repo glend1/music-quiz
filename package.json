@@ -14,17 +14,19 @@
     "abcjs": "^6.0.0-beta.35",
     "chart.js": "^3.6.0",
     "next": "^12.0.3",
-    "pitchy": "^3.0.1",
+    "pitchy": "^4.0.2",
     "react": "17.0.2",
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",
-    "webmidi": "^2.5.3"
+    "uuid": "^8.3.2",
+    "webmidi": "^3.0.8"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
+    "@types/uuid": "^8.3.4",
     "canvas": "^2.8.0",
     "cross-env": "^7.0.3",
     "eslint-config-next": "^12.0.4",

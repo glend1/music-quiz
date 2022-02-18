@@ -19,7 +19,7 @@ export default function Index() {
   return (
     <>
     <div className={styles.float}>
-        {/*<h2>audio context</h2>*/}
+        <Link href={'/dictionary'}><a>Dictionary</a></Link>
         <AudioContext />
       </div>
     <div className={styles.container}>
@@ -48,7 +48,6 @@ export default function Index() {
         <h2>Answer</h2>
         <Answer question={question[0]} answer={answer.array} />
       </div>
-    <Link href={'/dictionary'}><a>Dictionary</a></Link>
     </>
   )
 }

@@ -1,5 +1,5 @@
 import { AbcNotation, Note, Midi, Interval, NoteLiteral, ChordType, Collection, Chord, Scale} from "@tonaljs/tonal"
-import { randomFromArray, nestedArrayFlatten, bitwiseRotation } from "./maths";
+import { arrayContainsArray, randomFromArray} from "./maths";
 import { Chord as TChord } from "@tonaljs/chord"
 
 export type Chord = TChord;
@@ -133,46 +133,21 @@ export function clampOctave(octave: number) {
     return direction ? "Ascending" : "Descending"
 }
 
-export function showChords(arrayChords: Array<Array<string>>) {
-    let output: string[][] = []
-    arrayChords.forEach((chord) => {
-        output.push(Chord.detect(chord))
-    })
-    return output
+export function getSingleChord(arrayChords: Array<string>): string | undefined {
+    return Chord.detect(arrayChords)[0]
 }
 
-export function matchScales(ArrayArrayChords: Array<Array<string>>) {
-    let flattenedArray = nestedArrayFlatten(ArrayArrayChords)
+export function matchScales(ArrayChords: Array<string>, key: string) {
     let output: string[] = []
     Scale.names().forEach((scale) => {
-        if (containsChroma(pitches2Chroma(flattenedArray), Scale.get(scale).chroma)) {
+        if (arrayContainsArray(ArrayChords, Scale.get(`${key} ${scale}`).notes, compareNotes)) {
             output.push(scale)
         }
     })
     return output
 }
 
-export function chordsInScale(scaleChroma: string) {
-    var chords: { pitches: string[]; chord: string; }[] = []
-    var dupeChords = new Map()
-    let dupeInversion = new Map()
-    ChordType.symbols().forEach((chord) => {
-        bitwiseRotation(Chord.get(chord).chroma, (chordChroma) => {
-            if(containsChroma(chordChroma, scaleChroma) && !dupeChords.has(chordChroma)) {
-                let chordPitches = chroma2Pitches(chordChroma)
-                inversions(chordPitches).forEach((obj) => {
-                    if (obj.chord[0] == obj.name[0][0] && !dupeInversion.has(obj.name[0])) {
-                        chords.push({pitches: obj.chord , chord: obj.name[0]})
-                        dupeInversion.set(obj.name[0], true)
-                    }
-                })
-                dupeChords.set(chordChroma, true)
-            }
-        })
-    })
-    return chords
-}
-export function uniqueChords(array: Array<string>) {
+ export function uniqueChords(array: Array<string>) {
     let chords: string[] = []
     let dupeChords = new Map()
     Collection.permutations(array).forEach((chordArray: Array<string>) => {
@@ -185,60 +160,12 @@ export function uniqueChords(array: Array<string>) {
     })
     return chords
 }
+
 export function randomChord(level: number, includeAccidentals = false) {
     let filter = ChordType.symbols().filter((e) => { return Chord.get(e).intervals.length <= level })
     let pitch = includeAccidentals ? accidentalNotes : notes
     return Chord.getChord(randomFromArray(filter), randomFromArray(pitch))
 }
-
-export function getChroma(name: string) {
-    return Scale.get(name).chroma
-}
-export function getScaleNotes(root: string, name: string) {
-    return Scale.scaleNotes(Scale.get(`${root} ${name}`).notes)
-}
-    function pitches2Chroma(arrayPitches: Array<string>) {
-        let out = Array(12).fill(0)
-        arrayPitches.forEach((elem) => {
-            out[Note.get(elem)?.chroma!] = 1
-        })
-        return out.join("")
-    }
-    function containsChroma(partial: string, full: string) {
-        let convertedPartial = parseInt(partial, 2)
-        let convertedFull = parseInt(full, 2)
-        let result = convertedPartial & convertedFull
-        return convertedPartial == result
-    }
-    function chroma2Pitches(chroma: string) {
-        let array = []
-        for(let i = 0; i < chroma.length; i++) {
-            if(chroma[i] == "1") {
-                array.push(accidentalNotes[i])
-            }
-        }
-        return array
-    }
-    function inversions(array: Array<string>) {
-        let inversion: { chord: string[]; name: string[]; }[] = []
-        Collection.permutations(array).forEach((chordArray: Array<string>) => {
-            inversion.push({chord: chordArray, name: Chord.detect(chordArray)})
-        })
-        return inversion
-    }
-
-export function midiToFrequency(midi: number) {
-    return Midi.freqToMidi(midi)
-}
-
-export function simplifyAndTranspose(note: string, transpose: string) {
-    return Note.simplify(Note.transpose(note, transpose))
-}
-
-export function midiToNoteName(i: number) {
-    return Midi.midiToNoteName(i)
-}
-
 
 export function isMajor(i: number) {
     return (noteFromMidi(i).alt == 0) ? true : false
@@ -257,10 +184,58 @@ export function offsetNotesFromFrequency(freq: number, offset: number) {
     return null
 }
 
+export function midiToFrequency(midi: number) {
+    return Midi.midiToFreq(midi)
+}
+
+export function simplifyAndTranspose(note: string, transpose: string) {
+    return Note.simplify(Note.transpose(note, transpose))
+}
+
+export function midiToNoteName(i: number) {
+    return Midi.midiToNoteName(i)
+}
+
 function noteFromMidi(i: number) {
     return Note.get(midiToNoteName(i))
 }
 
 function midiFromFrequency(freq: number) {
     return Midi.toMidi(Note.fromFreq(freq))
+}
+
+
+ export function getScaleNotes(root: string, name: string) {
+    return Scale.scaleNotes(Scale.get(`${root} ${name}`).notes)
+}
+
+function compareNotes(i: string, j: string) {
+    let iS = simplify(i)
+    let iJ = simplify(j)
+    if (iS == iJ) {
+        return true
+    }
+    if (iS == Note.enharmonic(iJ)) {
+        return true
+    }
+    return false
+}
+
+export function simplify(note: string) {
+    return Note.simplify(note)
+}
+
+export function chordsFromScale(scale: Array<string>) {
+    type ChordCollection = { name: string, chords: Array<string>, notes: Array<string>}
+    let chords: ChordCollection[] = []
+    scale.forEach((note) => {
+        ChordType.symbols().forEach((chord) => {
+            let chordNotes = Chord.getChord(chord, note).notes
+            if (arrayContainsArray(chordNotes, scale, compareNotes)) {
+                let detectedChords = Chord.detect(chordNotes)
+                chords.push({name: detectedChords[0], chords: detectedChords, notes: chordNotes})
+            }
+        })
+    })
+    return chords
 }

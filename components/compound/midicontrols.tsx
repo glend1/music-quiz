@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { OscControls } from '../units/osccontrols';
 import { MidiInput } from '../units/midiinput';
-import { Piano } from '../units/piano';
 import { Keyboard } from '../units/keyboard';
 import keyboardStyles from '../../styles/keyboard.module.css'
 import { IArray, useBoolean, useFormState } from '../../util/customHooks';
@@ -9,6 +8,7 @@ import { MidiEvents } from '../../util/midievents';
 import { clearListeners } from '../units/midiinput';
 import { IStdNote } from '../../util/notes';
 import { Input } from 'webmidi';
+import { Piano } from '../units/piano';
 
 export type AudioEvent = (type: string, data: IStdNote) => void
 
