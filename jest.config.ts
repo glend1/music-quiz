@@ -212,12 +212,10 @@ export default {
     https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object */
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: [
       'next/babel',
-      //['@babel/preset-env', {targets: {node: 'current'}}],
-      //'@babel/preset-typescript'
     ] }],
   },
   transformIgnorePatterns: [
-    '/node_modules/',
+    '^.+node_modules\/[^p]*[^i]*[^t]*[^c]*[^h]*[^y]*$',
     '^.+\\.module\\.(css|sass|scss)$',
   ],
 };

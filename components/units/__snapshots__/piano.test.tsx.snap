@@ -3,70 +3,71 @@
 exports[`Piano Should render a correct Piano 1`] = `
 <body>
   <div>
-    <div
-      id="piano"
-    >
+    <div>
       <svg
-        viewBox="0 0 560 400"
-        width="100%"
+        viewBox="0 0 400 150"
+        width="400"
       >
         <g
-          width="80"
+          width="57.142857142857146"
         >
           <path
             class="whiteKey key "
-            d="M 0 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            d="M 0 0 v 142.5 q 0 7.5 5.714285714285715 7.5 h 45.714285714285715 q 5.714285714285715 0 5.714285714285715 -7.5 v -142.5 Z"
             data-natural="C"
-            rx="15"
-            ry="15"
+            data-octave="lower"
+            rx="5.714285714285715"
+            ry="7.5"
             x="0"
           />
           <text
             class="whiteKeyText"
             text-anchor="middle"
-            x="40"
-            y="380"
+            x="28.571428571428573"
+            y="140"
           >
             C
           </text>
         </g>
         <g
-          width="80"
+          width="57.142857142857146"
         >
           <path
             class="whiteKey key "
-            d="M 80 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            d="M 57.142857142857146 0 v 142.5 q 0 7.5 5.714285714285715 7.5 h 45.714285714285715 q 5.714285714285715 0 5.714285714285715 -7.5 v -142.5 Z"
             data-natural="D"
-            rx="15"
-            ry="15"
-            x="80"
+            data-octave="lower"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="57.142857142857146"
           />
           <text
             class="whiteKeyText"
             text-anchor="middle"
-            x="120"
-            y="380"
+            x="85.71428571428572"
+            y="140"
           >
             D
           </text>
         </g>
         <g
-          width="40"
+          width="28.571428571428573"
         >
           <path
             class="blackKey key "
-            d="M 60 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            d="M 42.85714285714286 0 v 86.25 q 0 7.5 5.714285714285715 7.5 h 17.142857142857142 q 5.714285714285715 0 5.714285714285715 -7.5 v -86.25 Z"
             data-flat="Db"
+            data-octave="lower"
             data-sharp="C#"
-            rx="8"
-            ry="8"
-            x="60"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="42.85714285714286"
           />
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="80"
-            y="235"
+            x="57.142857142857146"
+            y="63.75"
           >
             D
             ♭
@@ -74,50 +75,52 @@ exports[`Piano Should render a correct Piano 1`] = `
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="80"
-            y="215"
+            x="57.142857142857146"
+            y="83.75"
           >
             C
             ♯
           </text>
         </g>
         <g
-          width="80"
+          width="57.142857142857146"
         >
           <path
             class="whiteKey key "
-            d="M 160 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            d="M 114.28571428571429 0 v 142.5 q 0 7.5 5.714285714285715 7.5 h 45.714285714285715 q 5.714285714285715 0 5.714285714285715 -7.5 v -142.5 Z"
             data-natural="E"
-            rx="15"
-            ry="15"
-            x="160"
+            data-octave="lower"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="114.28571428571429"
           />
           <text
             class="whiteKeyText"
             text-anchor="middle"
-            x="200"
-            y="380"
+            x="142.85714285714286"
+            y="140"
           >
             E
           </text>
         </g>
         <g
-          width="40"
+          width="28.571428571428573"
         >
           <path
             class="blackKey key "
-            d="M 140 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            d="M 100 0 v 86.25 q 0 7.5 5.714285714285715 7.5 h 17.142857142857142 q 5.714285714285715 0 5.714285714285715 -7.5 v -86.25 Z"
             data-flat="Eb"
+            data-octave="lower"
             data-sharp="D#"
-            rx="8"
-            ry="8"
-            x="140"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="100"
           />
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="160"
-            y="235"
+            x="114.28571428571429"
+            y="63.75"
           >
             E
             ♭
@@ -125,70 +128,73 @@ exports[`Piano Should render a correct Piano 1`] = `
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="160"
-            y="215"
+            x="114.28571428571429"
+            y="83.75"
           >
             D
             ♯
           </text>
         </g>
         <g
-          width="80"
+          width="57.142857142857146"
         >
           <path
             class="whiteKey key "
-            d="M 240 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            d="M 171.42857142857144 0 v 142.5 q 0 7.5 5.714285714285715 7.5 h 45.714285714285715 q 5.714285714285715 0 5.714285714285715 -7.5 v -142.5 Z"
             data-natural="F"
-            rx="15"
-            ry="15"
-            x="240"
+            data-octave="lower"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="171.42857142857144"
           />
           <text
             class="whiteKeyText"
             text-anchor="middle"
-            x="280"
-            y="380"
+            x="200.00000000000003"
+            y="140"
           >
             F
           </text>
         </g>
         <g
-          width="80"
+          width="57.142857142857146"
         >
           <path
             class="whiteKey key "
-            d="M 320 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            d="M 228.57142857142858 0 v 142.5 q 0 7.5 5.714285714285715 7.5 h 45.714285714285715 q 5.714285714285715 0 5.714285714285715 -7.5 v -142.5 Z"
             data-natural="G"
-            rx="15"
-            ry="15"
-            x="320"
+            data-octave="lower"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="228.57142857142858"
           />
           <text
             class="whiteKeyText"
             text-anchor="middle"
-            x="360"
-            y="380"
+            x="257.14285714285717"
+            y="140"
           >
             G
           </text>
         </g>
         <g
-          width="40"
+          width="28.571428571428573"
         >
           <path
             class="blackKey key "
-            d="M 300 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            d="M 214.28571428571428 0 v 86.25 q 0 7.5 5.714285714285715 7.5 h 17.142857142857142 q 5.714285714285715 0 5.714285714285715 -7.5 v -86.25 Z"
             data-flat="Gb"
+            data-octave="lower"
             data-sharp="F#"
-            rx="8"
-            ry="8"
-            x="300"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="214.28571428571428"
           />
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="320"
-            y="235"
+            x="228.57142857142856"
+            y="63.75"
           >
             G
             ♭
@@ -196,50 +202,52 @@ exports[`Piano Should render a correct Piano 1`] = `
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="320"
-            y="215"
+            x="228.57142857142856"
+            y="83.75"
           >
             F
             ♯
           </text>
         </g>
         <g
-          width="80"
+          width="57.142857142857146"
         >
           <path
             class="whiteKey key "
-            d="M 400 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            d="M 285.7142857142857 0 v 142.5 q 0 7.5 5.714285714285715 7.5 h 45.714285714285715 q 5.714285714285715 0 5.714285714285715 -7.5 v -142.5 Z"
             data-natural="A"
-            rx="15"
-            ry="15"
-            x="400"
+            data-octave="lower"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="285.7142857142857"
           />
           <text
             class="whiteKeyText"
             text-anchor="middle"
-            x="440"
-            y="380"
+            x="314.2857142857143"
+            y="140"
           >
             A
           </text>
         </g>
         <g
-          width="40"
+          width="28.571428571428573"
         >
           <path
             class="blackKey key "
-            d="M 380 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            d="M 271.42857142857144 0 v 86.25 q 0 7.5 5.714285714285715 7.5 h 17.142857142857142 q 5.714285714285715 0 5.714285714285715 -7.5 v -86.25 Z"
             data-flat="Ab"
+            data-octave="lower"
             data-sharp="G#"
-            rx="8"
-            ry="8"
-            x="380"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="271.42857142857144"
           />
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="400"
-            y="235"
+            x="285.7142857142857"
+            y="63.75"
           >
             A
             ♭
@@ -247,50 +255,52 @@ exports[`Piano Should render a correct Piano 1`] = `
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="400"
-            y="215"
+            x="285.7142857142857"
+            y="83.75"
           >
             G
             ♯
           </text>
         </g>
         <g
-          width="80"
+          width="57.142857142857146"
         >
           <path
             class="whiteKey key "
-            d="M 480 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            d="M 342.8571428571429 0 v 142.5 q 0 7.5 5.714285714285715 7.5 h 45.714285714285715 q 5.714285714285715 0 5.714285714285715 -7.5 v -142.5 Z"
             data-natural="B"
-            rx="15"
-            ry="15"
-            x="480"
+            data-octave="lower"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="342.8571428571429"
           />
           <text
             class="whiteKeyText"
             text-anchor="middle"
-            x="520"
-            y="380"
+            x="371.42857142857144"
+            y="140"
           >
             B
           </text>
         </g>
         <g
-          width="40"
+          width="28.571428571428573"
         >
           <path
             class="blackKey key "
-            d="M 460 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            d="M 328.5714285714286 0 v 86.25 q 0 7.5 5.714285714285715 7.5 h 17.142857142857142 q 5.714285714285715 0 5.714285714285715 -7.5 v -86.25 Z"
             data-flat="Bb"
+            data-octave="lower"
             data-sharp="A#"
-            rx="8"
-            ry="8"
-            x="460"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="328.5714285714286"
           />
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="480"
-            y="235"
+            x="342.8571428571429"
+            y="63.75"
           >
             B
             ♭
@@ -298,8 +308,8 @@ exports[`Piano Should render a correct Piano 1`] = `
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="480"
-            y="215"
+            x="342.8571428571429"
+            y="83.75"
           >
             A
             ♯
@@ -314,70 +324,71 @@ exports[`Piano Should render a correct Piano 1`] = `
 exports[`Piano displayHighlight Should highlight 1 natural, 1 sharp and 1 flat note 1`] = `
 <body>
   <div>
-    <div
-      id="piano"
-    >
+    <div>
       <svg
-        viewBox="0 0 560 400"
-        width="100%"
+        viewBox="0 0 400 150"
+        width="400"
       >
         <g
-          width="80"
+          width="57.142857142857146"
         >
           <path
             class="whiteKey key show"
-            d="M 0 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            d="M 0 0 v 142.5 q 0 7.5 5.714285714285715 7.5 h 45.714285714285715 q 5.714285714285715 0 5.714285714285715 -7.5 v -142.5 Z"
             data-natural="C"
-            rx="15"
-            ry="15"
+            data-octave="lower"
+            rx="5.714285714285715"
+            ry="7.5"
             x="0"
           />
           <text
             class="whiteKeyText"
             text-anchor="middle"
-            x="40"
-            y="380"
+            x="28.571428571428573"
+            y="140"
           >
             C
           </text>
         </g>
         <g
-          width="80"
+          width="57.142857142857146"
         >
           <path
             class="whiteKey key "
-            d="M 80 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            d="M 57.142857142857146 0 v 142.5 q 0 7.5 5.714285714285715 7.5 h 45.714285714285715 q 5.714285714285715 0 5.714285714285715 -7.5 v -142.5 Z"
             data-natural="D"
-            rx="15"
-            ry="15"
-            x="80"
+            data-octave="lower"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="57.142857142857146"
           />
           <text
             class="whiteKeyText"
             text-anchor="middle"
-            x="120"
-            y="380"
+            x="85.71428571428572"
+            y="140"
           >
             D
           </text>
         </g>
         <g
-          width="40"
+          width="28.571428571428573"
         >
           <path
             class="blackKey key "
-            d="M 60 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            d="M 42.85714285714286 0 v 86.25 q 0 7.5 5.714285714285715 7.5 h 17.142857142857142 q 5.714285714285715 0 5.714285714285715 -7.5 v -86.25 Z"
             data-flat="Db"
+            data-octave="lower"
             data-sharp="C#"
-            rx="8"
-            ry="8"
-            x="60"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="42.85714285714286"
           />
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="80"
-            y="235"
+            x="57.142857142857146"
+            y="63.75"
           >
             D
             ♭
@@ -385,50 +396,52 @@ exports[`Piano displayHighlight Should highlight 1 natural, 1 sharp and 1 flat n
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="80"
-            y="215"
+            x="57.142857142857146"
+            y="83.75"
           >
             C
             ♯
           </text>
         </g>
         <g
-          width="80"
+          width="57.142857142857146"
         >
           <path
             class="whiteKey key "
-            d="M 160 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            d="M 114.28571428571429 0 v 142.5 q 0 7.5 5.714285714285715 7.5 h 45.714285714285715 q 5.714285714285715 0 5.714285714285715 -7.5 v -142.5 Z"
             data-natural="E"
-            rx="15"
-            ry="15"
-            x="160"
+            data-octave="lower"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="114.28571428571429"
           />
           <text
             class="whiteKeyText"
             text-anchor="middle"
-            x="200"
-            y="380"
+            x="142.85714285714286"
+            y="140"
           >
             E
           </text>
         </g>
         <g
-          width="40"
+          width="28.571428571428573"
         >
           <path
             class="blackKey key show"
-            d="M 140 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            d="M 100 0 v 86.25 q 0 7.5 5.714285714285715 7.5 h 17.142857142857142 q 5.714285714285715 0 5.714285714285715 -7.5 v -86.25 Z"
             data-flat="Eb"
+            data-octave="lower"
             data-sharp="D#"
-            rx="8"
-            ry="8"
-            x="140"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="100"
           />
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="160"
-            y="235"
+            x="114.28571428571429"
+            y="63.75"
           >
             E
             ♭
@@ -436,70 +449,73 @@ exports[`Piano displayHighlight Should highlight 1 natural, 1 sharp and 1 flat n
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="160"
-            y="215"
+            x="114.28571428571429"
+            y="83.75"
           >
             D
             ♯
           </text>
         </g>
         <g
-          width="80"
+          width="57.142857142857146"
         >
           <path
             class="whiteKey key "
-            d="M 240 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            d="M 171.42857142857144 0 v 142.5 q 0 7.5 5.714285714285715 7.5 h 45.714285714285715 q 5.714285714285715 0 5.714285714285715 -7.5 v -142.5 Z"
             data-natural="F"
-            rx="15"
-            ry="15"
-            x="240"
+            data-octave="lower"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="171.42857142857144"
           />
           <text
             class="whiteKeyText"
             text-anchor="middle"
-            x="280"
-            y="380"
+            x="200.00000000000003"
+            y="140"
           >
             F
           </text>
         </g>
         <g
-          width="80"
+          width="57.142857142857146"
         >
           <path
             class="whiteKey key "
-            d="M 320 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            d="M 228.57142857142858 0 v 142.5 q 0 7.5 5.714285714285715 7.5 h 45.714285714285715 q 5.714285714285715 0 5.714285714285715 -7.5 v -142.5 Z"
             data-natural="G"
-            rx="15"
-            ry="15"
-            x="320"
+            data-octave="lower"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="228.57142857142858"
           />
           <text
             class="whiteKeyText"
             text-anchor="middle"
-            x="360"
-            y="380"
+            x="257.14285714285717"
+            y="140"
           >
             G
           </text>
         </g>
         <g
-          width="40"
+          width="28.571428571428573"
         >
           <path
             class="blackKey key show"
-            d="M 300 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            d="M 214.28571428571428 0 v 86.25 q 0 7.5 5.714285714285715 7.5 h 17.142857142857142 q 5.714285714285715 0 5.714285714285715 -7.5 v -86.25 Z"
             data-flat="Gb"
+            data-octave="lower"
             data-sharp="F#"
-            rx="8"
-            ry="8"
-            x="300"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="214.28571428571428"
           />
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="320"
-            y="235"
+            x="228.57142857142856"
+            y="63.75"
           >
             G
             ♭
@@ -507,50 +523,52 @@ exports[`Piano displayHighlight Should highlight 1 natural, 1 sharp and 1 flat n
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="320"
-            y="215"
+            x="228.57142857142856"
+            y="83.75"
           >
             F
             ♯
           </text>
         </g>
         <g
-          width="80"
+          width="57.142857142857146"
         >
           <path
             class="whiteKey key "
-            d="M 400 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            d="M 285.7142857142857 0 v 142.5 q 0 7.5 5.714285714285715 7.5 h 45.714285714285715 q 5.714285714285715 0 5.714285714285715 -7.5 v -142.5 Z"
             data-natural="A"
-            rx="15"
-            ry="15"
-            x="400"
+            data-octave="lower"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="285.7142857142857"
           />
           <text
             class="whiteKeyText"
             text-anchor="middle"
-            x="440"
-            y="380"
+            x="314.2857142857143"
+            y="140"
           >
             A
           </text>
         </g>
         <g
-          width="40"
+          width="28.571428571428573"
         >
           <path
             class="blackKey key "
-            d="M 380 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            d="M 271.42857142857144 0 v 86.25 q 0 7.5 5.714285714285715 7.5 h 17.142857142857142 q 5.714285714285715 0 5.714285714285715 -7.5 v -86.25 Z"
             data-flat="Ab"
+            data-octave="lower"
             data-sharp="G#"
-            rx="8"
-            ry="8"
-            x="380"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="271.42857142857144"
           />
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="400"
-            y="235"
+            x="285.7142857142857"
+            y="63.75"
           >
             A
             ♭
@@ -558,50 +576,52 @@ exports[`Piano displayHighlight Should highlight 1 natural, 1 sharp and 1 flat n
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="400"
-            y="215"
+            x="285.7142857142857"
+            y="83.75"
           >
             G
             ♯
           </text>
         </g>
         <g
-          width="80"
+          width="57.142857142857146"
         >
           <path
             class="whiteKey key "
-            d="M 480 0 v 385 q 0 15 15 15 h 50 q 15 0 15 -15 v -385 Z"
+            d="M 342.8571428571429 0 v 142.5 q 0 7.5 5.714285714285715 7.5 h 45.714285714285715 q 5.714285714285715 0 5.714285714285715 -7.5 v -142.5 Z"
             data-natural="B"
-            rx="15"
-            ry="15"
-            x="480"
+            data-octave="lower"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="342.8571428571429"
           />
           <text
             class="whiteKeyText"
             text-anchor="middle"
-            x="520"
-            y="380"
+            x="371.42857142857144"
+            y="140"
           >
             B
           </text>
         </g>
         <g
-          width="40"
+          width="28.571428571428573"
         >
           <path
             class="blackKey key "
-            d="M 460 0 v 235 q 0 15 15 15 h 10 q 15 0 15 -15 v -235 Z"
+            d="M 328.5714285714286 0 v 86.25 q 0 7.5 5.714285714285715 7.5 h 17.142857142857142 q 5.714285714285715 0 5.714285714285715 -7.5 v -86.25 Z"
             data-flat="Bb"
+            data-octave="lower"
             data-sharp="A#"
-            rx="8"
-            ry="8"
-            x="460"
+            rx="5.714285714285715"
+            ry="7.5"
+            x="328.5714285714286"
           />
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="480"
-            y="235"
+            x="342.8571428571429"
+            y="63.75"
           >
             B
             ♭
@@ -609,8 +629,8 @@ exports[`Piano displayHighlight Should highlight 1 natural, 1 sharp and 1 flat n
           <text
             class="blackKeyText"
             text-anchor="middle"
-            x="480"
-            y="215"
+            x="342.8571428571429"
+            y="83.75"
           >
             A
             ♯
