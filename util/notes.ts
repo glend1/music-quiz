@@ -209,7 +209,7 @@ function midiFromFrequency(freq: number) {
     return Scale.scaleNotes(Scale.get(`${root} ${name}`).notes)
 }
 
-function compareNotes(i: string, j: string) {
+export function compareNotes(i: string, j: string) {
     let iS = simplify(i)
     let iJ = simplify(j)
     if (iS == iJ) {

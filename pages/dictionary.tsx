@@ -11,6 +11,8 @@ import Image from 'next/image';
 import React from 'react';
 import { v4 as uuid } from 'uuid';
 
+//TODO maybe if i used a shorter list of scales/chords this would be more usable
+
 type TChords = {[key: string]: Array<string>} & Object
 type TChordMethod = {chords: Dispatch<SetStateAction<TChords>>}
 type OptionalCallback = {cb?: ()=>void}

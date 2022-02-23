@@ -27,4 +27,12 @@ describe("Piano", () => {
             expect(container.baseElement).toMatchSnapshot()
         })
     })
+    it("Should render a Piano", () => {
+        const container = render(<Piano width={100} highlight={[]} cb={function (): void {} } />)
+        expect(container.baseElement).toMatchSnapshot()
+    })
+    it("Should render 2 octaves", () => {
+        const container = render(<Piano higher={true} highlight={[]} cb={function (): void {} } />)
+        expect(container.baseElement).toMatchSnapshot()
+    })
 })
