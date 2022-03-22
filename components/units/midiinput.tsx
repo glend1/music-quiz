@@ -1,7 +1,7 @@
-import { WebMidi, Input, PortEvent } from 'webmidi';
-import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { WebMidi, Input } from 'webmidi';
+import { ChangeEvent, Dispatch, SetStateAction, useEffect } from 'react';
 import { Select } from './select';
-import { useArray } from '../../util/customHooks'
+import { MidiConnection } from '../../util/midiConnection';
 
 type IInput = {
     setMidiDevice: Dispatch<SetStateAction<false | Input>>
@@ -12,30 +12,14 @@ export function MidiInput({setMidiDevice}: IInput) {
         let target = e.target;
         setMidiDevice(WebMidi.getInputByName(target.options[target.selectedIndex].text));
     }
-    const {array: midiInputs, push: midiPush, filter: midiFilter} = useArray(["none"])
-    const [error, setError] = useState<Error | undefined>();
-    function isInput(e: PortEvent) { return e.port.type === "input"}
+    const midi = MidiConnection()
+    //TODO refactor this to be a button
     useEffect(() => {
-        WebMidi.addListener("connected", (e) => { if (isInput(e)) {midiPush(e.port.name)}});
-        WebMidi.addListener("disconnected", (e) => {
-            e.port.removeListener()
-            if (isInput(e)) {midiFilter((str) => {return str != e.port.name})}
-        });
-        WebMidi.
-        enable().
-        catch((err) => {
-            setError(err)
-        })
+        midi.enable()
     }, [])
     return (
         <form>
-            {(error) ? <div>Midi not available in this browser</div> : <Select id="midi_select" label="Select a Midi Device" array={midiInputs} cb={selectAction}/>}
+            {(midi.error) ? <div>Midi not available in this browser</div> : <Select id="midi_select" label="Select a Midi Device" array={midi.ports} cb={selectAction}/>}
         </form>
     )
-}
-
-export function clearListeners() {
-    WebMidi.inputs.forEach(e => {
-        e.removeListener()
-    })
 }

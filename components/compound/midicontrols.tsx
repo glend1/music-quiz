@@ -5,7 +5,7 @@ import { Keyboard } from '../units/keyboard';
 import keyboardStyles from '../../styles/keyboard.module.css'
 import { IArray, useBoolean, useFormState } from '../../util/customHooks';
 import { MidiEvents } from '../../util/midievents';
-import { clearListeners } from '../units/midiinput';
+import { clearListeners } from '../../util/midiConnection';
 import { IStdNote } from '../../util/notes';
 import { Input } from 'webmidi';
 import { Piano } from '../units/piano';
