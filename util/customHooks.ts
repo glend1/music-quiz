@@ -94,7 +94,7 @@ export function useFormState(defaultValue: string): [string, ChangeEventHandler<
 }
 
 export function useStopwatch(defaultValue = 0) {
-  const [time, setTimer] = useState(defaultValue)
+  const [timer, setTimer] = useState(defaultValue)
   const {set: startInterval, clear: stopInterval} = useInterval()
   var offset = 0;
   function delta() {
@@ -114,5 +114,5 @@ export function useStopwatch(defaultValue = 0) {
     stopInterval()
     setTimer(0)
   }
-  return { time: Round(time/1000, 2), start, stop: stopInterval, reset }
+  return { time: Round(timer/1000, 2), start, stop: stopInterval, reset }
 }
