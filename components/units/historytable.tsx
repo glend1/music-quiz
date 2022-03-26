@@ -1,4 +1,3 @@
-import { Round } from "../../util/maths";
 import { useBoolean } from "../../util/customHooks";
 
 export type IHistory = {
@@ -47,12 +46,12 @@ export function HistoryTable({history}: History) {
                 <tfoot><tr><td>avg</td>
                 <td>{
                     position > 1 ? 
-                    Round(totalTime / (position-1), 2)
+                    (totalTime / (position-1)).toFixed(3)
                     : ""
                     }</td>
                 <td>{
                     position > 1 ? 
-                    Round(totalMisses / (position-1), 2)
+                    (totalMisses / (position-1)).toFixed(3)
                     : ""
                 }</td>
                 </tr></tfoot>

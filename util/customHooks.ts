@@ -1,5 +1,4 @@
 import { useState, useRef, MutableRefObject, SetStateAction, Dispatch, ChangeEventHandler } from "react"
-import { Round } from "./maths"
 
 export type IArray<Type> = {
   array: Type[];
@@ -108,11 +107,11 @@ export function useStopwatch(defaultValue = 0) {
   }
   function start() {
       offset = Date.now();
-      startInterval(update, 1)
+      startInterval(update, 10)
   }
   function reset() {
     stopInterval()
     setTimer(0)
   }
-  return { time: Round(timer/1000, 2), start, stop: stopInterval, reset }
+  return { time: timer/1000, start, stop: stopInterval, reset }
 }

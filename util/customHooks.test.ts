@@ -125,7 +125,7 @@ describe("customHooks", () => {
                 stopwatch.current.start()
                 jest.advanceTimersByTime(1568)
             })
-            expect(stopwatch.current.time).toBe(1.57)
+            expect(stopwatch.current.time).toBe(1.568)
         })
         it("stop: Should stop the timer", () => {
             act(() => {
@@ -136,7 +136,7 @@ describe("customHooks", () => {
                 stopwatch.current.stop()
                 jest.advanceTimersByTime(10000)
             })
-            expect(stopwatch.current.time).toBe(1.57)
+            expect(stopwatch.current.time).toBe(1.568)
         })
         it("reset: Should reset the timer", () => {
             act(() => {

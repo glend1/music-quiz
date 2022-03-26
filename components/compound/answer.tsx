@@ -31,7 +31,7 @@ export function Answer({ question, answer }: IAnswer) {
   return (
     <>
       <div>{message}</div>
-      <div>{time}</div>
+      <div>{time.toFixed(3)}</div>
       <div>
                     <button onClick={start}>start</button>
                     <button onClick={stop}>stop</button>
