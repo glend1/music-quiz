@@ -57,21 +57,6 @@ describe("answer", () => {
         afterEach(() => {
             jest.useRealTimers()
         })
-        
-        it("Should reset stats", () => {
-            render(<Answer question={null} answer={[]} />)
-            act(() => {
-                fireEvent.click(screen.getByText("reset stats"))
-            })
-            expect(screen.getAllByText("reset")).toHaveLength(2)
-        })
-        it("Should show results", () => {
-            render(<Answer question={null} answer={[]} />)
-            act(() => {
-                fireEvent.click(screen.getByText("Show Results?"))
-            })
-            expect(screen.getByRole("table")).toBeVisible()
-        })
         it("give you the correct score", () => {
             const component = render(<Answer question={null} answer={[]} />)
             act(() => {
