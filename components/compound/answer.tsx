@@ -16,7 +16,7 @@ export function Answer({ question, answer }: IAnswer) {
   const {array: history, push: pushHistory, clear: clearHistory} = useArray<IHistory>()
   useEffect(() => {
       if (answer.length >= 1) {
-        if (answer.find(el => el?.midi == question?.midi)) {
+        if (answer.find(el => {if (el && question) { return el.midi == question.midi}})) {
           setMessage("correct")
           reset()
           incrementHits()

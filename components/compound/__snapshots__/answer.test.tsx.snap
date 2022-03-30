@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`answer Test results give you the correct score 1`] = `
+<div>
+  <div>
+    correct
+  </div>
+  <div>
+    0.000
+  </div>
+  <div>
+    <button>
+      start
+    </button>
+    <button>
+      stop
+    </button>
+    <button>
+      reset
+    </button>
+    <button>
+      reset stats
+    </button>
+  </div>
+  <div>
+    1
+    /
+    2
+  </div>
+  <div>
+    <input
+      autocomplete="off"
+      checked=""
+      id="results_visibility"
+      name="results_visibility"
+      type="checkbox"
+    />
+    <label
+      for="results_visibility"
+    >
+      Show Results?
+    </label>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <td>
+          position
+        </td>
+        <td>
+          time
+        </td>
+        <td>
+          misses
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          3.136
+        </td>
+        <td>
+          1
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>
+          avg
+        </td>
+        <td>
+          3.136
+        </td>
+        <td>
+          1.000
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+`;
+
+exports[`answer Test results give you the correct score 2`] = `
+<div>
+  <div>
+    reset
+  </div>
+  <div>
+    0.000
+  </div>
+  <div>
+    <button>
+      start
+    </button>
+    <button>
+      stop
+    </button>
+    <button>
+      reset
+    </button>
+    <button>
+      reset stats
+    </button>
+  </div>
+  <div>
+    0
+    /
+    0
+  </div>
+  <div>
+    <input
+      autocomplete="off"
+      checked=""
+      id="results_visibility"
+      name="results_visibility"
+      type="checkbox"
+    />
+    <label
+      for="results_visibility"
+    >
+      Show Results?
+    </label>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <td>
+          position
+        </td>
+        <td>
+          time
+        </td>
+        <td>
+          misses
+        </td>
+      </tr>
+    </thead>
+    <tbody />
+    <tfoot>
+      <tr>
+        <td>
+          avg
+        </td>
+        <td />
+        <td />
+      </tr>
+    </tfoot>
+  </table>
+</div>
+`;
