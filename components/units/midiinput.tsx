@@ -13,13 +13,15 @@ export function MidiInput({setMidiDevice}: IInput) {
         setMidiDevice(WebMidi.getInputByName(target.options[target.selectedIndex].text));
     }
     const midi = MidiConnection()
-    //TODO refactor this to be a button
-    useEffect(() => {
-        midi.enable()
-    }, [])
     return (
         <form>
-            {(midi.error) ? <div>Midi not available in this browser</div> : <Select id="midi_select" label="Select a Midi Device" array={midi.ports} cb={selectAction}/>}
+            {
+                (midi.error) ? 
+                    <div>Midi not available in this browser</div> : 
+                        (midi.enabled) ? 
+                            <Select id="midi_select" label="Select a Midi Device" array={midi.ports} cb={selectAction}/> : 
+                            <button onClick={(e) => {e.preventDefault(); midi.enable()}}>Enable Midi</button>
+            }
         </form>
     )
 }

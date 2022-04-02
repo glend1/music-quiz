@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ButtonHTMLAttributes, DetailedHTMLProps, MouseEventHandler, useState } from "react";
 import { WebMidi, PortEvent } from "webmidi";
 import { useArray } from "./customHooks";
 
@@ -21,7 +21,7 @@ export function MidiConnection() {
             setError(err.message)
         })
     }
-    return ({ports: midiInputs, error, enable})
+    return ({ports: midiInputs, error, enable, enabled: WebMidi.enabled})
 }
 
 export function clearListeners() {
