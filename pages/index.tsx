@@ -1,7 +1,7 @@
 import styles from '../styles/Index.module.css'
 import { RandomNote } from '../components/compound/randomnote';
 import { RandomChord } from '../components/compound/randomchord';
-import { MidiControls } from '../components/compound/midicontrols';
+import { QuestionInput } from '../components/compound/questioninput';
 import { AudioControls } from '../components/compound/audiocontrols';
 import { Answer } from '../components/compound/answer';
 import { AudioContext } from '../components/units/audiocontext';
@@ -32,8 +32,8 @@ export default function Index() {
         <RandomChord></RandomChord>
       </div>
       <div className={styles.card}>
-        <h2>Midi note</h2>
-        <MidiControls {...answer} />
+        <h2>Input</h2>
+        <QuestionInput {...answer} />
       </div>
       <div className={styles.card}>
         <h2>Audio input pitch</h2>

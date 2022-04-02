@@ -13,7 +13,7 @@ import { Piano } from '../units/piano';
 
 export type AudioEvent = (type: string, data: IStdNote) => void
 
-export function MidiControls(answer: IArray<IStdNote>) {
+export function QuestionInput(answer: IArray<IStdNote>) {
     const [audioEvent, setAudioEvent] = useState<AudioEvent | undefined>()
     const {bool: hideKeyboard, toggle: toggleKeyboard} = useBoolean()
     const {bool: sharp, toggle: toggleSharp} = useBoolean(true)
