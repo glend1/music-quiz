@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { OscControls } from '../units/osccontrols';
 import { MidiInput } from '../units/midiinput';
 import { Keyboard } from '../units/keyboard';
+import { CheckBox } from '../units/checkbox';
 import keyboardStyles from '../../styles/keyboard.module.css'
 import { IArray, useBoolean, useFormState } from '../../util/customHooks';
 import { MidiEvents } from '../../util/midievents';
@@ -28,14 +29,12 @@ export function MidiControls(answer: IArray<IStdNote>) {
     return (
         <>
             <div>
-                <input autoComplete="off" type="checkbox" id="sharp" name="sharp" defaultChecked={sharp} onChange={toggleSharp} />
-                <label htmlFor="sharp">Sharp?</label>
+                <CheckBox id={'sharp'} label={'Sharp?'} bool={sharp} toggle={toggleSharp}/>
             </div>
             <MidiInput setMidiDevice={setMidiDevice}/>
             <OscControls setAudioEvent={setAudioEvent}/>
             <div>
-                <input autoComplete="off" type="checkbox" id="keyboard_visibility" name="keyboard_visibility" defaultChecked={hideKeyboard} onChange={toggleKeyboard} />
-                <label htmlFor="keyboard_visibility">Show Keyboard?</label>
+                <CheckBox id={'keyboard_visibility'} label={'Show Keyboard?'} bool={hideKeyboard} toggle={toggleKeyboard}/>
             </div>
             <div id="keyboard_section" className={!hideKeyboard ? keyboardStyles.hide : ""}>
                 <form>

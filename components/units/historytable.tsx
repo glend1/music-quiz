@@ -1,4 +1,5 @@
 import { useBoolean } from "../../util/customHooks";
+import { CheckBox } from "./checkbox";
 
 export type IHistory = {
     type: "hit" | "miss",
@@ -13,8 +14,7 @@ export function HistoryTable({history}: History) {
     return (
         <>
         <div>
-                <input autoComplete="off" type="checkbox" id="results_visibility" name="results_visibility" defaultChecked={results} onChange={toggleResults} />
-                <label htmlFor="results_visibility">Show Results?</label>
+            <CheckBox id={'results_visibility'} label={'Show Results?'} bool={results} toggle={toggleResults}/>
             </div>
             {results ?
             <table>
