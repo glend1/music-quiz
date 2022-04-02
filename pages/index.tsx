@@ -3,7 +3,7 @@ import { RandomNote } from '../components/compound/randomnote';
 import { RandomChord } from '../components/compound/randomchord';
 import { QuestionInput } from '../components/compound/questioninput';
 import { AudioControls } from '../components/compound/audiocontrols';
-import { Answer } from '../components/compound/result';
+import { Result } from '../components/compound/result';
 import { AudioContext } from '../components/units/audiocontext';
 import { Interval } from '../components/units/interval';
 import { useState } from 'react';
@@ -52,7 +52,7 @@ export default function Index() {
     <div className={styles.container}>
     <div className={styles.card}>
     <h2>Result</h2>
-        <Answer question={question[0]} answer={answer.array} />
+        <Result question={question[0]} answer={answer.array} />
         </div>
       </div>
     </>

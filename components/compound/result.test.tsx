@@ -1,10 +1,10 @@
 import { fireEvent, render, screen, act } from '@testing-library/react'
 import { StdNote } from '../../util/notes'
-import { Answer } from './result'
+import { Result } from './result'
 
 describe("answer", () => {
     it("Should render a default component", () => {
-        render(<Answer question={null} answer={[]} />)
+        render(<Result question={null} answer={[]} />)
         expect(screen.getByText("0.000")).toBeVisible()
         expect(screen.getByText("no attempt")).toBeVisible()
         expect(screen.getByText("0/0")).toBeVisible()
@@ -17,7 +17,7 @@ describe("answer", () => {
             jest.useRealTimers()
         })
         it("Should start the timer", () => {
-            render(<Answer question={null} answer={[]} />)
+            render(<Result question={null} answer={[]} />)
             act(() => {
                 fireEvent.click(screen.getByText("start"))
                 jest.advanceTimersByTime(1568)
@@ -25,7 +25,7 @@ describe("answer", () => {
             expect(screen.getByText("1.568")).toBeVisible()
         })
         it("Should stop the timer", () => {
-            render(<Answer question={null} answer={[]} />)
+            render(<Result question={null} answer={[]} />)
             act(() => {
                 fireEvent.click(screen.getByText("start"))
                 jest.advanceTimersByTime(1568)
@@ -37,7 +37,7 @@ describe("answer", () => {
             expect(screen.getByText("1.568")).toBeVisible()
         })
         it("Should reset the timer", () => {
-            render(<Answer question={null} answer={[]} />)
+            render(<Result question={null} answer={[]} />)
             act(() => {
                 fireEvent.click(screen.getByText("start"))
                 jest.advanceTimersByTime(1568)
@@ -58,16 +58,16 @@ describe("answer", () => {
             jest.useRealTimers()
         })
         it("give you the correct score", () => {
-            const component = render(<Answer question={null} answer={[]} />)
+            const component = render(<Result question={null} answer={[]} />)
             act(() => {
                 fireEvent.click(screen.getByText("Show Results?"))
                 fireEvent.click(screen.getByText("start"))
                 jest.advanceTimersByTime(1568)
-                component.rerender(<Answer question={StdNote("C4")} answer={[StdNote("D4")]} />)
+                component.rerender(<Result question={StdNote("C4")} answer={[StdNote("D4")]} />)
             })
             act(() => {
                 jest.advanceTimersByTime(1568)
-                component.rerender(<Answer question={StdNote("D4")} answer={[StdNote("C4"), StdNote("D4")]} />)
+                component.rerender(<Result question={StdNote("D4")} answer={[StdNote("C4"), StdNote("D4")]} />)
             })
             expect(component.container).toMatchSnapshot()
             act(() => {

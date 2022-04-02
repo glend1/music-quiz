@@ -8,7 +8,7 @@ type IAnswer = {
   answer: IStdNote[]
 }
 
-export function Answer({ question, answer }: IAnswer) {
+export function Result({ question, answer }: IAnswer) {
   const {i: hits, increment: incrementHits, set: setHits} = useCounter()
   const {i: misses, increment: incrementMisses, set: setMisses} = useCounter()
   const [message, setMessage] = useState("no attempt")
