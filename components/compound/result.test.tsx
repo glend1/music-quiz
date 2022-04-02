@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, act } from '@testing-library/react'
 import { StdNote } from '../../util/notes'
-import { Answer } from './answer'
+import { Answer } from './result'
 
 describe("answer", () => {
     it("Should render a default component", () => {
