@@ -36,7 +36,7 @@ export function QuestionInput(answer: IArray<IStdNote>) {
             <div>
                 <CheckBox id={'keyboard_visibility'} label={'Show Keyboard?'} bool={hideKeyboard} toggle={toggleKeyboard}/>
             </div>
-            <div id="keyboard_section" className={!hideKeyboard ? keyboardStyles.hide : ""}>
+            <div id="keyboard_section" data-testid="keyboard" className={!hideKeyboard ? keyboardStyles.hide : ""}>
                 <form>
                     <div>
                         <label htmlFor="octave">Select Octave:</label>
