@@ -4,6 +4,7 @@ import { useArray, useFormState } from "../../util/customHooks";
 import { Dispatch, MouseEventHandler, SetStateAction, useEffect, useState } from "react";
 import { State } from "../../util/store";
 import { IStdNote, midiToFrequency } from "../../util/notes";
+import { Slider } from "./slider";
 
 type IOsc = {setAudioEvent: Dispatch<SetStateAction<((type: string, data: IStdNote) => void) | undefined>>}
 
@@ -64,8 +65,7 @@ export function OscControls({ setAudioEvent }: IOsc) {
         <form autoComplete="off">
           <button onClick={togglePlaying}>{play ? "Mute" : "Unmute"}</button>
           {play ? (<>
-              <label htmlFor="volume">Volume</label>
-              <input id="volume" type="range" min="1" max="100" onChange={setVolume} value={volumeState}></input>
+              <Slider id="volume" label="Volume" min={1} max={100} value={volumeState} set={setVolume} />
               <Select id="wave_type" label="Wave Type" array={["triangle", "sine", "square", "sawtooth"]} cb={setWave}/>
             </>) : (<div></div> )}
         </form>

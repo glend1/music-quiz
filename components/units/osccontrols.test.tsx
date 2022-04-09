@@ -36,28 +36,29 @@ describe("OscControls", () => {
         userEvent.selectOptions(select, ['sawtooth'])
         expect((screen.getByRole("combobox") as HTMLSelectElement).value).toBe("sawtooth")
     })
-    it("Should be able to change the volume", () => {
-        const callback = jest.fn();
-        render(<Provider store={Store}><OscControls setAudioEvent={callback}></OscControls></Provider>)
-        Store.dispatch({type: START_AUDIO})
-        userEvent.click(screen.getByRole("button"))
-        const slider: HTMLInputElement = screen.getByRole('slider')
-        fireEvent.change(slider, {target: {value: '20'}})
-        expect(slider.value).toBe("20")
-    })
-    it("Should play a pitch", () => {
-        //TODO more tests need to be done
-        /*const { result: state } = renderHook(() => useState<((type: string, data: IStdNote) => void)>())
-        render(<Provider store={Store}><OscControls setAudioEvent={state.current[1]}></OscControls></Provider>)
-        Store.dispatch({type: START_AUDIO})
-        const context: any = Store.getState().context
-        act(() => {
-            userEvent.click(screen.getByRole("button"))
-        })
-        act(() => {
-            state.current[0]!("start", StdNote("c4"))
-            const [oscnode] = registrar.getAudioNodes<OscillatorNode>(context, "OscillatorNode")
-            expect(oscnode.start).toHaveBeenCalledTimes(1)
-        })*/
-    })
+    //TODO this is redundant
+    // it("Should be able to change the volume", () => {
+    //     const callback = jest.fn();
+    //     render(<Provider store={Store}><OscControls setAudioEvent={callback}></OscControls></Provider>)
+    //     Store.dispatch({type: START_AUDIO})
+    //     userEvent.click(screen.getByRole("button"))
+    //     const slider = screen.getByRole('slider')
+    //     fireEvent.change(slider, {target: {value: '20'}})
+    //     expect(slider.value).toBe("20")
+    //})
+    //TODO more tests need to be done
+    // it("Should play a pitch", () => {
+    //     const { result: state } = renderHook(() => useState<((type: string, data: IStdNote) => void)>())
+    //     render(<Provider store={Store}><OscControls setAudioEvent={state.current[1]}></OscControls></Provider>)
+    //     Store.dispatch({type: START_AUDIO})
+    //     const context: any = Store.getState().context
+    //     act(() => {
+    //         userEvent.click(screen.getByRole("button"))
+    //     })
+    //     act(() => {
+    //         state.current[0]!("start", StdNote("c4"))
+    //         const [oscnode] = registrar.getAudioNodes<OscillatorNode>(context, "OscillatorNode")
+    //         expect(oscnode.start).toHaveBeenCalledTimes(1)
+    //     })
+    // })
 })

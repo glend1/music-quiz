@@ -10,6 +10,7 @@ import { clearListeners } from '../../util/midiConnection';
 import { IStdNote } from '../../util/notes';
 import { Input } from 'webmidi';
 import { Piano } from '../units/piano';
+import { Slider } from '../units/slider'
 
 export type AudioEvent = (type: string, data: IStdNote) => void
 
@@ -37,13 +38,7 @@ export function QuestionInput(answer: IArray<IStdNote>) {
                 <CheckBox id={'keyboard_visibility'} label={'Show Keyboard?'} bool={hideKeyboard} toggle={toggleKeyboard}/>
             </div>
             <div id="keyboard_section" data-testid="keyboard" className={!hideKeyboard ? keyboardStyles.hide : ""}>
-                <form>
-                    <div>
-                        <label htmlFor="octave">Select Octave:</label>
-                        <input id="octave" type="range" min="2" max="6" onChange={setOctave} value={octave}></input>
-                        <span>{octave}</span>
-                    </div>
-                </form>
+                <Slider id="octave" label="Set Octave:" value={octave} set={setOctave} min={1} max={6}/>
                 <Keyboard cb={key}/>
                 <Piano highlight={answer.array} cb={mouse}/>
             </div>
