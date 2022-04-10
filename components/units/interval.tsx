@@ -12,6 +12,7 @@ export function Interval({ 0: question, 1: setQuestion }: [IStdNote, Dispatch<Se
             }
         }
     }
+    //TODO add difficulty
     return (
         <>{
             question ? <>

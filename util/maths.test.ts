@@ -27,3 +27,17 @@ describe("arrayContainsArray: returns true or false if the first array elements 
         expect(Test.arrayContainsArray([0,1], [0,1,2])).toBeTruthy()
     })
 })
+
+describe("randomFromRange: returns a random value between the two values", () => {
+    it("Should return a random number between the specified range", () => {
+        jest.spyOn(global.Math, 'random').mockReturnValue(0.4);
+        expect(Test.randomFromRange(3, 10)).toBe(5)
+        jest.spyOn(global.Math, 'random').mockRestore();
+    })
+    it("Should return null if the range isn't valid", () => {
+        expect(Test.randomFromRange(10, 3)).toBe(null)
+    })
+    it("Should return the only possible value", () => {
+        expect(Test.randomFromRange(3, 3)).toBe(3)
+    })
+})

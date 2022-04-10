@@ -127,7 +127,7 @@ export function clampOctave(octave: number) {
             direction = 0
             break;
         default:
-            direction = Math.round(Math.random() * 1)
+            direction = Math.round(Math.random())
             break;
     }
     return direction ? "Ascending" : "Descending"
@@ -161,10 +161,10 @@ export function matchScales(ArrayChords: Array<string>, key: string) {
     return chords
 }
 
-export function randomChord(level: number, includeAccidentals = false) {
-    let filter = ChordType.symbols().filter((e) => { return Chord.get(e).intervals.length <= level })
+export function randomChord(difficulty: number, octave: number, includeAccidentals = false) {
+    let filter = ChordType.symbols().filter((e) => { return Chord.get(e).intervals.length == difficulty})
     let pitch = includeAccidentals ? accidentalNotes : notes
-    return Chord.getChord(randomFromArray(filter), randomFromArray(pitch))
+    return Chord.getChord(randomFromArray(filter), `${randomFromArray(pitch)}${octave}`)
 }
 
 export function isMajor(i: number) {

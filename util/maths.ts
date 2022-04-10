@@ -7,3 +7,9 @@ export function arrayContainsArray<T>(array: Array<T>, wholeArray: Array<T>, fn 
     return !wholeArray.every((j) => { return !fn(i, j)})
   })
 }
+
+export function randomFromRange(min: number, max: number) {
+  if (min == max) { return min }
+  if (min > max) { return null }
+  return min + Math.floor(Math.random() * max - min + 1)
+}

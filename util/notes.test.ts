@@ -278,39 +278,39 @@ describe("randomChord: will return a random chord", () => {
     })
     it("Should return a random chord with 3 notes", () => {
         jest.spyOn(global.Math, 'random').mockReturnValue(0.5);
-        expect(Notes.randomChord(3)).toStrictEqual({
+        expect(Notes.randomChord(3, 5)).toStrictEqual({
             "aliases": ["Mb5"], 
             "chroma": "100010100000", 
             "empty": false, 
             "intervals": ["1P", "3M", "5d"], 
             "name": "D ", 
             "normalized": "100000100010", 
-            "notes": ["D", "F#", "Ab"], 
+            "notes": ["D5", "F#5", "Ab5"], 
             "quality": "Major", 
             "root": "", 
             "rootDegree": 0, 
             "setNum": 2208, 
             "symbol": "DMb5", 
-            "tonic": "D", 
+            "tonic": "D5", 
             "type": ""
         })
     })
     it("Should return a random accidental chord with 3 notes", () => {
         jest.spyOn(global.Math, 'random').mockReturnValue(0.546);
-        expect(Notes.randomChord(3, true)).toStrictEqual({
+        expect(Notes.randomChord(3, 5, true)).toStrictEqual({
             "aliases": ["Mb5"], 
             "chroma": "100010100000", 
             "empty": false, 
             "intervals": ["1P", "3M", "5d"], 
             "name": "F# ", 
             "normalized": "100000100010", 
-            "notes": ["F#", "A#", "C"], 
+            "notes": ["F#5", "A#5", "C6"], 
             "quality": "Major", 
             "root": "", 
             "rootDegree": 0, 
             "setNum": 2208, 
             "symbol": "F#Mb5", 
-            "tonic": "F#", 
+            "tonic": "F#5", 
             "type": ""})
     })
 })
