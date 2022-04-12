@@ -29,15 +29,41 @@ describe("arrayContainsArray: returns true or false if the first array elements 
 })
 
 describe("randomFromRange: returns a random value between the two values", () => {
-    it("Should return a random number between the specified range", () => {
-        jest.spyOn(global.Math, 'random').mockReturnValue(0.4);
-        expect(Test.randomFromRange(3, 10)).toBe(5)
-        jest.spyOn(global.Math, 'random').mockRestore();
-    })
     it("Should return null if the range isn't valid", () => {
         expect(Test.randomFromRange(10, 3)).toBe(null)
     })
     it("Should return the only possible value", () => {
         expect(Test.randomFromRange(3, 3)).toBe(3)
+    })
+    it("Should return a relatively even distribution", () => {
+        let arr = [], min = 0, max = 7, total = 100000;
+        for(let i = 0; i <= total; i++) {
+            let rand = Test.randomFromRange(min,max)
+            if (rand != null) {
+                if (!arr[rand]) {
+                    arr[rand] = 0
+                }
+                arr[rand]++
+            }
+        }
+        arr = arr.sort()
+        expect(total * 0.005).toBeGreaterThan(arr[7] - arr[0])
+    })
+    describe("random tests", () => {
+        afterAll(() => {
+            jest.spyOn(global.Math, 'random').mockRestore();
+        })
+        it("Should return a random number between the specified range", () => {
+            jest.spyOn(global.Math, 'random').mockReturnValue(0.4);
+            expect(Test.randomFromRange(3, 10)).toBe(6)
+        })
+        it("Should return the first number in the range", () => {
+            jest.spyOn(global.Math, 'random').mockReturnValue(0.1);
+            expect(Test.randomFromRange(3, 10)).toBe(3)
+        })
+        it("Should return the last number in the range", () => {
+            jest.spyOn(global.Math, 'random').mockReturnValue(0.9);
+            expect(Test.randomFromRange(3, 10)).toBe(10)
+        })
     })
 })
