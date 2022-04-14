@@ -9,6 +9,7 @@ export function RandomNote({1: setQuestion }: [IStdNote, Dispatch<SetStateAction
         setRandom(data)
         setQuestion(data)
     }
+    //TODO make this customisable
     return (
         <>
             <button onClick={newQuestion}>New Question</button>

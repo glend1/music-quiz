@@ -15,7 +15,8 @@ export default function Index() {
   const question = useState<IStdNote>(null)
   const answer = useArray<IStdNote>()
   //TODO sort eslint
-  //TODO use undefinted
+  //TODO use undefined
+  //TODO use userEvent
   return (
     <>
     <div className={styles.float}>
@@ -30,7 +31,7 @@ export default function Index() {
       </div>
       <div className={styles.card}>
         <h2>Random Chord</h2>
-        <RandomChord></RandomChord>
+        <RandomChord {...question} />
       </div>
       <div className={styles.card}>
         <h2>Interval</h2>
