@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { OscControls } from '../units/osccontrols';
 import { MidiInput } from '../units/midiinput';
 import { Keyboard } from '../units/keyboard';
 import { CheckBox } from '../units/checkbox';
@@ -11,11 +10,11 @@ import { IStdNote } from '../../util/notes';
 import { Input } from 'webmidi';
 import { Piano } from '../units/piano';
 import { Slider } from '../units/slider'
+import { AudioEvent } from '../../pages';
 
-export type AudioEvent = (type: string, data: IStdNote) => void
+type TQuestionInput = {answer: IArray<IStdNote>, audioEvent: AudioEvent | undefined}
 
-export function QuestionInput(answer: IArray<IStdNote>) {
-    const [audioEvent, setAudioEvent] = useState<AudioEvent | undefined>()
+export function QuestionInput({answer: answer, audioEvent: audioEvent}: TQuestionInput) {
     const {bool: hideKeyboard, toggle: toggleKeyboard} = useBoolean()
     const {bool: sharp, toggle: toggleSharp} = useBoolean(true)
     const [octave, setOctave] = useFormState("4")
@@ -33,7 +32,7 @@ export function QuestionInput(answer: IArray<IStdNote>) {
                 <CheckBox id={'sharp'} label={'Sharp?'} bool={sharp} toggle={toggleSharp}/>
             </div>
             <MidiInput setMidiDevice={setMidiDevice}/>
-            <OscControls setAudioEvent={setAudioEvent}/>
+            
             <div>
                 <CheckBox id={'keyboard_visibility'} label={'Show Keyboard?'} bool={hideKeyboard} toggle={toggleKeyboard}/>
             </div>

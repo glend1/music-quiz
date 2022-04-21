@@ -5,8 +5,9 @@ import { Chord as TChord } from "@tonaljs/chord"
 export type Chord = TChord;
 
 const notes = ["A", "B", "C", "D", "E", "F", "G"];
+export const scale = ["C", "D", "E", "F", "G", "A", "B"];
 const accidentalNotes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
-const accidentals = ["", "", "", "#", "b"];
+export const accidentals = ["", "", "", "#", "b"];
 const octaves = [3, 4, 5, 6];
 const qualityWords = {"m": "Minor", "M": "Major", "P": "Perfect", "d": "Diminished"}
 const ordinalWords = {

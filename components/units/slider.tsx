@@ -7,12 +7,13 @@ type TSlider = {
     set: ChangeEventHandler<HTMLInputElement | HTMLSelectElement>
     min: number
     max: number
+    display?: string
 }
 
-export function Slider({id, label, value, set, min, max}: TSlider) {
+export function Slider({id, label, value, set, min, max, display}: TSlider) {
     return(<div>
         <label htmlFor={id}>{label}</label>
         <input id={id} type="range" min={min} max={max} onChange={set} value={value}></input>
-        <span>{value}</span>
+        <span>{display ? display : value}</span>
     </div>)
 }

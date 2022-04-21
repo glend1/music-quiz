@@ -32,7 +32,7 @@ export function RandomChord({0: question, 1: setQuestion }: [IStdNote, Dispatch<
         return false
     }
     return (<>
-    <div><div>Set Difficulty</div>
+    <div><div>Set Number of Notes</div>
     <Slider id={"minD"} label={"Minimum"} value={minD} set={setMinD} min={2} max={parseInt(maxD)} />
     <Slider id={"maxD"} label={"Maximum"} value={maxD} set={setMaxD} min={parseInt(minD)} max={7} /></div>
     <div><div>Set Root Octave</div>
@@ -49,10 +49,10 @@ export function RandomChord({0: question, 1: setQuestion }: [IStdNote, Dispatch<
         }}>New Chord</button>
         {chord && question ? 
             <>
-                <h2>{chord.tonic} {chord.symbol}</h2>
+                <h2>{chord.symbol}</h2>
                 {isNext() != false ? <button onClick={next}>Next</button> : ""}
-                <h3>{question.note}</h3>
-                <div>Difficulty: {chord.intervals.length}</div>
+                <h3>{chord.tonic} {question.note}</h3>
+                <div>Number of Notes: {chord.intervals.length}</div>
             </> : 
         <div>Please generate a random Chord</div>
         }
