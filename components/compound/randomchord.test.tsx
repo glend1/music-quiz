@@ -34,11 +34,11 @@ describe("randomchord: this will generate a random chord", () => {
             act(() => {
                 userEvent.click(screen.getByRole("button"))
             })
-            expect(rc.getByText("D4 DMb5")).toBeVisible()
+            expect(rc.getByText("DMb5")).toBeVisible()
             act(() => {
                 userEvent.click(screen.getAllByRole("button")[1])
             })
-            expect(rc.getByText("F#4")).toBeVisible()
+            expect(rc.getByText("D4 F#4")).toBeVisible()
             act(() => {
                 userEvent.click(screen.getAllByRole("button")[1])
             })

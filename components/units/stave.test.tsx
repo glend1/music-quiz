@@ -5,16 +5,18 @@ import { Stave } from './stave'
 describe("Stave Component", () => {
     it("Should render a note", async () => {
         var container: HTMLElement
+        const note = RandomNote()
         await waitFor(() => {
-            ({container} = render(<Stave notation={RandomNote()!.abc} id="question"/>))
+            ({container} = render(<Stave notation={note!.abc} midi={note!.midi} id="question"/>))
         }).then(() => {
             expect(container.querySelector('[data-name="note"]')).toBeTruthy()
         })
     })
     it("Should render div with the correct ID", async () => {
         var container: HTMLElement
+        const note = RandomNote()
         await waitFor(() => {
-            ({container} = render(<Stave notation={RandomNote()!.abc} id="question"/>))
+            ({container} = render(<Stave notation={note!.abc} midi={note!.midi} id="question"/>))
         }).then(() => {
             expect(container.querySelector('#question')).toBeTruthy()
         })
