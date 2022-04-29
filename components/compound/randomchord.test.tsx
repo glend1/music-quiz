@@ -1,28 +1,24 @@
 import { render, screen, act} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useState } from 'react'
-// import { act } from 'react-test-renderer'
-import { IStdNote } from '../../util/notes'
+import { IStdNote, StdNote } from '../../util/notes'
 import { RandomChord } from '../compound/randomchord'
 
 function MockRandomChord() {
-    const question = useState<IStdNote>(null)
-    return <RandomChord {...question}/>
+    const question = useState<IStdNote>()
+    const root = useState<IStdNote>(StdNote("C4"))
+    return <RandomChord root={root[0]} question={question[0]} setQuestion={question[1]} />
 }
 
 describe("randomchord: this will generate a random chord", () => {
     it("Should have default values", () => {
         const rc = render(<MockRandomChord />)
         const sliders = rc.getAllByRole("slider")
-        expect(sliders).toHaveLength(4)
+        expect(sliders).toHaveLength(2)
         expect(sliders[0]).toHaveAttribute("min", "2")
         expect(sliders[0]).toHaveValue("2")
         expect(sliders[1]).toHaveAttribute("max", "7")
         expect(sliders[1]).toHaveValue("4")
-        expect(sliders[2]).toHaveAttribute("min", "1")
-        expect(sliders[2]).toHaveValue("3")
-        expect(sliders[3]).toHaveAttribute("max", "7")
-        expect(sliders[3]).toHaveValue("5")
     })
     describe("interactions", () => {
         afterAll(() => {
@@ -34,11 +30,11 @@ describe("randomchord: this will generate a random chord", () => {
             act(() => {
                 userEvent.click(screen.getByRole("button"))
             })
-            expect(rc.getByText("DMb5")).toBeVisible()
+            expect(rc.getByText("CMb5")).toBeVisible()
             act(() => {
                 userEvent.click(screen.getAllByRole("button")[1])
             })
-            expect(rc.getByText("D4 F#4")).toBeVisible()
+            expect(rc.getByText("C4 E4")).toBeVisible()
             act(() => {
                 userEvent.click(screen.getAllByRole("button")[1])
             })

@@ -6,7 +6,7 @@ import { AudioControls } from '../components/compound/audiocontrols';
 import { Result } from '../components/compound/result';
 import { AudioContext } from '../components/units/audiocontext';
 import { Interval } from '../components/units/interval';
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { useArray } from '../util/customHooks';
 import { IStdNote } from '../util/notes';
 import Link from 'next/link';
@@ -15,8 +15,15 @@ import { OscControls } from '../components/units/osccontrols';
 
 export type AudioEvent = (type: string, data: IStdNote) => void
 
+export type TQuestionComponent = {
+  root: IStdNote, 
+  question: IStdNote, 
+  setQuestion: Dispatch<SetStateAction<IStdNote>>
+}
+
 export default function Index() {
-  const question = useState<IStdNote>(null)
+  const question = useState<IStdNote>()
+  const root = useState<IStdNote>()
   const answer = useArray<IStdNote>()
   const [audioEvent, setAudioEvent] = useState<AudioEvent | undefined>()
   //TODO sort eslint
@@ -32,15 +39,15 @@ export default function Index() {
     <div className={styles.container}>
       <div className={styles.card}>
         <h2>Note</h2>
-        <RandomNote setQuestion={question[1]} />
+        <RandomNote setQuestion={question[1]} setRoot={root[1]}/>
       </div>
       <div className={styles.card}>
         <h2>Chord</h2>
-        <RandomChord {...question} />
+        <RandomChord root={root[0]} question={question[0]} setQuestion={question[1]} />
       </div>
       <div className={styles.card}>
         <h2>Interval</h2>
-        <Interval {...question} />
+        <Interval root={root[0]} question={question[0]} setQuestion={question[1]} />
       </div>
     </div>
     <h2>Questions</h2>

@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { Input } from "webmidi";
+import { AudioEvent } from "../pages";
 import { IArray } from "./customHooks";
 import { INote, IStdNote, normalizeMidi, normalizeNote} from "./notes"
 

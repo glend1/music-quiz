@@ -1,25 +1,39 @@
-import { Dispatch, SetStateAction, useState } from "react";
-import { StdNote, createInterval, clampOctave, IStdNote, IInt, simplifyAndTranspose } from "../../util/notes";
+import { ChangeEvent, useState } from "react";
+import { TQuestionComponent } from "../../pages";
+import { useFormState } from "../../util/customHooks";
+import { createInterval, DirectionType, directionTypes, intervals} from "../../util/notes";
+import { Select } from "./select";
+import { Slider } from "./slider";
 
-export function Interval({ 0: question, 1: setQuestion }: [IStdNote, Dispatch<SetStateAction<IStdNote>>]) {
-    const [interval, setInterval] = useState<IInt>()
+export function Interval({root: root, setQuestion: setQuestion, question: question }: TQuestionComponent) {
+    const [intervalRange, setIntervalRange] = useFormState("0")
+    const [direction, setDirection] = useState<DirectionType>("Both")
+    const [interval, setInterval] = useState<string>()
     function newInterval() {
+        console.log(question)
         if (question) {
-            let int = createInterval(clampOctave(question.octave))
-            if (int != null) {
-                setInterval(int)
-                setQuestion(StdNote(simplifyAndTranspose(question.note, int.transposeBy)))
+            let newInterval = createInterval(root, parseInt(intervalRange), direction)
+            if (newInterval) {
+                setInterval(newInterval.description)
+                setQuestion(newInterval.note)
             }
         }
     }
-    //TODO add difficulty
     return (
         <>{
-            question ? <>
-                <h2>
-                    {interval != null ? interval.name : ""}
-                </h2>
+            root ? <>
+                <Select label={"Direction"} array={directionTypes} id={"direction"} cb={function (e: ChangeEvent<HTMLSelectElement>): void {
+                    let target = e.target;
+                    let selected = target.options[target.selectedIndex].text
+                    if (directionTypes.includes(selected)) {
+                        setDirection(selected as DirectionType)
+                    }
+                } } />
+                <Slider id={"interval"} label={"Intervals"} value={intervalRange} set={setIntervalRange} min={0} max={12} display={intervals[parseInt(intervalRange)]}/>
                 <button onClick={newInterval}>New Interval</button>
+                <h3>
+                    {interval != null ? interval : ""}
+                </h3>
             </> : <div>Please create a Question first</div>
         }</>
     )

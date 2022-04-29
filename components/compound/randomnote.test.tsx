@@ -6,16 +6,18 @@ import { RandomNote } from "./randomnote"
 
 describe("randomnote", () => {
     it("Should ask the use to generate a random note", () => {
-        const { result: state } = renderHook(() => useState<IStdNote>(null))
-        render(<RandomNote setQuestion={state.current[1]} />)
+        const { result: question } = renderHook(() => useState<IStdNote>())
+        const { result: root } = renderHook(() => useState<IStdNote>())
+        render(<RandomNote setQuestion={question.current[1]} setRoot={root.current[1]} />)
         expect(screen.getByRole("button")).toBeInTheDocument()
     })
     it("Should generate a random note", () => {
-        const { result: state } = renderHook(() => useState<IStdNote>(null))
-        render(<RandomNote setQuestion={state.current[1]} />)
+        const { result: question } = renderHook(() => useState<IStdNote>())
+        const { result: root } = renderHook(() => useState<IStdNote>())
+        render(<RandomNote setQuestion={question.current[1]} setRoot={root.current[1]} />)
         jest.spyOn(global.Math, 'random').mockReturnValue(0.5);
         fireEvent.click(screen.getByRole("button"))
         jest.spyOn(global.Math, 'random').mockRestore();
-        expect(state.current[0]?.midi).toBe(62)
+        expect(question.current[0]?.midi).toBe(62)
     })
 })

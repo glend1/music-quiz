@@ -4,7 +4,7 @@ import { Result } from './result'
 
 describe("answer", () => {
     it("Should render a default component", () => {
-        render(<Result question={null} answer={[]} />)
+        render(<Result question={undefined} answer={[]} />)
         expect(screen.getByText("0.000")).toBeVisible()
         expect(screen.getByText("no attempt")).toBeVisible()
         expect(screen.getByText("0/0")).toBeVisible()
@@ -17,7 +17,7 @@ describe("answer", () => {
             jest.useRealTimers()
         })
         it("Should start the timer", () => {
-            render(<Result question={null} answer={[]} />)
+            render(<Result question={undefined} answer={[]} />)
             act(() => {
                 fireEvent.click(screen.getByText("start"))
                 jest.advanceTimersByTime(1568)
@@ -25,7 +25,7 @@ describe("answer", () => {
             expect(screen.getByText("1.568")).toBeVisible()
         })
         it("Should stop the timer", () => {
-            render(<Result question={null} answer={[]} />)
+            render(<Result question={undefined} answer={[]} />)
             act(() => {
                 fireEvent.click(screen.getByText("start"))
                 jest.advanceTimersByTime(1568)
@@ -37,7 +37,7 @@ describe("answer", () => {
             expect(screen.getByText("1.568")).toBeVisible()
         })
         it("Should reset the timer", () => {
-            render(<Result question={null} answer={[]} />)
+            render(<Result question={undefined} answer={[]} />)
             act(() => {
                 fireEvent.click(screen.getByText("start"))
                 jest.advanceTimersByTime(1568)
@@ -58,7 +58,7 @@ describe("answer", () => {
             jest.useRealTimers()
         })
         it("give you the correct score", () => {
-            const component = render(<Result question={null} answer={[]} />)
+            const component = render(<Result question={undefined} answer={[]} />)
             act(() => {
                 fireEvent.click(screen.getByText("Show Results?"))
                 fireEvent.click(screen.getByText("start"))

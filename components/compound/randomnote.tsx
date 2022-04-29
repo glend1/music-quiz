@@ -7,9 +7,10 @@ import { randomFromArray, randomFromRange } from '../../util/maths';
 
 type RandomNote = {
     setQuestion: Dispatch<SetStateAction<IStdNote>>
+    setRoot: Dispatch<SetStateAction<IStdNote>>
 }
 
-export function RandomNote({setQuestion}: RandomNote) {
+export function RandomNote({setQuestion, setRoot}: RandomNote) {
     const {bool: accidental, toggle: toggleAccidental} = useBoolean()
     const [min, setMin] = useFormState("2")
     const [max, setMax] = useFormState("28")
@@ -24,6 +25,7 @@ export function RandomNote({setQuestion}: RandomNote) {
         note = note[0] + (accidental ? randomFromArray(accidentals) : "") + note[1]
         let data = StdNote(note)
         setQuestion(data)
+        setRoot(data)
     }
     function display(value: string) {
         return notes[parseInt(value)]
