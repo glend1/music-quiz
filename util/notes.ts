@@ -8,8 +8,6 @@ const notes = ["A", "B", "C", "D", "E", "F", "G"];
 export const scale = ["C", "D", "E", "F", "G", "A", "B"];
 //TODO i don't like this
 export const accidentals = ["", "", "", "#", "b"];
-//TODO remove this eventually
-const octaves = [3, 4, 5, 6];
 export const intervals = [
     "Unison",
     "Minor Second",
@@ -52,8 +50,8 @@ export function FromFreq(freq: number) {
 }
 
 //TODO remove this eventually
-export function RandomNote() {
-    let note = randomFromArray(notes) + randomFromArray(accidentals) + randomFromArray(octaves);
+export function GenerateRandomNote() {
+    let note = randomFromArray(notes) + randomFromArray(accidentals) + randomFromRange(3, 6);
     let out = StdNote(note)
     return out;
 }
@@ -179,7 +177,6 @@ function noteFromMidi(i: number) {
 function midiFromFrequency(freq: number) {
     return Midi.toMidi(Note.fromFreq(freq))
 }
-
 
  export function getScaleNotes(root: string, name: string) {
     return Scale.scaleNotes(Scale.get(`${root} ${name}`).notes)

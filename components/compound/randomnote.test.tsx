@@ -4,7 +4,7 @@ import { useState } from "react"
 import { IStdNote } from "../../util/notes"
 import { RandomNote } from "./randomnote"
 
-describe("randomnote", () => {
+describe("RandomNote", () => {
     it("Should ask the use to generate a random note", () => {
         const { result: question } = renderHook(() => useState<IStdNote>())
         const { result: root } = renderHook(() => useState<IStdNote>())

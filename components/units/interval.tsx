@@ -10,7 +10,6 @@ export function Interval({root: root, setQuestion: setQuestion, question: questi
     const [direction, setDirection] = useState<DirectionType>("Both")
     const [interval, setInterval] = useState<string>()
     function newInterval() {
-        console.log(question)
         if (question) {
             let newInterval = createInterval(root, parseInt(intervalRange), direction)
             if (newInterval) {
