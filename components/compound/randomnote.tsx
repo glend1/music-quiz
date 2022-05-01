@@ -1,9 +1,8 @@
-import { accidentals, IStdNote, scale, StdNote } from '../../util/notes';
+import { generateRandomNote, getFromNumbersArray, IStdNote } from '../../util/notes';
 import { Dispatch, SetStateAction } from 'react';
 import { Slider } from '../units/slider';
 import { useBoolean, useFormState } from '../../util/customHooks';
 import { CheckBox } from '../units/checkbox';
-import { randomFromArray, randomFromRange } from '../../util/maths';
 
 type TRandomNote = {
     setQuestion: Dispatch<SetStateAction<IStdNote>>
@@ -14,21 +13,13 @@ export function RandomNote({setQuestion, setRoot}: TRandomNote) {
     const {bool: accidental, toggle: toggleAccidental} = useBoolean()
     const [min, setMin] = useFormState("2")
     const [max, setMax] = useFormState("28")
-    const notes: string[] = []
-    for (let i = 2; i <= 6; i++) {
-        scale.forEach(note => {
-            notes.push(`${note}${i}`)
-        });
-    }
     function newQuestion() {
-        let note = display(randomFromRange(parseInt(min), parseInt(max))!.toString())
-        note = note[0] + (accidental ? randomFromArray(accidentals) : "") + note[1]
-        let data = StdNote(note)
-        setQuestion(data)
-        setRoot(data)
+        let note = generateRandomNote(parseInt(min), parseInt(max), accidental)
+        setQuestion(note)
+        setRoot(note)
     }
     function display(value: string) {
-        return notes[parseInt(value)]
+        return getFromNumbersArray(parseInt(value))
     }
     return (
         <>

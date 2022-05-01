@@ -1,13 +1,21 @@
-import { AbcNotation, Note, Midi, Interval, NoteLiteral, ChordType, Collection, Chord, Scale} from "@tonaljs/tonal"
+import { AbcNotation, Note, Midi, NoteLiteral, ChordType, Collection, Chord, Scale} from "@tonaljs/tonal"
 import { arrayContainsArray, randomFromArray, randomFromRange} from "./maths";
 import { Chord as TChord } from "@tonaljs/chord"
 
 export type Chord = TChord;
 
-const notes = ["A", "B", "C", "D", "E", "F", "G"];
-export const scale = ["C", "D", "E", "F", "G", "A", "B"];
 //TODO i don't like this
 export const accidentals = ["", "", "", "#", "b"];
+//TODO i don't like this
+const octaveNotes = [
+    'C2', 'D2', 'E2', 'F2', 'G2',
+    'A2', 'B2', 'C3', 'D3', 'E3',
+    'F3', 'G3', 'A3', 'B3', 'C4',
+    'D4', 'E4', 'F4', 'G4', 'A4',
+    'B4', 'C5', 'D5', 'E5', 'F5',
+    'G5', 'A5', 'B5', 'C6', 'D6',
+    'E6', 'F6', 'G6', 'A6', 'B6'
+  ]
 export const intervals = [
     "Unison",
     "Minor Second",
@@ -49,12 +57,17 @@ export function FromFreq(freq: number) {
     return StdNote(Note.fromFreq(freq))
 }
 
-//TODO remove this eventually
-export function GenerateRandomNote() {
-    let note = randomFromArray(notes) + randomFromArray(accidentals) + randomFromRange(3, 6);
-    let out = StdNote(note)
-    return out;
-}
+    export function generateRandomNote(min: number, max: number, accidental: boolean) {
+        let random = randomFromRange(min, max)
+        if (random != null) {
+            let note = getFromNumbersArray(random)
+            note = note[0] + (accidental ? randomFromArray(accidentals) : "") + note[1]
+            return StdNote(note)
+        }
+    }
+    export function getFromNumbersArray(value: number) {
+        return octaveNotes[value]
+    }
 
 export function createInterval(root: IStdNote, maxInterval: number, direction: DirectionType) {
     let random = randomFromRange(0, maxInterval)

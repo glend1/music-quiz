@@ -1,11 +1,11 @@
 import { render, waitFor } from '@testing-library/react'
-import { GenerateRandomNote } from '../../util/notes'
+import { generateRandomNote } from '../../util/notes'
 import { Stave } from './stave'
 
 describe("Stave Component", () => {
     it("Should render a note", async () => {
         var container: HTMLElement
-        const note = GenerateRandomNote()
+        const note = generateRandomNote(5, 20, false)
         await waitFor(() => {
             ({container} = render(<Stave notation={note!.abc} midi={note!.midi} id="question"/>))
         }).then(() => {
@@ -14,7 +14,7 @@ describe("Stave Component", () => {
     })
     it("Should render div with the correct ID", async () => {
         var container: HTMLElement
-        const note = GenerateRandomNote()
+        const note = generateRandomNote(5, 20, false)
         await waitFor(() => {
             ({container} = render(<Stave notation={note!.abc} midi={note!.midi} id="question"/>))
         }).then(() => {

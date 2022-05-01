@@ -25,13 +25,13 @@ describe("FromFreq: Creates a standard note from frequency", () => {
         expect(Notes.FromFreq(6)).toBeUndefined()
     })
 })
-describe("GenerateRandomNote: Returns a random StdNote", () => {
+describe("generateRandomNote: Returns a random StdNote", () => {
     afterAll(() => {
         jest.spyOn(global.Math, 'random').mockRestore();
     })
     it("Should return a StdNote", () => {
         jest.spyOn(global.Math, 'random').mockReturnValue(0.3);
-        expect(Notes.GenerateRandomNote()).toEqual({ note: 'C4', name: 'C', octave: 4, abc: 'C', midi: 60 })
+        expect(Notes.generateRandomNote(10, 30, false)).toEqual({abc: "E", midi: 64, name: "E", note: "E4", octave: 4})
     })
 })
 describe("normalizeMidi: returns a StdNote", () => {
