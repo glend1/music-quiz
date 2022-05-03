@@ -1,11 +1,9 @@
 import { AbcNotation, Note, Midi, NoteLiteral, ChordType, Collection, Chord, Scale} from "@tonaljs/tonal"
-import { arrayContainsArray, randomFromArray, randomFromRange} from "./maths";
+import { arrayContainsArray, randomFromArray, randomFromRange, randomWeight} from "./maths";
 import { Chord as TChord } from "@tonaljs/chord"
 
 export type Chord = TChord;
 
-//TODO i don't like this
-export const accidentals = ["", "", "", "#", "b"];
 //TODO i don't like this
 const octaveNotes = [
     'C2', 'D2', 'E2', 'F2', 'G2',
@@ -61,7 +59,7 @@ export function FromFreq(freq: number) {
         let random = randomFromRange(min, max)
         if (random != null) {
             let note = getFromNumbersArray(random)
-            note = note[0] + (accidental ? randomFromArray(accidentals) : "") + note[1]
+            note = note[0] + (accidental ? randomWeight([{percent: 1/4, value: "b"}, {percent: 1/4, value: "#"}], "") : "") + note[1]
             return StdNote(note)
         }
     }
