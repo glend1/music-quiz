@@ -1,4 +1,4 @@
-import { generateRandomNote, getFromNumbersArray, IStdNote } from '../../util/notes';
+import { generateRandomNote, getNaturalNoteFromArray, IStdNote } from '../../util/notes';
 import { Dispatch, SetStateAction } from 'react';
 import { Slider } from '../units/slider';
 import { useBoolean, useFormState } from '../../util/customHooks';
@@ -19,7 +19,7 @@ export function RandomNote({setQuestion, setRoot}: TRandomNote) {
         setRoot(note)
     }
     function display(value: string) {
-        return getFromNumbersArray(parseInt(value))
+        return getNaturalNoteFromArray(parseInt(value))
     }
     return (
         <>

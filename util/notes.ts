@@ -4,7 +4,6 @@ import { Chord as TChord } from "@tonaljs/chord"
 
 export type Chord = TChord;
 
-//TODO i don't like this
 const octaveNotes = [
     'C2', 'D2', 'E2', 'F2', 'G2',
     'A2', 'B2', 'C3', 'D3', 'E3',
@@ -58,12 +57,12 @@ export function FromFreq(freq: number) {
     export function generateRandomNote(min: number, max: number, accidental: boolean) {
         let random = randomFromRange(min, max)
         if (random != null) {
-            let note = getFromNumbersArray(random)
+            let note = getNaturalNoteFromArray(random)
             note = note[0] + (accidental ? randomWeight([{percent: 1/4, value: "b"}, {percent: 1/4, value: "#"}], "") : "") + note[1]
             return StdNote(note)
         }
     }
-    export function getFromNumbersArray(value: number) {
+    export function getNaturalNoteFromArray(value: number) {
         return octaveNotes[value]
     }
 
