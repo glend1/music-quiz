@@ -50,9 +50,9 @@ export function RandomChord({root: root, setQuestion: setQuestion, question: que
         }}>New Chord</button>
         {chord && isChord() ? 
             <>
-                <h3>{chord.symbol}</h3>
+                <h3>{root.note} {chord.symbol}</h3>
                 {isNext() != false ? <button onClick={next}>Next</button> : ""}
-                <h3>{root.note} {question!.note}</h3>
+                <h3>{question!.note}</h3>
                 <div>Number of Notes: {chord.intervals.length}</div>
             </> : 
         <div>Please generate a random Chord</div>
