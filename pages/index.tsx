@@ -6,25 +6,20 @@ import { AudioControls } from '../components/compound/audiocontrols';
 import { Result } from '../components/compound/result';
 import { AudioContext } from '../components/units/audiocontext';
 import { Interval } from '../components/units/interval';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import { useArray } from '../util/customHooks';
 import { IStdNote } from '../util/notes';
 import Link from 'next/link';
 import { Stave } from '../components/units/stave';
 import { OscControls } from '../components/units/osccontrols';
+import { useQuestionGeneration } from '../util/useQuestionGeneration';
+import { QuestionControls } from '../components/compound/questionControls';
 
 export type AudioEvent = (type: string, data: IStdNote) => void
 
-export type TQuestionComponent = {
-  root: IStdNote, 
-  question: IStdNote, 
-  setQuestion: Dispatch<SetStateAction<IStdNote>>
-}
-
 export default function Index() {
-  const question = useState<IStdNote>()
-  const root = useState<IStdNote>()
   const answer = useArray<IStdNote>()
+  const questionGeneration = useQuestionGeneration()
   const [audioEvent, setAudioEvent] = useState<AudioEvent | undefined>()
   //TODO sort eslint
   //TODO use undefined
@@ -39,22 +34,26 @@ export default function Index() {
     <div className={styles.container}>
       <div className={styles.card}>
         <h2>Note</h2>
-        <RandomNote setQuestion={question[1]} setRoot={root[1]}/>
+        <RandomNote newQuestion={questionGeneration.newRoot} />
       </div>
       <div className={styles.card}>
         <h2>Chord</h2>
-        <RandomChord root={root[0]} question={question[0]} setQuestion={question[1]} />
+        <RandomChord newChord={questionGeneration.newChord} root={questionGeneration.root} />
       </div>
       <div className={styles.card}>
         <h2>Interval</h2>
-        <Interval root={root[0]} question={question[0]} setQuestion={question[1]} />
+        <Interval newInterval={questionGeneration.newInterval} root={questionGeneration.root} />
       </div>
     </div>
     <h2>Questions</h2>
     <div className={styles.container}>
       <div className={styles.card}>
         <h2>Question</h2>
-        <Stave id={'stave'} midi={question[0]?.midi} notation={question[0]?.abc} />
+        <QuestionControls current={questionGeneration.current} question={questionGeneration.question} type={questionGeneration.type} chord={questionGeneration.chord} interval={questionGeneration.interval} root={questionGeneration.root} />
+      </div>
+      <div className={styles.card}>
+        <h2>Stave</h2>
+        <Stave id={'stave'} notes={questionGeneration.question} current={questionGeneration.current}/>
       </div>
       <div className={styles.card}>
         <h2>Oscillator Output</h2>
@@ -76,7 +75,7 @@ export default function Index() {
     <div className={styles.container}>
     <div className={styles.card}>
     <h2>Result</h2>
-        <Result question={question[0]} answer={answer.array} />
+        <Result nextQuestion={questionGeneration.nextQuestion} question={questionGeneration.question[questionGeneration.current]} answer={answer.array} />
         </div>
       </div>
     </>

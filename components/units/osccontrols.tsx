@@ -6,6 +6,8 @@ import { State } from "../../util/store";
 import { IStdNote, midiToFrequency } from "../../util/notes";
 import { Slider } from "./slider";
 
+// add a play button
+
 type IOsc = {setAudioEvent: Dispatch<SetStateAction<((type: string, data: IStdNote) => void) | undefined>>}
 
 type IHeld = { data: IStdNote; oscilator: OscillatorNode };

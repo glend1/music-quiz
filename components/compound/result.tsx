@@ -5,10 +5,11 @@ import { IStdNote } from "../../util/notes";
 
 type IAnswer = {
   question: IStdNote,
-  answer: IStdNote[]
+  answer: IStdNote[],
+  nextQuestion: () => void;
 }
 
-export function Result({ question, answer }: IAnswer) {
+export function Result({ question, answer, nextQuestion }: IAnswer) {
   const {i: hits, increment: incrementHits, set: setHits} = useCounter()
   const {i: misses, increment: incrementMisses, set: setMisses} = useCounter()
   const [message, setMessage] = useState("no attempt")
@@ -17,6 +18,7 @@ export function Result({ question, answer }: IAnswer) {
   useEffect(() => {
       if (answer.length >= 1) {
         if (answer.find(el => {if (el && question) { return el.midi == question.midi}})) {
+          nextQuestion()
           setMessage("correct")
           reset()
           incrementHits()

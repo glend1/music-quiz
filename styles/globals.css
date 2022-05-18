@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.mark {
+  fill: #0070f3;
+}

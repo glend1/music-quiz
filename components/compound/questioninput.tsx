@@ -40,6 +40,7 @@ export function QuestionInput({answer: answer, audioEvent: audioEvent}: TQuestio
                 <Slider id="octave" label="Set Octave:" value={octave} set={setOctave} min={1} max={6}/>
                 <Keyboard cb={key}/>
                 <Piano highlight={answer.array} cb={mouse}/>
+                <button onClick={() => {answer.clear()}}>Clear keyboard</button>
             </div>
         </>
     )

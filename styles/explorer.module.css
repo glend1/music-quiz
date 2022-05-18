@@ -8,17 +8,9 @@
     color: inherit;
     border: 1px solid #bdbdbd;
     border-radius: 10px;
-    transition: color 0.15s ease, border-color 0.15s ease;
     display:inline-block;
     /* max-width: 100%; */
     vertical-align: top;
-  }
-
-  .bubble:hover,
-  .bubble:focus,
-  .bubble:active {
-    color: #0070f3;
-    border-color: #0070f3;
   }
 
   .bold {
@@ -32,9 +24,4 @@
   .align {
     margin: .2rem .2rem .2rem 0;
     padding: .2rem .2rem .2rem 0;
-  }
-
-  .align + span {
-    background-color: crimson;
-    vertical-align: inherit;
   }
