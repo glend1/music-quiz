@@ -9,7 +9,6 @@
     border: 1px solid #bdbdbd;
     border-radius: 10px;
     display:inline-block;
-    /* max-width: 100%; */
     vertical-align: top;
   }
 
@@ -24,4 +23,8 @@
   .align {
     margin: .2rem .2rem .2rem 0;
     padding: .2rem .2rem .2rem 0;
+  }
+
+  .align + span {
+    vertical-align: inherit;
   }
