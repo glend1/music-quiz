@@ -13,7 +13,7 @@ type ISelect = {
 export function Select({label, array, cb, id, forwardRef}: ISelect) {
     return (
         <>
-            <label className={styles.selectLabel} htmlFor={id}>{label}:</label>
+            <label className={styles.selectLabel} htmlFor={id}>{label}</label>
             <select id={id} onChange={cb} ref={forwardRef}>
                 {   
                     array.map((e, index) => {

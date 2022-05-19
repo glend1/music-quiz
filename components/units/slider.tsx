@@ -1,4 +1,5 @@
 import { ChangeEventHandler } from "react"
+import styles from "../../styles/slider.module.css"
 
 type TSlider = {
     id: string
@@ -12,8 +13,8 @@ type TSlider = {
 
 export function Slider({id, label, value, set, min, max, display}: TSlider) {
     return(<div>
-        <label htmlFor={id}>{label}</label>
+        <label className={styles.sliderLabel} htmlFor={id}>{label}</label>
         <input id={id} type="range" min={min} max={max} onChange={set} value={value}></input>
-        <span>{display ? display : value}</span>
+        <span className={styles.sliderValue}>{display ? display : value}</span>
     </div>)
 }
