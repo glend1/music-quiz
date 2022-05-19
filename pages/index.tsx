@@ -57,7 +57,7 @@ export default function Index() {
       </div>
       <div className={styles.card}>
         <h2>Oscillator Output</h2>
-        <OscControls setAudioEvent={setAudioEvent}/>
+        <OscControls question={questionGeneration.question} setAudioEvent={setAudioEvent}/>
       </div>
     </div>
     <h2>Answers</h2>

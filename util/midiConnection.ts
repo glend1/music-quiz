@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps, MouseEventHandler, useState } from "react";
+import { useState } from "react";
 import { WebMidi, PortEvent } from "webmidi";
 import { useArray } from "./customHooks";
 

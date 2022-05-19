@@ -1,21 +1,21 @@
 import { useSelector } from "react-redux";
 import { Select } from "./select";
-import { useArray, useFormState } from "../../util/customHooks";
-import { Dispatch, MouseEventHandler, SetStateAction, useEffect, useState } from "react";
+import { useArray, useBoolean, useFormState } from "../../util/customHooks";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { State } from "../../util/store";
 import { IStdNote, midiToFrequency } from "../../util/notes";
 import { Slider } from "./slider";
 
-// add a play button
+//TODO add a play button
 
-type IOsc = {setAudioEvent: Dispatch<SetStateAction<((type: string, data: IStdNote) => void) | undefined>>}
+type IOsc = {question: IStdNote[], setAudioEvent: Dispatch<SetStateAction<((type: string, data: IStdNote) => void) | undefined>>}
 
 type IHeld = { data: IStdNote; oscilator: OscillatorNode };
 
-export function OscControls({ setAudioEvent }: IOsc) {
+export function OscControls({ setAudioEvent, question }: IOsc) {
   const audioContext = useSelector((state: State) => state.context);
   const { push: heldPush, filter: heldFilter } = useArray<IHeld>();
-  const [play, setPlay] = useState(false);
+  const {bool: play, toggle: togglePlay} = useBoolean(false)
   const [volumeState, setVolume] = useFormState("50");
   const [wave, setWave] = useFormState("triangle");
 
@@ -55,22 +55,28 @@ export function OscControls({ setAudioEvent }: IOsc) {
       };
     });
   }, [audioContext, play, volumeState, wave]);
-  const togglePlaying: MouseEventHandler<HTMLButtonElement> = (e) => {
-    e.preventDefault();
+  function togglePlaying() {
     if (audioContext) {
-      setPlay((state) => !state);
+      togglePlay()
     }
+  };
+  function playQuestion() {
+    console.log(question)
   };
   return (
     <>
       {audioContext ? (
-        <form autoComplete="off">
+          <>
           <button onClick={togglePlaying}>{play ? "Mute" : "Unmute"}</button>
           {play ? (<>
-              <Slider id="volume" label="Volume" min={1} max={100} value={volumeState} set={setVolume} />
-              <Select id="wave_type" label="Wave Type" array={["triangle", "sine", "square", "sawtooth"]} cb={setWave}/>
+              <div>
+                <Slider id="volume" label="Volume" min={1} max={100} value={volumeState} set={setVolume} />
+                <Select id="wave_type" label="Wave Type" array={["triangle", "sine", "square", "sawtooth"]} cb={setWave}/>
+              </div><div>
+                <button onClick={playQuestion}>Play Question</button>
+              </div>
             </>) : (<div></div> )}
-        </form>
+          </>
       ) : (<div>Please Start AudioContext</div>)}
     </>
   );
