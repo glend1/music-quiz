@@ -1,7 +1,8 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { Input } from "webmidi";
 import { AudioEvent } from "../pages";
 import { IArray } from "./customHooks";
+import { clearListeners } from "./midiConnection";
 import { INote, IStdNote, normalizeMidi, normalizeNote} from "./notes"
 
 export function MidiEvents(answer: IArray<IStdNote>, sharp: boolean, octave: number, audioEvent?: AudioEvent, midiDevice?: Input | false) {
@@ -68,5 +69,12 @@ export function MidiEvents(answer: IArray<IStdNote>, sharp: boolean, octave: num
                 throw 'Event not recognized'
         }
     }, [start, stop, octave, sharp])
+        //TODO this doesn't remount when unplugging and plugging back in the device
+        useEffect(() => {
+            midiKeyboard()
+            return () => {
+                clearListeners()
+            }
+        }, [midiKeyboard])
     return { midiKeyboard, key, mouse }
 }

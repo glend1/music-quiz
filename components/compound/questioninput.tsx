@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { MidiInput } from '../units/midiinput';
 import { Keyboard } from '../units/keyboard';
 import { CheckBox } from '../units/checkbox';
 import keyboardStyles from '../../styles/keyboard.module.css'
 import { IArray, useBoolean, useFormState } from '../../util/customHooks';
 import { MidiEvents } from '../../util/midievents';
-import { clearListeners } from '../../util/midiConnection';
 import { IStdNote } from '../../util/notes';
 import { Input } from 'webmidi';
 import { Piano } from '../units/piano';
@@ -19,14 +18,7 @@ export function QuestionInput({answer: answer, audioEvent: audioEvent}: TQuestio
     const {bool: sharp, toggle: toggleSharp} = useBoolean(true)
     const [octave, setOctave] = useFormState("4")
     const [midiDevice, setMidiDevice] = useState<Input | false>(false)
-    const {midiKeyboard, key, mouse} = MidiEvents(answer, sharp, parseInt(octave), audioEvent, midiDevice)
-    //TODO maybe factor this out by putting it in midiEvents?
-    useEffect(() => {
-        midiKeyboard()
-        return () => {
-            clearListeners()
-        }
-    }, [midiKeyboard])
+    const {key, mouse} = MidiEvents(answer, sharp, parseInt(octave), audioEvent, midiDevice)
     return (
         <>
             <div>
