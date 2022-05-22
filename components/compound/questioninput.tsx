@@ -20,6 +20,7 @@ export function QuestionInput({answer: answer, audioEvent: audioEvent}: TQuestio
     const [octave, setOctave] = useFormState("4")
     const [midiDevice, setMidiDevice] = useState<Input | false>(false)
     const {midiKeyboard, key, mouse} = MidiEvents(answer, sharp, parseInt(octave), audioEvent, midiDevice)
+    //TODO maybe factor this out by putting it in midiEvents?
     useEffect(() => {
         midiKeyboard()
         return () => {
