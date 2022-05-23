@@ -4,15 +4,23 @@ import { Select } from './select';
 import { MidiConnection } from '../../util/midiConnection';
 
 type IInput = {
+    midiDevice: false | Input;
     setMidiDevice: Dispatch<SetStateAction<false | Input>>
 }
 
-export function MidiInput({setMidiDevice}: IInput) {
+export function MidiInput({midiDevice, setMidiDevice}: IInput) {
     function selectAction(e: ChangeEvent<HTMLSelectElement>) {
         let target = e.target;
         setMidiDevice(WebMidi.getInputByName(target.options[target.selectedIndex].text));
     }
     const midi = MidiConnection()
+    useEffect(() => {
+        if (midiDevice) {
+            if (!midi.ports.find((i) => i == midiDevice.name)) {
+                setMidiDevice(false)
+            }
+        }
+    }, [midi.ports, midiDevice])
     return (
         <>
             {

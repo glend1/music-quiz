@@ -24,7 +24,7 @@ export function QuestionInput({answer: answer, audioEvent: audioEvent}: TQuestio
             <div>
                 <CheckBox id={'sharp'} label={'Sharp?'} bool={sharp} toggle={toggleSharp}/>
             </div>
-            <MidiInput setMidiDevice={setMidiDevice}/>
+            <MidiInput midiDevice={midiDevice} setMidiDevice={setMidiDevice}/>
             <div>
                 <CheckBox id={'keyboard_visibility'} label={'Show Keyboard?'} bool={hideKeyboard} toggle={toggleKeyboard}/>
             </div>

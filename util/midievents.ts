@@ -69,7 +69,6 @@ export function MidiEvents(answer: IArray<IStdNote>, sharp: boolean, octave: num
                 throw 'Event not recognized'
         }
     }, [start, stop, octave, sharp])
-        //TODO this doesn't remount when unplugging and plugging back in the device
         useEffect(() => {
             midiKeyboard()
             return () => {
