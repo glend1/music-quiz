@@ -5,7 +5,7 @@ import { CheckBox } from "../units/checkbox";
 import styles from "../../styles/questionControls.module.css"
 
 function highlightNote(i: number, j: number, string: string | undefined) {
-    return i == j ? (<span className={styles.highlight}>{string}</span>) : (<span>{string}</span>)
+    return i == j ? (<span key={i} className={styles.highlight}>{string}</span>) : (<span key={i}>{string}</span>)
   }
 
 export function QuestionControls({ type, chord, root, interval, question, current}: { current: number; question: IStdNote[]; type: TType; chord: Chord | undefined; interval: IntervalT | undefined; root: IStdNote; }) {
