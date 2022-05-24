@@ -9,8 +9,10 @@ export function AudioGraph({freq}: IGraph) {
     const ctx = useRef<HTMLCanvasElement>(null)
     const history = 40;
     const [chart, setChart] = useState<Chart<"line">>()
+    const used = useRef(false)
     useEffect(() => {
-        if (chart == null) {
+        if (!used.current) {
+            used.current = true
             import("chart.js/auto").then((Chart) => {
                 if (ctx.current) {
                 setChart(new Chart.default(ctx.current, {
