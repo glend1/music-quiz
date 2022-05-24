@@ -93,6 +93,7 @@ export function useFormState(defaultValue: string): [string, ChangeEventHandler<
 }
 
 export function useStopwatch(defaultValue = 0) {
+  //this is updating very slowly in dev mode because of strict mode
   const [timer, setTimer] = useState(defaultValue)
   const {set: startInterval, clear: stopInterval} = useInterval()
   var offset = 0;
@@ -107,7 +108,7 @@ export function useStopwatch(defaultValue = 0) {
   }
   function start() {
       offset = Date.now();
-      startInterval(update, 1)
+      startInterval(update, 100)
   }
   function reset() {
     stopInterval()
