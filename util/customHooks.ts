@@ -108,7 +108,7 @@ export function useStopwatch(defaultValue = 0) {
   }
   function start() {
       offset = Date.now();
-      startInterval(update, 100)
+      startInterval(update, 1)
   }
   function reset() {
     stopInterval()
