@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Piano } from "../components/units/piano";
 import { matchScales, uniqueChords, INote, normalizeNote, getSingleChord, getScaleNotes, StdNote, IStdNote, simplify, chordsFromScale } from '../util/notes'
 import { Dispatch, SetStateAction, useState } from 'react';
-import ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom/client';
 import listImage from '../public/list_black_24dp.svg'
 import Image from 'next/image';
 import React from 'react';
@@ -48,7 +48,7 @@ function GoHome({chords}: TChordMethod) {
                 let div = document.createElement("div")
                 div.classList.add(styles.card)
                 container.appendChild(div)
-                ReactDOM.render(<React.StrictMode><ChordSelector chords={chords}/></React.StrictMode>, div)
+                ReactDOM.createRoot(div).render(<React.StrictMode><ChordSelector chords={chords}/></React.StrictMode>)
             }
         }}>Add</button>
     )
@@ -120,7 +120,7 @@ function ChordMessage({notes}: TNotes) {
             let div = document.createElement("div");
             div.className = "generated"
             el.appendChild(div)
-            ReactDOM.render(<React.StrictMode><ChordInformation notes={notes} /></React.StrictMode>, div)
+            ReactDOM.createRoot(div).render(<React.StrictMode><ChordInformation notes={notes} /></React.StrictMode>)
         }
     }} src={listImage} alt='Chord Information'/></div></>}
 </div>)
@@ -173,7 +173,7 @@ function Scales({notes}: TNotes) {
             let div = document.createElement("div");
             div.className = "generated"
             el.appendChild(div)
-            ReactDOM.render(<React.StrictMode><ScaleInformation scale={scale} root={root}/></React.StrictMode>, div)
+            ReactDOM.createRoot(div).render(<React.StrictMode><ScaleInformation scale={scale} root={root}/></React.StrictMode>)
         }
     }} src={listImage} alt='Scale Information'/>
                     </div>)
@@ -212,7 +212,7 @@ function ChordsFromScale({notes}: TNotes) {
                 let div = document.createElement("div");
                 div.className = "generated"
                 el.appendChild(div)
-                ReactDOM.render(<React.StrictMode><Chord notes={chordCollection.notes}/></React.StrictMode>, div)
+                ReactDOM.createRoot(div).render(<React.StrictMode><Chord notes={chordCollection.notes}/></React.StrictMode>)
             }
         }} src={listImage} alt='Chord Information'/>
         </div>)
