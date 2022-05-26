@@ -1,9 +1,9 @@
-import styles from '../styles/Index.module.css'
-import kStyles from '../styles/keyboard.module.css'
-import eStyles from '../styles/explorer.module.css'
+import styles from '../styles/index.module.css'
+import kStyles from '../code/components/units/piano/piano.module.css'
+import eStyles from '../styles/dictionary.module.css'
 import Link from "next/link";
-import { Piano } from "../components/units/piano";
-import { matchScales, uniqueChords, INote, normalizeNote, getSingleChord, getScaleNotes, StdNote, IStdNote, simplify, chordsFromScale } from '../util/notes'
+import { Piano } from "../code/components/units/piano/piano";
+import { matchScales, uniqueChords, INote, normalizeNote, getSingleChord, getScaleNotes, StdNote, IStdNote, simplify, chordsFromScale } from '../code/util/extensions/notes/notes'
 import { Dispatch, SetStateAction, useState } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import listImage from '../public/list_black_24dp.svg'
@@ -31,7 +31,7 @@ export default function Dictionary() {
     return (<>
         <div className={styles.float}>
             <Link href={"/"}><a>Go Home</a></Link>
-            <GoHome chords={setChords}/>
+            <AddChord chords={setChords}/>
         </div>
         <div className={styles.container}>
             <div className={styles.card}><ChordSelector chords={setChords}/></div>
@@ -40,7 +40,7 @@ export default function Dictionary() {
     </>)
 }
 
-function GoHome({chords}: TChordMethod) {
+function AddChord({chords}: TChordMethod) {
     return (
 <button onClick={(e) => {
             let container = document.querySelector(`.${styles.container}`)

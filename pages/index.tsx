@@ -1,21 +1,20 @@
 import styles from '../styles/Index.module.css'
-import { RandomNote } from '../components/compound/randomnote';
-import { RandomChord } from '../components/compound/randomchord';
-import { QuestionInput } from '../components/compound/questioninput';
-import { AudioControls } from '../components/compound/audiocontrols';
-import { Result } from '../components/compound/result';
-import { AudioContext } from '../components/units/audiocontext';
-import { Interval } from '../components/units/interval';
+import { RandomNote } from '../code/components/compound/randomnote/randomnote';
+import { RandomChord } from '../code/components/compound/randomchord/randomchord';
+import { QuestionInput } from '../code/components/compound/questioninput/questioninput';
+import { AudioControls } from '../code/components/compound/audiocontrols/audiocontrols';
+import { Result } from '../code/components/compound/result/result';
+import { AudioContext } from '../code/components/units/audiocontext/audiocontext';
+import { Interval } from '../code/components/units/interval/interval';
 import { useState } from 'react';
-import { useArray } from '../util/customHooks';
-import { IStdNote } from '../util/notes';
+import { useArray } from '../code/util/hooks/customhooks/customhooks';
+import { IStdNote } from '../code/util/extensions/notes/notes';
 import Link from 'next/link';
-import { Stave } from '../components/units/stave';
-import { OscControls } from '../components/units/osccontrols';
-import { useQuestionGeneration } from '../util/useQuestionGeneration';
-import { QuestionControls } from '../components/compound/questionControls';
-
-export type AudioEvent = (type: string, data: IStdNote) => void
+import { Stave } from '../code/components/units/stave/stave';
+import { OscControls } from '../code/components/compound/osccontrols/osccontrols';
+import { useQuestionGeneration } from '../code/util/hooks/usequestiongeneration/usequestiongeneration';
+import { QuestionControls } from '../code/components/compound/questioncontrols/questioncontrols';
+import { AudioEvent } from '../code/util/hooks/midievents/midievents';
 
 export default function Index() {
   const answer = useArray<IStdNote>()
