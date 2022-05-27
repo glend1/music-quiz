@@ -1,6 +1,6 @@
 import { render, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { StdNote } from '../../util/notes'
+import { StdNote } from '../../../util/extensions/notes/notes'
 import { Piano } from './piano'
 
 describe("Piano", () => {

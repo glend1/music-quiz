@@ -2,8 +2,8 @@ import { render, screen } from '@testing-library/react'
 import { Provider } from 'react-redux';
 import { AudioContext } from './audiocontext'
 import { AudioContext as ACMock } from 'standardized-audio-context-mock';
-import { Store } from "../../../util/store"
 import userEvent from '@testing-library/user-event';
+import { Store } from '../../../util/store/store';
 
 describe("audioContext", () => {
     it("Should give the user a button to start the AudioContext", () => {

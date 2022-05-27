@@ -1,8 +1,7 @@
 import { render, screen, act} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useState } from 'react'
-import { IStdNote, StdNote } from '../../util/notes'
-import { RandomChord } from '../compound/randomchord'
+import { IStdNote, StdNote } from '../../../util/extensions/notes/notes'
 
 function MockRandomChord() {
     const question = useState<IStdNote>()

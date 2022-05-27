@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { renderHook, act } from '@testing-library/react-hooks/dom'
-import { useArray } from '../../../util/hooks/customhooks'
-import { IStdNote } from '../../../util/extensions/notes'
+import { IStdNote } from '../../../util/extensions/notes/notes'
+import { useArray } from '../../../util/hooks/customhooks/customhooks'
 import { QuestionInput } from './questioninput'
 
 //TODO this might need more testing

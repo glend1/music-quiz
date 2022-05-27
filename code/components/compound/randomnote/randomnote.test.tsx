@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react"
 import { renderHook } from "@testing-library/react-hooks/dom"
 import { useState } from "react"
-import { IStdNote } from "../../../util/extensions/notes"
+import { IStdNote } from "../../../util/extensions/notes/notes"
 import { RandomNote } from "./randomnote"
 
 describe("RandomNote", () => {

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { Provider } from 'react-redux';
+import { Store } from '../../../util/store/store';
 import { DetectPitch } from './detectpitch'
-import { Store } from "../../../util/store"
 
 describe("detectPitch", () => {
     it("Should tell the user to start the AudioContext", () => {

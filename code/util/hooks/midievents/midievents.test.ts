@@ -1,7 +1,7 @@
 import { MidiEvents } from "./midievents";
-import { IStdNote } from "./notes";
-import { useArray, IArray } from "./customHooks"
 import { renderHook, act, RenderResult } from '@testing-library/react-hooks/dom'
+import { IArray, useArray } from "../customhooks/customhooks";
+import { IStdNote } from "../../extensions/notes/notes";
 
 describe("midiEvents: These are the events used in midicontrols component", () => {
     describe("mouse: Should trigger when you press a mouse button", () => {

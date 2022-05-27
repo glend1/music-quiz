@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { useFormState } from "../../../util/hooks/customhooks"
+import { useFormState } from '../../../util/hooks/customhooks/customhooks'
 import { Slider } from './slider'
 
 function SliderMock() {

@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, act } from '@testing-library/react'
-import { StdNote } from '../../util/notes'
+import { StdNote } from '../../../util/extensions/notes/notes'
 import { Result } from './result'
 
 describe("answer", () => {

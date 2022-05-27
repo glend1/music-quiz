@@ -1,8 +1,8 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { START_AUDIO, Store } from "../../../util/store";
 import { AudioControls } from "./audiocontrols";
 import { AudioContext as ACMock } from 'standardized-audio-context-mock';
+import { START_AUDIO, Store } from "../../../util/store/store";
 
 describe("audiocontrols", () => {
     it("Should ask for a audiocontext", () => {

@@ -1,7 +1,7 @@
 import { Interval } from './interval'
 import { render, screen, fireEvent } from "@testing-library/react"
 import { useState } from 'react'
-import { IStdNote, StdNote } from '../../util/notes'
+import { IStdNote, StdNote } from '../../../util/extensions/notes/notes'
 
 function MockInterval({val}: {val?: IStdNote}) {
     const question = useState<IStdNote>(val)

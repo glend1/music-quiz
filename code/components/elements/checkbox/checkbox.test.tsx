@@ -1,6 +1,6 @@
 import { render, screen, act, fireEvent } from "@testing-library/react"
 import { renderHook } from "@testing-library/react-hooks/dom"
-import { useBoolean } from "../../util/customHooks"
+import { useBoolean } from "../../../util/hooks/customhooks/customhooks"
 import { CheckBox } from "./checkbox"
 
 describe("checkbox", () => {

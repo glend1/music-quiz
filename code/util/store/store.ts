@@ -1,3 +1,4 @@
+//TODO update depreciated store
 import { Action, createStore } from 'redux'
 
 export type State = { context: AudioContext | null}

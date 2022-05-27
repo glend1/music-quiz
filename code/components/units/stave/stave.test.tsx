@@ -1,5 +1,5 @@
 import { render, waitFor } from '@testing-library/react'
-import { generateRandomNote } from '../../../util/extensions/notes'
+import { generateRandomNote } from '../../../util/extensions/notes/notes'
 import { Stave } from './stave'
 
 describe("Stave Component", () => {

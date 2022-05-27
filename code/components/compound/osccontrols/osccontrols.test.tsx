@@ -1,12 +1,12 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { Provider } from 'react-redux';
-import { START_AUDIO, Store } from "../../../util/store"
 import { OscControls } from './osccontrols'
 import { AudioContext, OscillatorNode, registrar } from 'standardized-audio-context-mock';
 import userEvent from '@testing-library/user-event';
 import { act, renderHook } from '@testing-library/react-hooks/dom';
 import { useState } from 'react';
-import { IStdNote, StdNote } from '../../../util/extensions/notes';
+import { START_AUDIO, Store } from '../../../util/store/store';
+
 
 describe("OscControls", () => {
     const ac = global.AudioContext
