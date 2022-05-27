@@ -1,8 +1,8 @@
-  .deleteParent {
-      float: right;
-  }
+.deleteParent {
+    float: right;
+}
 
-  .bubble {
+.bubble {
     margin: .2rem;
     padding: .2rem;
     color: inherit;
