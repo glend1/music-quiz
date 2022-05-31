@@ -1,8 +1,7 @@
 import { Dispatch, SetStateAction, useEffect } from 'react';
 import { PitchDetector } from "pitchy";
-import { useSelector } from 'react-redux';
 import { useBoolean, useInterval } from '../../../util/hooks/customhooks/customhooks';
-import { State } from '../../../util/store/store';
+import { UseAudioContext } from '../../../util/context/audiocontext';
 
 export type IFreq = {pitch: number | null, clarity: number}
 
@@ -11,7 +10,7 @@ type IPitch = {
 }
 
 export function DetectPitch({cb}: IPitch) {
-  const audioContext = useSelector((state: State) => state.context )
+  const {context: audioContext} = UseAudioContext()
   const {bool: listening, toggle: toggleListening} = useBoolean(false)
   const {set: setPitch, clear: clearPitch} = useInterval()
   useEffect(() => {

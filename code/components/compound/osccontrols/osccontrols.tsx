@@ -1,11 +1,10 @@
-import { useSelector } from "react-redux";
 import { Select } from "../../elements/select/select";
 import { useBoolean, useFormState } from "../../../util/hooks/customhooks/customhooks";
-import { State } from "../../../util/store/store";
 import { IStdNote } from "../../../util/extensions/notes/notes";
 import { Slider } from "../../elements/slider/slider";
 import { IAudioEvent, MidiOsc } from "../../../util/hooks/midiosc/midiosc";
 import { QuestionOsc } from "../../units/questionosc/questionsosc";
+import { UseAudioContext } from "../../../util/context/audiocontext";
 
 type IOsc = IAudioEvent & OscQuestion
 
@@ -24,7 +23,7 @@ export function setupOscillator(ctx: AudioContext, type: string, vol: string) {
 }
 
 export function OscControls({ setAudioEvent, question }: IOsc) {
-  const audioContext = useSelector((state: State) => state.context);
+  const {context: audioContext} = UseAudioContext()
   const {bool: play, toggle: togglePlay} = useBoolean(false)
   const [volumeState, setVolume] = useFormState("50");
   const [wave, setWave] = useFormState("triangle");

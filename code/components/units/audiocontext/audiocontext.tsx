@@ -1,11 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { Action, Dispatch } from 'redux';
-import { START_AUDIO, State } from '../../../util/store/store'
+import { UseAudioContext } from '../../../util/context/audiocontext';
 
 export function AudioContext() {
-    const dispatch = useDispatch<Dispatch<Action<String>>>();
-    const context = useSelector((state: State) => state.context)
+    const audioContext = UseAudioContext()
     return (
-        <button disabled={(context == null) ? false : true} onClick={() => dispatch({type: START_AUDIO}) }>Start Audio Context</button>
+        <button disabled={(audioContext.context == null) ? false : true} onClick={audioContext.createAudioContext}>Start Audio Context</button>
     )
 }

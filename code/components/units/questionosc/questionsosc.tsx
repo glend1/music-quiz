@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { UseAudioContext } from "../../../util/context/audiocontext";
 import { IStdNote, midiToFrequency } from "../../../util/extensions/notes/notes";
-import { State } from "../../../util/store/store";
 import { OscQuestion, OscSettings, setupOscillator } from "../../compound/osccontrols/osccontrols";
 
 export function QuestionOsc({ wave, play, volume, question} : OscSettings & OscQuestion) {
-    const audioContext = useSelector((state: State) => state.context);
+  const {context: audioContext} = UseAudioContext()
       const [osc, setOsc] = useState<undefined | OscillatorNode>()
   const [iId, setIId] = useState<undefined | NodeJS.Timer>()
     function playNext(node: OscillatorNode, ctx: AudioContext, queue: IStdNote[]) {
