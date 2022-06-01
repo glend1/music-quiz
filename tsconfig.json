@@ -26,15 +26,6 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "code/util/midievents/midievents.ts",
-    "code/util/notes.ts",
-    "components/compound/randomnote.tsx",
-    "components/units/interval/interval.tsx",
-    "components/units/keyboard.tsx",
-    "components/compound/osccontrols.tsx",
-    "components/units/audiograph.tsx",
-    "code/util/maths/maths.test.ts",
-    "jest.setup.js"
   ],
   "exclude": [
     "node_modules"

@@ -1,4 +1,4 @@
-import styles from '../styles/Index.module.css'
+import styles from '../styles/index.module.css'
 import { RandomNote } from '../code/components/compound/randomnote/randomnote';
 import { RandomChord } from '../code/components/compound/randomchord/randomchord';
 import { QuestionInput } from '../code/components/compound/questioninput/questioninput';
