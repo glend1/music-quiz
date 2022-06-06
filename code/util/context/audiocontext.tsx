@@ -1,17 +1,17 @@
 import { createContext, useContext, useState } from "react"
 
-type ContextT = {
+export type ContextT = {
     context: AudioContext | undefined;
     createAudioContext: () => void;
 }
 
-export const reactContext = createContext<ContextT>({context: undefined, createAudioContext: () => {}})
+const reactContext = createContext<ContextT>({context: undefined, createAudioContext: () => {}})
 
 export function GlobalAudioContext({children}: {children: React.ReactNode}) {
     const [context, setAudioContext] = useState<undefined | AudioContext>()
     function createAudioContext() {
         if (!context) {
-            setAudioContext(new AudioContext())
+            setAudioContext(new AudioContext())    
         }
     }
     return (
@@ -21,6 +21,6 @@ export function GlobalAudioContext({children}: {children: React.ReactNode}) {
     )
 }
 
-export function UseAudioContext(){
+export function useAudioContext(){
     return useContext(reactContext) 
   } 

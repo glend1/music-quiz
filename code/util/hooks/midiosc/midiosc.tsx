@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useEffect } from "react";
 import { useArray } from "../customhooks/customhooks";
 import { IStdNote, midiToFrequency } from "../../extensions/notes/notes";
 import { OscSettings, setupOscillator } from "../../../components/compound/osccontrols/osccontrols";
-import { UseAudioContext } from "../../context/audiocontext";
+import { useAudioContext } from "../../context/audiocontext";
 
 
 export type IAudioEvent = {setAudioEvent: Dispatch<SetStateAction<((type: string, data: IStdNote) => void) | undefined>>}
@@ -10,7 +10,7 @@ type IMidiOsc = IAudioEvent & OscSettings
 type IHeld = { data: IStdNote; oscilator: OscillatorNode };
 
 export function MidiOsc({setAudioEvent, wave, play, volume}: IMidiOsc) {
-  const {context: audioContext} = UseAudioContext()
+  const {context: audioContext} = useAudioContext()
   const { push: heldPush, filter: heldFilter } = useArray<IHeld>();
     useEffect(() => {
         setAudioEvent(() => {

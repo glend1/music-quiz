@@ -4,7 +4,7 @@ import { RandomChord } from '../code/components/compound/randomchord/randomchord
 import { QuestionInput } from '../code/components/compound/questioninput/questioninput';
 import { AudioControls } from '../code/components/compound/audiocontrols/audiocontrols';
 import { Result } from '../code/components/compound/result/result';
-import { AudioContext } from '../code/components/units/audiocontext/audiocontext';
+import { CreateAudio } from '../code/components/units/createaudio/createaudio';
 import { Interval } from '../code/components/units/interval/interval';
 import { useState } from 'react';
 import { useArray } from '../code/util/hooks/customhooks/customhooks';
@@ -20,6 +20,7 @@ export default function Index() {
   const answer = useArray<IStdNote>()
   const questionGeneration = useQuestionGeneration()
   const [audioEvent, setAudioEvent] = useState<AudioEvent | undefined>()
+  //TODO use useId
   //TODO sort eslint
   //TODO use undefined
   //TODO use userEvent
@@ -27,7 +28,7 @@ export default function Index() {
     <>
     <div className={styles.float}>
         <Link href={'/dictionary'}><a>Dictionary</a></Link>
-        <AudioContext />
+        <CreateAudio />
       </div>
         <h2>Generate</h2>
     <div className={styles.container}>

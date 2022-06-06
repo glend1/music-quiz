@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { UseAudioContext } from "../../../util/context/audiocontext";
+import { useAudioContext } from "../../../util/context/audiocontext";
 import { IStdNote, midiToFrequency } from "../../../util/extensions/notes/notes";
 import { OscQuestion, OscSettings, setupOscillator } from "../../compound/osccontrols/osccontrols";
 
 export function QuestionOsc({ wave, play, volume, question} : OscSettings & OscQuestion) {
-  const {context: audioContext} = UseAudioContext()
+  const {context: audioContext} = useAudioContext()
       const [osc, setOsc] = useState<undefined | OscillatorNode>()
   const [iId, setIId] = useState<undefined | NodeJS.Timer>()
     function playNext(node: OscillatorNode, ctx: AudioContext, queue: IStdNote[]) {
