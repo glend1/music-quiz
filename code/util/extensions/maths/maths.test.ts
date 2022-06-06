@@ -67,3 +67,26 @@ describe("randomFromRange: returns a random value between the two values", () =>
         })
     })
 })
+
+describe("randomWeights", () => {
+    it("should return the first value", () => {
+        jest.spyOn(global.Math, 'random').mockReturnValue(0.4);
+        const randomVal = Test.randomWeight([{percent: 1/2, value: 2}], 1)
+        expect(randomVal).toBe(2)
+    })
+    it("should return the second value", () => {
+        jest.spyOn(global.Math, 'random').mockReturnValue(0.6);
+        const randomVal = Test.randomWeight([{percent: 1/2, value: 2}, {percent: 1/3, value: 3}], 1)
+        expect(randomVal).toBe(3)
+    })
+    it("should return the default value", () => {
+        jest.spyOn(global.Math, 'random').mockReturnValue(0.8);
+        const randomVal = Test.randomWeight([{percent: 1/2, value: 2}], 1)
+        expect(randomVal).toBe(1)
+    })
+    it("should return an error that the chance is too great", () => {
+        jest.spyOn(global.Math, 'random').mockReturnValue(0.8);
+        const randomVal = Test.randomWeight([{percent: 1/2, value: 2}, {percent: 1, value: 3}], 1)
+        expect(randomVal).toBe(0)
+    })
+})
