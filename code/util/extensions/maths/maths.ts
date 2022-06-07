@@ -20,7 +20,7 @@ export function randomWeight<T>(options: {percent: number, value: T}[], defaultV
     for (let i = 0; i < options.length; i++) {
       total += options[i].percent
       if (total > 1) { 
-        return 0 
+        return null 
       } else if (total >= random) {
         return options[i].value
       }

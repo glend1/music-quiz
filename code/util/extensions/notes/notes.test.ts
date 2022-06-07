@@ -33,6 +33,18 @@ describe("generateRandomNote: Returns a random StdNote", () => {
         jest.spyOn(global.Math, 'random').mockReturnValue(0.3);
         expect(Notes.generateRandomNote(10, 30, false)).toEqual({abc: "E", midi: 64, name: "E", note: "E4", octave: 4})
     })
+    it("Should return a Sharp", () => {
+        jest.spyOn(global.Math, 'random').mockReturnValue(0.3);
+        expect(Notes.generateRandomNote(10, 30, true)).toEqual({abc: "^E", midi: 65, name: "E#", note: "E#4", octave: 4})
+    })
+    it("Should return a Flat", () => {
+        jest.spyOn(global.Math, 'random').mockReturnValue(0.1);
+        expect(Notes.generateRandomNote(10, 30, true)).toEqual({abc: "_A,", midi: 56, name: "Ab", note: "Ab3", octave: 3})
+    })
+    it("Should return a Natural", () => {
+        jest.spyOn(global.Math, 'random').mockReturnValue(0.6);
+        expect(Notes.generateRandomNote(10, 30, true)).toEqual({abc: "d", midi: 74, name: "D", note: "D5", octave: 5})
+    })
 })
 describe("normalizeMidi: returns a StdNote", () => {
     it("Should return a sharp StdNote if you tell it to", () => {
@@ -57,7 +69,7 @@ describe("createInterval: returns an IInt type", () => {
     afterAll(() => {
         jest.spyOn(global.Math, 'random').mockRestore();
     })
-    it("Should generate an Ascending Perfect Fourth", () => {
+    it("Should generate an Ascending Major Second", () => {
         jest.spyOn(global.Math, 'random').mockReturnValue(0.4);
         expect(Notes.createInterval(Notes.StdNote("C4"), 4, "Ascending")).toStrictEqual({
             "description": "Ascending Major Second", 
@@ -66,6 +78,45 @@ describe("createInterval: returns an IInt type", () => {
                 "midi": 62, 
                 "name": "D", 
                 "note": "D4", 
+                "octave": 4
+            }
+        })
+    })
+    it("Should generate an Descending Perfect Fourth", () => {
+        jest.spyOn(global.Math, 'random').mockReturnValue(0.4);
+        expect(Notes.createInterval(Notes.StdNote("C4"), 4, "Descending")).toStrictEqual({
+            "description": "Descending Major Second", 
+            "note": {
+                "abc": "^A,", 
+                "midi": 58, 
+                "name": "A#", 
+                "note": "A#3", 
+                "octave": 3
+            }
+        })
+    })
+    it("Should generate an Descending Perfect Fourth", () => {
+        jest.spyOn(global.Math, 'random').mockReturnValue(0.4);
+        expect(Notes.createInterval(Notes.StdNote("C4"), 4, "Both")).toStrictEqual({
+            "description": "Ascending Major Second", 
+            "note": {
+                "abc": "D", 
+                "midi": 62, 
+                "name": "D", 
+                "note": "D4", 
+                "octave": 4
+            }
+        })
+    })
+    it("Should generate a unison", () => {
+        jest.spyOn(global.Math, 'random').mockReturnValue(0.1);
+        expect(Notes.createInterval(Notes.StdNote("C4"), 4, "Both")).toStrictEqual({
+            "description": "Unison", 
+            "note": {
+                "abc": "C", 
+                "midi": 60, 
+                "name": "C", 
+                "note": "C4", 
                 "octave": 4
             }
         })
@@ -151,6 +202,9 @@ describe("offsetNotesFromFrequency: will return notes from an offset from a midi
             "min": 67, 
             "minfreq": 391.99543598174927}
         )
+    })
+    it("Should return 0 if the result in unacceptible", () => {
+        expect(Notes.offsetNotesFromFrequency(44000000, 20000)).toBeNull()
     })
 })
 describe("chordsFromScale: will return all the cords from a given scale", () => {

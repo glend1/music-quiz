@@ -58,7 +58,14 @@ export function FromFreq(freq: number) {
         let random = randomFromRange(min, max)
         if (random != null) {
             let note = getNaturalNoteFromArray(random)
-            note = note[0] + (accidental ? randomWeight([{percent: 1/4, value: "b"}, {percent: 1/4, value: "#"}], "") : "") + note[1]
+            let accidentalSymbol = ""
+            if (accidental) {
+                let symbol = randomWeight([{percent: 1/4, value: "b"}, {percent: 1/4, value: "#"}], "")
+                if (symbol != null) {
+                    accidentalSymbol = symbol
+                }
+            }
+            note = note[0] + accidentalSymbol + note[1]
             return StdNote(note)
         }
     }
