@@ -41,8 +41,7 @@ describe("midiEvents: These are the events used in midicontrols component", () =
                     }
                 }
             };
-            const {result: {current: {midiKeyboard}}} = renderHook(() => MidiEvents(array.current, true, 4, jest.fn(), i ))
-            midiKeyboard()
+            renderHook(() => MidiEvents(array.current, true, 4, jest.fn(), i ))
         }
         beforeEach(() => {
             ({ result: array } = renderHook(() => useArray<IStdNote>()))
