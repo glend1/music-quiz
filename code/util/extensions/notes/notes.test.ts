@@ -26,6 +26,7 @@ describe("FromFreq: Creates a standard note from frequency", () => {
     })
 })
 describe("generateRandomNote: Returns a random StdNote", () => {
+    //TODO this sometimes doesn't generate a note, when the value is too low/high
     afterAll(() => {
         jest.spyOn(global.Math, 'random').mockRestore();
     })
@@ -44,6 +45,18 @@ describe("generateRandomNote: Returns a random StdNote", () => {
     it("Should return a Natural", () => {
         jest.spyOn(global.Math, 'random').mockReturnValue(0.6);
         expect(Notes.generateRandomNote(10, 30, true)).toEqual({abc: "d", midi: 74, name: "D", note: "D5", octave: 5})
+    })
+    it("Should return null if the range is too big", () => {
+        jest.spyOn(global.Math, 'random').mockReturnValue(0.3);
+        expect(Notes.generateRandomNote(35, 50, false)).toBeNull()
+    })
+})
+describe("getNaturalNoteFromArray", () => {
+    it("Should return a value if the argument is in range", () => {
+        expect(Notes.getNaturalNoteFromArray(23)).toBe("E5")
+    }) 
+    it("Should return null if the argument isn't in range", () => {
+        expect(Notes.getNaturalNoteFromArray(35)).toBeNull()
     })
 })
 describe("normalizeMidi: returns a StdNote", () => {

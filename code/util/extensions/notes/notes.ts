@@ -58,19 +58,27 @@ export function FromFreq(freq: number) {
         let random = randomFromRange(min, max)
         if (random != null) {
             let note = getNaturalNoteFromArray(random)
-            let accidentalSymbol = ""
-            if (accidental) {
-                let symbol = randomWeight([{percent: 1/4, value: "b"}, {percent: 1/4, value: "#"}], "")
-                if (symbol != null) {
-                    accidentalSymbol = symbol
+            if (note != null) {
+                let accidentalSymbol = ""
+                if (accidental) {
+                    let symbol = randomWeight([{percent: 1/4, value: "b"}, {percent: 1/4, value: "#"}], "")
+                    if (symbol != null) {
+                        accidentalSymbol = symbol
+                    }
                 }
+                note = note[0] + accidentalSymbol + note[1]
+                return StdNote(note)
+            } else {
+                return null
             }
-            note = note[0] + accidentalSymbol + note[1]
-            return StdNote(note)
         }
     }
     export function getNaturalNoteFromArray(value: number) {
-        return octaveNotes[value]
+        if (octaveNotes[value]) {
+            return octaveNotes[value]
+        } else {
+            return null
+        }
     }
 
 export function createInterval(root: IStdNote, maxInterval: number, direction: DirectionType) {

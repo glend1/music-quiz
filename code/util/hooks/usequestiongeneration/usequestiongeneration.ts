@@ -5,6 +5,18 @@ import { Chord, createInterval, DirectionType, generateRandomNote, IStdNote, ran
 
 export type IntervalT = { note: IStdNote; description: string;}
 export type TType = "Note" | "Chord" | "Interval" | undefined
+export type TQuestionGeneration = {
+    root: IStdNote, 
+    newRoot: (min: number, max: number, accidental: boolean) => IStdNote,
+    chord: Chord | undefined,
+    newChord: (min: number, max: number, iRoot?: IStdNote) => void,
+    interval: IntervalT | undefined,
+    newInterval: (intervalRange: number, direction: DirectionType, iRoot?: IStdNote) => void,
+    question: IStdNote[],
+    current: number,
+    type: TType,
+    nextQuestion: () => void
+}
 
 export function useQuestionGeneration() {
     const [root, setRoot] = useState<IStdNote>()
