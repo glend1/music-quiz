@@ -2,7 +2,8 @@ import { getSingleChord } from "../../../util/extensions/notes/notes"
 import { TNotes } from "../../units/dictionaryutils/dictionaryutils"
 import Image from 'next/image';
 import dStyles from '../../units/dictionaryutils/dictionaryutils.module.css'
-import * as ReactDOM from 'react-dom/client';
+// import * as ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import React from "react";
 import { Chord } from "../chord/chord";
 import { list } from "../../elements/images";
@@ -30,7 +31,8 @@ export function ChordInformation({notes}: TNotes) {
             let div = document.createElement("div");
             div.className = "generated"
             el.appendChild(div)
-            ReactDOM.createRoot(div).render(<React.StrictMode><Chord notes={notes} /></React.StrictMode>)
+            // ReactDOM.createRoot(div).render(<React.StrictMode><Chord notes={notes} /></React.StrictMode>)
+            ReactDOM.render(<React.StrictMode><Chord notes={notes} /></React.StrictMode>, div)
         }
     }} src={list} alt='Chord Information'/></div></>}
 </div>)
