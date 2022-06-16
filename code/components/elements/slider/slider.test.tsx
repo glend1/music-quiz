@@ -7,6 +7,11 @@ function SliderMock() {
     return(<Slider id="id" label="Label:" value={val} set={set} min={1} max={6}/>)
 }
 
+function CustomDisplaySliderMock() {
+    const [val, set] = useFormState("4")
+    return(<Slider id="id" label="Label:" value={val} set={set} min={1} max={6} display="TEST"/>)
+}
+
 describe("slider", () => {
     it("Should have a default value of 4", () => {
         render(<SliderMock />)
@@ -16,5 +21,10 @@ describe("slider", () => {
         render(<SliderMock />)
         fireEvent.change(screen.getByRole("slider"), {target: {value: "2"}})
         expect(screen.getByRole("slider")).toHaveValue("2")
+    })
+    it("display a custom display value", () => {
+        render(<CustomDisplaySliderMock />)
+        fireEvent.change(screen.getByRole("slider"), {target: {value: "2"}})
+        expect(screen.getByText("TEST")).toBeVisible()
     })
 })

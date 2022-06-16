@@ -87,6 +87,6 @@ describe("randomWeights", () => {
     it("should return an error that the chance is too great", () => {
         jest.spyOn(global.Math, 'random').mockReturnValue(0.8);
         const randomVal = Test.randomWeight([{percent: 1/2, value: 2}, {percent: 1, value: 3}], 1)
-        expect(randomVal).toBe(0)
+        expect(randomVal).toBeNull()
     })
 })
