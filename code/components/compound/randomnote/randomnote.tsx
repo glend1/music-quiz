@@ -9,7 +9,10 @@ export function RandomNote({newQuestion}: { newQuestion: (min: number, max: numb
     const [min, setMin] = useFormState("2")
     const [max, setMax] = useFormState("28")
     function display(value: string) {
-        return getNaturalNoteFromArray(parseInt(value))
+        let note = getNaturalNoteFromArray(parseInt(value))
+        if (note) {
+            return note
+        }
     }
     return (
         <>

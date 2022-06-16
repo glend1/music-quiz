@@ -31,11 +31,13 @@ export function useQuestionGeneration() {
     function newRoot(min: number, max: number, accidental: boolean) {
         setRArgs([min, max, accidental])
         let note = generateRandomNote(min, max, accidental)
-        setRoot(note)
-        answers.set([note])
-        setCurrent(0)
-        setType("Note")
-        return note
+        if (note) {
+            setRoot(note)
+            answers.set([note])
+            setCurrent(0)
+            setType("Note")
+            return note
+        }
     }
     function newChord(min: number, max: number, iRoot = root) {
         if (iRoot) {

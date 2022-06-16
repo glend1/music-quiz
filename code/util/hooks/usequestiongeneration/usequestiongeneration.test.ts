@@ -3,9 +3,10 @@ import { TQuestionGeneration, useQuestionGeneration } from './usequestiongenerat
 
 describe("useQuestionGeneration", () => {
     let result: RenderResult<TQuestionGeneration>
-    let waitForNextUpdate: WaitForNextUpdate
+    // let waitForNextUpdate: WaitForNextUpdate
     beforeEach(() => {
-        ({result, waitForNextUpdate} = renderHook(() => useQuestionGeneration()))
+        // ({result, waitForNextUpdate} = renderHook(() => useQuestionGeneration()))
+        ({result} = renderHook(() => useQuestionGeneration()))
         jest.spyOn(global.Math, 'random').mockReturnValue(0.5);
         act(() => {
             result.current.newRoot(14, 34, false)
