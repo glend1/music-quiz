@@ -28,10 +28,16 @@ export function AddChord({chords}: TChordMethod) {
 
 export function DeleteParent({cb}: OptionalCallback) {
     return (<button className={styles.deleteParent} onClick={(e) => {
-        let element = (e.target as HTMLElement).parentNode
-        element?.parentNode?.removeChild(element)
-        if (cb) {
-            cb()
+        const element = (e.target as HTMLElement)
+        if (element.parentNode) {
+            const parentElement = element.parentNode
+            if (parentElement.parentNode) {
+                parentElement.parentNode.removeChild(parentElement)
+                if (cb) {
+                    cb()
+                }
+            }
         }
-    }}>remove</button>)
+
+    }}>Remove</button>)
 }
