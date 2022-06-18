@@ -47,7 +47,7 @@ describe("randomFromRange: returns a random value between the two values", () =>
             }
         }
         arr = arr.sort()
-        expect(total * 0.005).toBeGreaterThan(arr[7] - arr[0])
+        expect(total * 0.006).toBeGreaterThan(arr[7] - arr[0])
     })
     describe("random tests", () => {
         afterAll(() => {
