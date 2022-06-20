@@ -1,43 +1,36 @@
 import { render, screen, act} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { useState } from 'react'
-import { IStdNote, StdNote } from '../../../util/extensions/notes/notes'
+import { useEffect} from 'react'
+import { useQuestionGeneration } from '../../../util/hooks/usequestiongeneration/usequestiongeneration'
+import { RandomChord } from './randomchord'
 
-// function MockRandomChord() {
-//     const question = useState<IStdNote>()
-//     const root = useState<IStdNote>(StdNote("C4"))
-//     return <RandomChord root={root[0]} question={question[0]} setQuestion={question[1]} />
-// }
+function MockRandomChord() {
+    const questionGeneration = useQuestionGeneration()
+    useEffect(() => {
+        questionGeneration.newRoot(2,26, false)
+    }, [])
+    return <><RandomChord root={questionGeneration.root} newChord={questionGeneration.newChord} /><div>{questionGeneration.chord?.symbol}</div></>
+}
 
-// describe("randomchord: this will generate a random chord", () => {
-//     it("Should have default values", () => {
-//         const rc = render(<MockRandomChord />)
-//         const sliders = rc.getAllByRole("slider")
-//         expect(sliders).toHaveLength(2)
-//         expect(sliders[0]).toHaveAttribute("min", "2")
-//         expect(sliders[0]).toHaveValue("2")
-//         expect(sliders[1]).toHaveAttribute("max", "7")
-//         expect(sliders[1]).toHaveValue("4")
-//     })
-//     describe("interactions", () => {
-//         afterAll(() => {
-//             jest.spyOn(global.Math, 'random').mockRestore();
-//         })
-//         it("Should generate a randomChord and go through notes when next is pressed", () => {
-//             jest.spyOn(global.Math, 'random').mockReturnValue(0.5);
-//             const rc = render(<MockRandomChord />)
-//             act(() => {
-//                 userEvent.click(screen.getByRole("button"))
-//             })
-//             expect(rc.getByText("CMb5")).toBeVisible()
-//             act(() => {
-//                 userEvent.click(screen.getAllByRole("button")[1])
-//             })
-//             expect(rc.getByText("C4 E4")).toBeVisible()
-//             act(() => {
-//                 userEvent.click(screen.getAllByRole("button")[1])
-//             })
-//             expect(screen.getAllByRole("button")).toHaveLength(1)
-//         })
-//     })
-// })
+describe("randomchord: this will generate a random chord", () => {
+    it("Should have default values", () => {
+        const rc = render(<MockRandomChord />)
+        const sliders = rc.getAllByRole("slider")
+        expect(sliders).toHaveLength(2)
+        expect(sliders[0]).toHaveAttribute("min", "2")
+        expect(sliders[0]).toHaveValue("2")
+        expect(sliders[1]).toHaveAttribute("max", "7")
+        expect(sliders[1]).toHaveValue("4")
+    })
+    describe("interactions", () => {
+        afterAll(() => {
+            jest.spyOn(global.Math, 'random').mockRestore();
+        })
+        it("Should generate a randomChord", () => {
+            jest.spyOn(global.Math, 'random').mockReturnValue(0.5);
+            render(<MockRandomChord />)
+            userEvent.click(screen.getByRole("button"))
+            expect(screen.getByText("CMb5")).toBeVisible()
+        })
+    })
+})
