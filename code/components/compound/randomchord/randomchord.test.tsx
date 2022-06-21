@@ -1,4 +1,4 @@
-import { render, screen, act} from '@testing-library/react'
+import { fireEvent, render, screen} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useEffect} from 'react'
 import { useQuestionGeneration } from '../../../util/hooks/usequestiongeneration/usequestiongeneration'
@@ -14,8 +14,8 @@ function MockRandomChord() {
 
 describe("randomchord: this will generate a random chord", () => {
     it("Should have default values", () => {
-        const rc = render(<MockRandomChord />)
-        const sliders = rc.getAllByRole("slider")
+        render(<MockRandomChord />)
+        const sliders = screen.getAllByRole("slider")
         expect(sliders).toHaveLength(2)
         expect(sliders[0]).toHaveAttribute("min", "2")
         expect(sliders[0]).toHaveValue("2")
@@ -23,14 +23,24 @@ describe("randomchord: this will generate a random chord", () => {
         expect(sliders[1]).toHaveValue("4")
     })
     describe("interactions", () => {
-        afterAll(() => {
+        afterEach(() => {
             jest.spyOn(global.Math, 'random').mockRestore();
         })
-        it("Should generate a randomChord", () => {
+        beforeEach(() => {
             jest.spyOn(global.Math, 'random').mockReturnValue(0.5);
+        })
+        it("Should generate a randomChord", () => {
             render(<MockRandomChord />)
             userEvent.click(screen.getByRole("button"))
             expect(screen.getByText("CMb5")).toBeVisible()
+        })
+        it("Should change the difficulty", () => {
+            render(<MockRandomChord />)
+            const sliders = screen.getAllByRole("slider")
+            fireEvent.change(sliders[0], {target: {value: "5"}})
+            fireEvent.change(sliders[1], {target: {value: "7"}})
+            userEvent.click(screen.getByRole("button"))
+            expect(screen.getByText("C9#11")).toBeVisible()
         })
     })
 })
