@@ -2,14 +2,15 @@ import { useState } from "react"
 import { v4 as uuid } from 'uuid';
 import { Piano } from "../../units/piano/piano";
 import kStyles from '../../units/piano/piano.module.css'
-import { ChordInformation } from "../chordinformation/chordinformation";
 import dStyles from '../../units/dictionaryutils/dictionaryutils.module.css'
-import { TChordMethod } from "../../units/dictionaryutils/dictionaryutils";
+import { TChordMethod, TNotes } from "../../units/dictionaryutils/dictionaryutils";
 import { DeleteParent } from '../../units/dictionaryutils/dictionaryutils'
+import { ChordContainer } from "../chordcontainer/chordcontainer";
+import { getSingleChord } from "../../../util/extensions/notes/notes";
 
 export function ChordSelector({chords}: TChordMethod) {
     const [uid] = useState(uuid())
-const [chordState, setChord] = useState<string[]>([])
+const [chordState, setChord] = useState<TNotes>()
 return (<><h2>Chord</h2><span className={dStyles.bold}>Select a Chord</span>
 <Piano higher={true} highlight={[]} cb={(e: React.MouseEvent<SVGElement>): void => {
     let el = e.target as SVGElement
@@ -22,14 +23,19 @@ return (<><h2>Chord</h2><span className={dStyles.bold}>Select a Chord</span>
             selected.push(note)
         }
     })
-    setChord(() => { return selected })
+    setChord(() => { 
+        let isChord = false
+        if (getSingleChord(selected)) {
+            isChord = true
+        }
+        return { validChord: isChord, notes: selected }})
     chords((prev) => {
         prev[uid] = selected
         return {...prev}
     })
     el.parentNode?.parentNode?.parentNode?.parentNode?.querySelector(`.generated`)?.remove()
 } } />
-<ChordInformation notes={chordState} />
+<ChordContainer {...chordState} />
 <DeleteParent cb={() => {
     chords((prev) => {
         delete prev[uid]

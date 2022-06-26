@@ -11,7 +11,8 @@ import React from "react";
 import { ScaleInformation } from "../scaleinformation/scaleinformation"
 import { list } from "../../elements/images"
 
-export function Scales({notes}: TNotes) {
+export function Scales(obj: TNotes) {
+    const {notes, validChord} = obj
     const [root, setRoot] = useState<string | undefined>()
     return(<><h2>Scales</h2><span className={dStyles.bold}>Select a Scale Root</span>
         <Piano highlight={[]} width={200} height={75} cb={(e: React.MouseEvent<SVGElement>): void => {
@@ -30,7 +31,7 @@ export function Scales({notes}: TNotes) {
             setRoot(undefined)
         }
     } } />
-        {root ? <> <span className={dStyles.bold}>Scale Names</span>{matchScales(notes, root).map((scale, i) => {
+        {root && notes ? <> <span className={dStyles.bold}>Scale Names</span>{matchScales(notes, root).map((scale, i) => {
                 return (<div className={dStyles.bubble} key={scale}>
                     <span className={dStyles.align}>{root} {scale}</span><Image onClick={(e) => {
         let el = (e.target as HTMLElement).parentElement!.parentElement!

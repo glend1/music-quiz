@@ -8,9 +8,10 @@ import React from "react";
 import { Chord } from "../chord/chord";
 import { list } from "../../elements/images";
 
-export function ChordsFromScale({notes}: TNotes) {
+export function ChordsFromScale(obj: TNotes) {
+    const {notes, validChord} = obj
     return (<><span className={dStyles.bold}>Chords in Scale</span>
-    {chordsFromScale(notes).map((chordCollection) => {
+    {validChord && notes ? <>{chordsFromScale(notes).map((chordCollection) => {
         return (<div className={dStyles.bubble} key={chordCollection.name}><span className={dStyles.align}>{chordCollection.name}</span>
         <Image onClick={(e) => {
             let el = (e.target as HTMLElement).parentElement!.parentElement!
@@ -27,5 +28,6 @@ export function ChordsFromScale({notes}: TNotes) {
         }} src={list} alt='Chord Information'/>
         </div>)
     })}
+    </> : <div>Not a valid chord</div>}
     </>)
 }
