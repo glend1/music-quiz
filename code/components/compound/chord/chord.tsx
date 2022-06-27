@@ -1,12 +1,10 @@
 import { Piano } from "../../units/piano/piano"
-import { IStdNote, simplify, StdNote } from "../../../util/extensions/notes/notes"
-import { TNotes } from "../../units/dictionaryutils/dictionaryutils"
+import { isChord, IStdNote, simplify, StdNote } from "../../../util/extensions/notes/notes"
 import { Inversions } from "../../units/inversions/inversions"
 import dStyles from '../../units/dictionaryutils/dictionaryutils.module.css'
 
-export function Chord(obj: TNotes) {
-    const {notes, validChord} = obj
-    if (notes) {
+export function Chord({notes}: {notes: string[]}) {
+    if (isChord(notes)) {
         let simplified: IStdNote[] = []
             notes.forEach((note) => {
                 simplified.push(StdNote(`${simplify(note)}4`))
@@ -21,5 +19,5 @@ export function Chord(obj: TNotes) {
         <Inversions notes={notes} ></Inversions>
         </>)
     }
-    return <>Not a valid chord</>
+    return <div>Not a valid Chord</div>
 }

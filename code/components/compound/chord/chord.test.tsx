@@ -4,7 +4,7 @@ import { Chord } from "./chord"
 describe("chord", () => {
     it("Should render the component", () => {
         render(<Chord notes={[]} />)
-        expect(screen.getByText("Notes")).toBeVisible()
+        expect(screen.getByText("Not a valid Chord")).toBeVisible()
     })
     it("Should render the component", () => {
         render(<Chord notes={["C", "E", "G"]} />)
