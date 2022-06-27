@@ -132,6 +132,12 @@ export function normalizeMidi(midi: number, sharp: boolean) {
     return StdNote(name)
 }
 
+export function isChord(arrayChords: Array<string>): boolean {
+    if (Chord.detect(arrayChords).length > 0) {
+        return true
+    }
+    return false
+}
 
 export function getSingleChord(arrayChords: Array<string>): string | undefined {
     return Chord.detect(arrayChords)[0]

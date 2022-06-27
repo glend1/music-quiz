@@ -135,6 +135,14 @@ describe("createInterval: returns an IInt type", () => {
         })
     })
 })
+describe("isChord: this should tell the user if there is a chord with these notes or not", () => {
+    it("Should return false", () => {
+        expect(Notes.isChord(["C", "E"])).toBeFalsy()
+    })
+    it("Should return true", () => {
+        expect(Notes.isChord(["C", "E", "G"])).toBeTruthy()
+    })
+})
 describe("getSingleChord: this is an alias to detect a chord, returns only a single chord name", () => {
     it("Should return a singe chord name", () => {
         expect(Notes.getSingleChord(["C", "E", "G"])).toBe("CM")
