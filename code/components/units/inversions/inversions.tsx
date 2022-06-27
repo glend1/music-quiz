@@ -1,7 +1,8 @@
 import dStyles from '../../units/dictionaryutils/dictionaryutils.module.css'
 import { uniqueChords } from "../../../util/extensions/notes/notes"
+import { TNotes } from '../dictionaryutils/dictionaryutils'
 
-export function Inversions({notes}: {notes: string[]}) {
+export function Inversions({notes}: TNotes) {
     const chords = uniqueChords(notes)
     if (chords.length > 0) {
         return (

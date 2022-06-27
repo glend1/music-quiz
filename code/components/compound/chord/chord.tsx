@@ -2,8 +2,9 @@ import { Piano } from "../../units/piano/piano"
 import { isChord, IStdNote, simplify, StdNote } from "../../../util/extensions/notes/notes"
 import { Inversions } from "../../units/inversions/inversions"
 import dStyles from '../../units/dictionaryutils/dictionaryutils.module.css'
+import { TNotes } from "../../units/dictionaryutils/dictionaryutils"
 
-export function Chord({notes}: {notes: string[]}) {
+export function Chord({notes}: TNotes) {
     if (isChord(notes)) {
         let simplified: IStdNote[] = []
             notes.forEach((note) => {
