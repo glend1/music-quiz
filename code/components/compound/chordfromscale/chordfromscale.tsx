@@ -9,9 +9,10 @@ import { Chord } from "../chord/chord";
 import { list } from "../../elements/images";
 
 export function ChordsFromScale({notes}: TNotes) {
-    if (isChord(notes)) {
+    const scales = chordsFromScale(notes)
+    if (scales.length > 0) {
         return (<><span className={dStyles.bold}>Chords in Scale</span>
-            {chordsFromScale(notes).map((chordCollection) => {
+            {scales.map((chordCollection) => {
                 return (<div className={dStyles.bubble} key={chordCollection.name}><span className={dStyles.align}>{chordCollection.name}</span>
                 <Image onClick={(e) => {
                     let el = (e.target as HTMLElement).parentElement!.parentElement!
@@ -30,5 +31,5 @@ export function ChordsFromScale({notes}: TNotes) {
             })}
         </>)
     }
-    return <div>Not a valid Chord</div>
+    return <div>No Chords found</div>
 }
