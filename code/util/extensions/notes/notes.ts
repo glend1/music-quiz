@@ -231,13 +231,17 @@ export function simplify(note: string) {
 
 export function chordsFromScale(scale: Array<string>) {
     type ChordCollection = { name: string, chords: Array<string>, notes: Array<string>}
-    let chords: ChordCollection[] = []
+    const unique: { [key: string]: boolean } = {}, chords: ChordCollection[] = []
     scale.forEach((note) => {
         ChordType.symbols().forEach((chord) => {
             let chordNotes = Chord.getChord(chord, note).notes
             if (arrayContainsArray(chordNotes, scale, compareNotes)) {
                 let detectedChords = Chord.detect(chordNotes)
-                chords.push({name: detectedChords[0], chords: detectedChords, notes: chordNotes})
+                let name = detectedChords[0]
+                if (!Object.hasOwn(unique, name)) {
+                    unique[name] = true
+                    chords.push({name, chords: detectedChords, notes: chordNotes})
+                }
             }
         })
     })

@@ -1,0 +1,1409 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`chordsFromScale: will return all the cords from a given scale Should return some chords 1`] = `
+Array [
+  Object {
+    "chords": Array [
+      "C5",
+    ],
+    "name": "C5",
+    "notes": Array [
+      "C",
+      "G",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Csus4",
+      "Fsus2/C",
+    ],
+    "name": "Csus4",
+    "notes": Array [
+      "C",
+      "F",
+      "G",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "CM7sus4",
+    ],
+    "name": "CM7sus4",
+    "notes": Array [
+      "C",
+      "F",
+      "G",
+      "B",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "CM",
+      "Em#5/C",
+    ],
+    "name": "CM",
+    "notes": Array [
+      "C",
+      "E",
+      "G",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Cmaj7",
+    ],
+    "name": "Cmaj7",
+    "notes": Array [
+      "C",
+      "E",
+      "G",
+      "B",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "C6",
+      "Am7/C",
+    ],
+    "name": "C6",
+    "notes": Array [
+      "C",
+      "E",
+      "G",
+      "A",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Csus2",
+      "Gsus4/C",
+    ],
+    "name": "Csus2",
+    "notes": Array [
+      "C",
+      "D",
+      "G",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Csus24",
+      "D4/C",
+      "G7sus4/C",
+    ],
+    "name": "Csus24",
+    "notes": Array [
+      "C",
+      "D",
+      "F",
+      "G",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "CM9sus4",
+    ],
+    "name": "CM9sus4",
+    "notes": Array [
+      "C",
+      "F",
+      "G",
+      "B",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "CMadd9",
+      "Em7#5/C",
+    ],
+    "name": "CMadd9",
+    "notes": Array [
+      "C",
+      "E",
+      "G",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Cmaj9",
+    ],
+    "name": "Cmaj9",
+    "notes": Array [
+      "C",
+      "E",
+      "G",
+      "B",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "C6/9",
+      "D11/C",
+      "D9sus4/C",
+      "Am7add11/C",
+    ],
+    "name": "C6/9",
+    "notes": Array [
+      "C",
+      "E",
+      "G",
+      "A",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Cmaj13",
+      "CM7add13",
+      "D13sus4/C",
+      "Am11/C",
+    ],
+    "name": "Cmaj13",
+    "notes": Array [
+      "C",
+      "E",
+      "G",
+      "B",
+      "D",
+      "A",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "D5",
+    ],
+    "name": "D5",
+    "notes": Array [
+      "D",
+      "A",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Dsus4",
+      "Gsus2/D",
+    ],
+    "name": "Dsus4",
+    "notes": Array [
+      "D",
+      "G",
+      "A",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "D7sus4",
+      "Gsus24/D",
+      "A4/D",
+    ],
+    "name": "D7sus4",
+    "notes": Array [
+      "D",
+      "G",
+      "A",
+      "C",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Dm",
+    ],
+    "name": "Dm",
+    "notes": Array [
+      "D",
+      "F",
+      "A",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Dm7",
+      "F6/D",
+    ],
+    "name": "Dm7",
+    "notes": Array [
+      "D",
+      "F",
+      "A",
+      "C",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Dm6",
+      "Bm7b5/D",
+    ],
+    "name": "Dm6",
+    "notes": Array [
+      "D",
+      "F",
+      "A",
+      "B",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "D4",
+      "Csus24/D",
+      "G7sus4/D",
+    ],
+    "name": "D4",
+    "notes": Array [
+      "D",
+      "G",
+      "C",
+      "F",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Dmadd4",
+      "A7#5sus4/D",
+    ],
+    "name": "Dmadd4",
+    "notes": Array [
+      "D",
+      "F",
+      "G",
+      "A",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Dm7add11",
+      "F6/9/D",
+      "G11/D",
+      "G9sus4/D",
+    ],
+    "name": "Dm7add11",
+    "notes": Array [
+      "D",
+      "F",
+      "A",
+      "C",
+      "G",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Dsus2",
+      "Asus4/D",
+    ],
+    "name": "Dsus2",
+    "notes": Array [
+      "D",
+      "E",
+      "A",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Dsus24",
+      "E4/D",
+      "A7sus4/D",
+    ],
+    "name": "Dsus24",
+    "notes": Array [
+      "D",
+      "E",
+      "G",
+      "A",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "D11",
+      "D9sus4",
+      "C6/9/D",
+      "Am7add11/D",
+    ],
+    "name": "D11",
+    "notes": Array [
+      "D",
+      "A",
+      "C",
+      "E",
+      "G",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "D13sus4",
+      "Cmaj13/D",
+      "CM7add13/D",
+      "Am11/D",
+    ],
+    "name": "D13sus4",
+    "notes": Array [
+      "D",
+      "G",
+      "A",
+      "C",
+      "E",
+      "B",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Dmadd9",
+    ],
+    "name": "Dmadd9",
+    "notes": Array [
+      "D",
+      "F",
+      "A",
+      "E",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Dm9",
+    ],
+    "name": "Dm9",
+    "notes": Array [
+      "D",
+      "F",
+      "A",
+      "C",
+      "E",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Dm69",
+      "Eb9sus/D",
+      "E11b9/D",
+    ],
+    "name": "Dm69",
+    "notes": Array [
+      "D",
+      "F",
+      "A",
+      "B",
+      "E",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Dm13",
+      "E7sus4b9b13/D",
+    ],
+    "name": "Dm13",
+    "notes": Array [
+      "D",
+      "F",
+      "A",
+      "C",
+      "E",
+      "B",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Dm11",
+      "Fmaj13/D",
+      "FM7add13/D",
+      "G13sus4/D",
+    ],
+    "name": "Dm11",
+    "notes": Array [
+      "D",
+      "F",
+      "A",
+      "C",
+      "E",
+      "G",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "E5",
+    ],
+    "name": "E5",
+    "notes": Array [
+      "E",
+      "B",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "E7#5sus4",
+      "Amadd4/E",
+    ],
+    "name": "E7#5sus4",
+    "notes": Array [
+      "E",
+      "A",
+      "B#",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Esus4",
+      "Asus2/E",
+    ],
+    "name": "Esus4",
+    "notes": Array [
+      "E",
+      "A",
+      "B",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "E7sus4",
+      "Asus24/E",
+      "B4/E",
+    ],
+    "name": "E7sus4",
+    "notes": Array [
+      "E",
+      "A",
+      "B",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Em#5",
+      "B#M/E",
+    ],
+    "name": "Em#5",
+    "notes": Array [
+      "E",
+      "G",
+      "B#",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Em7#5",
+      "CMadd9/E",
+    ],
+    "name": "Em7#5",
+    "notes": Array [
+      "E",
+      "G",
+      "C",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Em",
+    ],
+    "name": "Em",
+    "notes": Array [
+      "E",
+      "G",
+      "B",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Em7",
+      "G6/E",
+    ],
+    "name": "Em7",
+    "notes": Array [
+      "E",
+      "G",
+      "B",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "E4",
+      "Dsus24/E",
+      "A7sus4/E",
+    ],
+    "name": "E4",
+    "notes": Array [
+      "E",
+      "A",
+      "D",
+      "G",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Emadd4",
+      "B7#5sus4/E",
+    ],
+    "name": "Emadd4",
+    "notes": Array [
+      "E",
+      "G",
+      "A",
+      "B",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Em7add11",
+      "G6/9/E",
+      "A11/E",
+      "A9sus4/E",
+    ],
+    "name": "Em7add11",
+    "notes": Array [
+      "E",
+      "G",
+      "B",
+      "D",
+      "A",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Eb9sus",
+      "E11b9",
+      "Dm69/E",
+    ],
+    "name": "Eb9sus",
+    "notes": Array [
+      "E",
+      "A",
+      "B",
+      "D",
+      "F",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "E7sus4b9b13",
+      "Dm13/E",
+    ],
+    "name": "E7sus4b9b13",
+    "notes": Array [
+      "E",
+      "A",
+      "B",
+      "D",
+      "F",
+      "C",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Emb6b9",
+    ],
+    "name": "Emb6b9",
+    "notes": Array [
+      "E",
+      "G",
+      "C",
+      "F",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "F5",
+    ],
+    "name": "F5",
+    "notes": Array [
+      "F",
+      "C",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "FM",
+      "Am#5/F",
+    ],
+    "name": "FM",
+    "notes": Array [
+      "F",
+      "A",
+      "C",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Fmaj7",
+    ],
+    "name": "Fmaj7",
+    "notes": Array [
+      "F",
+      "A",
+      "C",
+      "E",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "F6",
+      "Dm7/F",
+    ],
+    "name": "F6",
+    "notes": Array [
+      "F",
+      "A",
+      "C",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "FMb5",
+    ],
+    "name": "FMb5",
+    "notes": Array [
+      "F",
+      "A",
+      "Cb",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "FM7b5",
+    ],
+    "name": "FM7b5",
+    "notes": Array [
+      "F",
+      "A",
+      "Cb",
+      "E",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Fmaj#4",
+    ],
+    "name": "Fmaj#4",
+    "notes": Array [
+      "F",
+      "A",
+      "C",
+      "E",
+      "B",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "FM6#11",
+    ],
+    "name": "FM6#11",
+    "notes": Array [
+      "F",
+      "A",
+      "C",
+      "D",
+      "B",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Fsus2",
+      "Csus4/F",
+    ],
+    "name": "Fsus2",
+    "notes": Array [
+      "F",
+      "G",
+      "C",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "FMadd9",
+      "Am7#5/F",
+    ],
+    "name": "FMadd9",
+    "notes": Array [
+      "F",
+      "A",
+      "C",
+      "G",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Fmaj9",
+    ],
+    "name": "Fmaj9",
+    "notes": Array [
+      "F",
+      "A",
+      "C",
+      "E",
+      "G",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "F6/9",
+      "Dm7add11/F",
+      "G11/F",
+      "G9sus4/F",
+    ],
+    "name": "F6/9",
+    "notes": Array [
+      "F",
+      "A",
+      "C",
+      "D",
+      "G",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Fmaj13",
+      "FM7add13",
+      "Dm11/F",
+      "G13sus4/F",
+    ],
+    "name": "Fmaj13",
+    "notes": Array [
+      "F",
+      "A",
+      "C",
+      "E",
+      "G",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "FM9b5",
+      "G13no5/F",
+    ],
+    "name": "FM9b5",
+    "notes": Array [
+      "F",
+      "A",
+      "Cb",
+      "E",
+      "G",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Fmaj9#11",
+    ],
+    "name": "Fmaj9#11",
+    "notes": Array [
+      "F",
+      "A",
+      "C",
+      "E",
+      "G",
+      "B",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "F69#11",
+      "Am11A/F",
+    ],
+    "name": "F69#11",
+    "notes": Array [
+      "F",
+      "A",
+      "C",
+      "D",
+      "G",
+      "B",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "FM13#11",
+    ],
+    "name": "FM13#11",
+    "notes": Array [
+      "F",
+      "A",
+      "C",
+      "E",
+      "G",
+      "B",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "G5",
+    ],
+    "name": "G5",
+    "notes": Array [
+      "G",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Gsus4",
+      "Csus2/G",
+    ],
+    "name": "Gsus4",
+    "notes": Array [
+      "G",
+      "C",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "G7sus4",
+      "Csus24/G",
+      "D4/G",
+    ],
+    "name": "G7sus4",
+    "notes": Array [
+      "G",
+      "C",
+      "D",
+      "F",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "G7no5",
+    ],
+    "name": "G7no5",
+    "notes": Array [
+      "G",
+      "B",
+      "F",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "GM",
+      "Bm#5/G",
+    ],
+    "name": "GM",
+    "notes": Array [
+      "G",
+      "B",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "G7",
+    ],
+    "name": "G7",
+    "notes": Array [
+      "G",
+      "B",
+      "D",
+      "F",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "G6",
+      "Em7/G",
+    ],
+    "name": "G6",
+    "notes": Array [
+      "G",
+      "B",
+      "D",
+      "E",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "G7add6",
+    ],
+    "name": "G7add6",
+    "notes": Array [
+      "G",
+      "B",
+      "D",
+      "F",
+      "E",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Gsus2",
+      "Dsus4/G",
+    ],
+    "name": "Gsus2",
+    "notes": Array [
+      "G",
+      "A",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Gsus24",
+      "D7sus4/G",
+      "A4/G",
+    ],
+    "name": "Gsus24",
+    "notes": Array [
+      "G",
+      "A",
+      "C",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "G11",
+      "G9sus4",
+      "Dm7add11/G",
+      "F6/9/G",
+    ],
+    "name": "G11",
+    "notes": Array [
+      "G",
+      "D",
+      "F",
+      "A",
+      "C",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "G13sus4",
+      "Dm11/G",
+      "Fmaj13/G",
+      "FM7add13/G",
+    ],
+    "name": "G13sus4",
+    "notes": Array [
+      "G",
+      "C",
+      "D",
+      "F",
+      "A",
+      "E",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "G9no5",
+    ],
+    "name": "G9no5",
+    "notes": Array [
+      "G",
+      "B",
+      "F",
+      "A",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "G13no5",
+      "FM9b5/G",
+    ],
+    "name": "G13no5",
+    "notes": Array [
+      "G",
+      "B",
+      "F",
+      "A",
+      "E",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "GMadd9",
+      "Bm7#5/G",
+    ],
+    "name": "GMadd9",
+    "notes": Array [
+      "G",
+      "B",
+      "D",
+      "A",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "G9",
+    ],
+    "name": "G9",
+    "notes": Array [
+      "G",
+      "B",
+      "D",
+      "F",
+      "A",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "G6/9",
+      "Em7add11/G",
+      "A11/G",
+      "A9sus4/G",
+    ],
+    "name": "G6/9",
+    "notes": Array [
+      "G",
+      "B",
+      "D",
+      "E",
+      "A",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "G13",
+    ],
+    "name": "G13",
+    "notes": Array [
+      "G",
+      "B",
+      "D",
+      "F",
+      "A",
+      "E",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "A5",
+    ],
+    "name": "A5",
+    "notes": Array [
+      "A",
+      "E",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "A7#5sus4",
+      "Dmadd4/A",
+    ],
+    "name": "A7#5sus4",
+    "notes": Array [
+      "A",
+      "D",
+      "E#",
+      "G",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Asus4",
+      "Dsus2/A",
+    ],
+    "name": "Asus4",
+    "notes": Array [
+      "A",
+      "D",
+      "E",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "A7sus4",
+      "Dsus24/A",
+      "E4/A",
+    ],
+    "name": "A7sus4",
+    "notes": Array [
+      "A",
+      "D",
+      "E",
+      "G",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Am#5",
+      "E#M/A",
+    ],
+    "name": "Am#5",
+    "notes": Array [
+      "A",
+      "C",
+      "E#",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Am7#5",
+      "FMadd9/A",
+    ],
+    "name": "Am7#5",
+    "notes": Array [
+      "A",
+      "C",
+      "F",
+      "G",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Am",
+    ],
+    "name": "Am",
+    "notes": Array [
+      "A",
+      "C",
+      "E",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Am7",
+      "C6/A",
+    ],
+    "name": "Am7",
+    "notes": Array [
+      "A",
+      "C",
+      "E",
+      "G",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "A4",
+      "D7sus4/A",
+      "Gsus24/A",
+    ],
+    "name": "A4",
+    "notes": Array [
+      "A",
+      "D",
+      "G",
+      "C",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Amadd4",
+      "E7#5sus4/A",
+    ],
+    "name": "Amadd4",
+    "notes": Array [
+      "A",
+      "C",
+      "D",
+      "E",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Am7add11",
+      "C6/9/A",
+      "D11/A",
+      "D9sus4/A",
+    ],
+    "name": "Am7add11",
+    "notes": Array [
+      "A",
+      "C",
+      "E",
+      "G",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Asus2",
+      "Esus4/A",
+    ],
+    "name": "Asus2",
+    "notes": Array [
+      "A",
+      "B",
+      "E",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Asus24",
+      "E7sus4/A",
+      "B4/A",
+    ],
+    "name": "Asus24",
+    "notes": Array [
+      "A",
+      "B",
+      "D",
+      "E",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "A11",
+      "A9sus4",
+      "Em7add11/A",
+      "G6/9/A",
+    ],
+    "name": "A11",
+    "notes": Array [
+      "A",
+      "E",
+      "G",
+      "B",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Am9#5",
+    ],
+    "name": "Am9#5",
+    "notes": Array [
+      "A",
+      "C",
+      "F",
+      "G",
+      "B",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Amadd9",
+    ],
+    "name": "Amadd9",
+    "notes": Array [
+      "A",
+      "C",
+      "E",
+      "B",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Am9",
+    ],
+    "name": "Am9",
+    "notes": Array [
+      "A",
+      "C",
+      "E",
+      "G",
+      "B",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Am11A",
+      "E#69#11/A",
+    ],
+    "name": "Am11A",
+    "notes": Array [
+      "A",
+      "C",
+      "E#",
+      "G",
+      "B",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Am11",
+      "Cmaj13/A",
+      "CM7add13/A",
+      "D13sus4/A",
+    ],
+    "name": "Am11",
+    "notes": Array [
+      "A",
+      "C",
+      "E",
+      "G",
+      "B",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "B7#5sus4",
+      "Emadd4/B",
+    ],
+    "name": "B7#5sus4",
+    "notes": Array [
+      "B",
+      "E",
+      "F##",
+      "A",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Bm#5",
+      "F##M/B",
+    ],
+    "name": "Bm#5",
+    "notes": Array [
+      "B",
+      "D",
+      "F##",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Bm7#5",
+      "GMadd9/B",
+    ],
+    "name": "Bm7#5",
+    "notes": Array [
+      "B",
+      "D",
+      "G",
+      "A",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Bdim",
+    ],
+    "name": "Bdim",
+    "notes": Array [
+      "B",
+      "D",
+      "F",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Bm7b5",
+      "Dm6/B",
+    ],
+    "name": "Bm7b5",
+    "notes": Array [
+      "B",
+      "D",
+      "F",
+      "A",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "B4",
+      "E7sus4/B",
+      "Asus24/B",
+    ],
+    "name": "B4",
+    "notes": Array [
+      "B",
+      "E",
+      "A",
+      "D",
+    ],
+  },
+  Object {
+    "chords": Array [
+      "Bmb6b9",
+    ],
+    "name": "Bmb6b9",
+    "notes": Array [
+      "B",
+      "D",
+      "G",
+      "C",
+    ],
+  },
+]
+`;
