@@ -8,8 +8,8 @@ import React from "react";
 import { Chord } from "../chord/chord";
 import { list } from "../../elements/images";
 
-export function ChordsFromScale({notes}: TNotes) {
-    const scales = chordsFromScale(notes)
+export function ChordsFromScale({notes: scale}: TNotes) {
+    const scales = chordsFromScale(scale)
     if (scales.length > 0) {
         return (<><span className={dStyles.bold}>Chords in Scale</span>
             {scales.map((chordCollection) => {
