@@ -1,6 +1,5 @@
 import { isChord } from "../../../util/extensions/notes/notes";
 import { TNotes } from "../../units/dictionaryutils/dictionaryutils";
-import { Inversions } from "../../units/inversions/inversions";
 import { ChordInformation } from "../chordinformation/chordinformation";
 import { Scales } from "../scales/scales";
 
