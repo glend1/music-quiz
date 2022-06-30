@@ -1,6 +1,7 @@
 import { isChord } from "../../../util/extensions/notes/notes";
 import { TNotes } from "../../units/dictionaryutils/dictionaryutils";
 import { Inversions } from "../../units/inversions/inversions";
+import { ChordInformation } from "../chordinformation/chordinformation";
 import { Scales } from "../scales/scales";
 
 export function ChordContainer({notes}: TNotes) {
@@ -8,7 +9,7 @@ export function ChordContainer({notes}: TNotes) {
         return <div>No valid Chord</div>
     }
     return (<div>
-        <Inversions notes={notes} ></Inversions>
+        <ChordInformation notes={notes} />
         <Scales notes={notes}/>
         </div>
     )
