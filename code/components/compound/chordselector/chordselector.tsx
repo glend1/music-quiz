@@ -10,7 +10,7 @@ import { getSingleChord } from "../../../util/extensions/notes/notes";
 
 export function ChordSelector({chords}: TChordMethod) {
     const [uid] = useState(uuid())
-const [chordState, setChord] = useState<TNotes>()
+const [notes, setNotes] = useState<string[]>([])
 return (<><h2>Chord</h2><span className={dStyles.bold}>Select a Chord</span>
 <Piano higher={true} highlight={[]} cb={(e: React.MouseEvent<SVGElement>): void => {
     let el = e.target as SVGElement
@@ -23,19 +23,14 @@ return (<><h2>Chord</h2><span className={dStyles.bold}>Select a Chord</span>
             selected.push(note)
         }
     })
-    setChord(() => { 
-        let isChord = false
-        if (getSingleChord(selected)) {
-            isChord = true
-        }
-        return { validChord: isChord, notes: selected }})
+    setNotes(() => selected )
     chords((prev) => {
         prev[uid] = selected
         return {...prev}
     })
     el.parentNode?.parentNode?.parentNode?.parentNode?.querySelector(`.generated`)?.remove()
 } } />
-<ChordContainer {...chordState} />
+<ChordContainer notes={notes} />
 <DeleteParent cb={() => {
     chords((prev) => {
         delete prev[uid]

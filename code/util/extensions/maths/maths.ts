@@ -15,6 +15,7 @@ export function randomFromRange(min: number, max: number) {
 }
 
 export function randomWeight<T>(options: {percent: number, value: T}[], defaultValue: T) {
+  //TODO normalize this
     let random = Math.random()
     let total = 0;
     for (let i = 0; i < options.length; i++) {
