@@ -6,26 +6,26 @@ import { act, renderHook } from '@testing-library/react-hooks/dom';
 import { useState } from 'react';
 
 
-describe("OscControls", () => {
-    const ac = global.AudioContext
-    beforeEach(() => {
-        global.AudioContext = AudioContext as any;
-    })
-    afterEach(() => {
-        global.AudioContext = ac
-    })
-    it("Should wait on an AudioContext", () => {
+// describe("OscControls", () => {
+//     const ac = global.AudioContext
+//     beforeEach(() => {
+//         global.AudioContext = AudioContext as any;
+//     })
+//     afterEach(() => {
+//         global.AudioContext = ac
+//     })
+//     it("Should wait on an AudioContext", () => {
         // const callback = jest.fn();
         // render(<Provider store={Store}><OscControls setAudioEvent={callback}></OscControls></Provider>)
         // expect(screen.getByText("Please Start AudioContext")).toBeInTheDocument()
-    })
-    it("Should have a mute button when there is an AudioContext", () => {
+    // })
+    // it("Should have a mute button when there is an AudioContext", () => {
         // const callback = jest.fn();
         // render(<Provider store={Store}><OscControls setAudioEvent={callback}></OscControls></Provider>)
         // Store.dispatch({type: START_AUDIO})
         // expect(screen.getByRole("button")).toBeInTheDocument()
-    })
-    it("Should be able to change the wave type", () => {
+    // })
+    // it("Should be able to change the wave type", () => {
         // const callback = jest.fn();
         // render(<Provider store={Store}><OscControls setAudioEvent={callback}></OscControls></Provider>)
         // Store.dispatch({type: START_AUDIO})
@@ -33,8 +33,7 @@ describe("OscControls", () => {
         // const select = screen.getByRole('combobox')
         // userEvent.selectOptions(select, ['sawtooth'])
         // expect((screen.getByRole("combobox") as HTMLSelectElement).value).toBe("sawtooth")
-    })
-    //TODO this is redundant
+    // })
     // it("Should be able to change the volume", () => {
     //     const callback = jest.fn();
     //     render(<Provider store={Store}><OscControls setAudioEvent={callback}></OscControls></Provider>)
@@ -44,7 +43,6 @@ describe("OscControls", () => {
     //     fireEvent.change(slider, {target: {value: '20'}})
     //     expect(slider.value).toBe("20")
     //})
-    //TODO more tests need to be done
     // it("Should play a pitch", () => {
     //     const { result: state } = renderHook(() => useState<((type: string, data: IStdNote) => void)>())
     //     render(<Provider store={Store}><OscControls setAudioEvent={state.current[1]}></OscControls></Provider>)
@@ -59,4 +57,4 @@ describe("OscControls", () => {
     //         expect(oscnode.start).toHaveBeenCalledTimes(1)
     //     })
     // })
-})
+// })

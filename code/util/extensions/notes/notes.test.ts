@@ -26,7 +26,6 @@ describe("FromFreq: Creates a standard note from frequency", () => {
     })
 })
 describe("generateRandomNote: Returns a random StdNote", () => {
-    //TODO this sometimes doesn't generate a note, when the value is too low/high
     afterAll(() => {
         jest.spyOn(global.Math, 'random').mockRestore();
     })

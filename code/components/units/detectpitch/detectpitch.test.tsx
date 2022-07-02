@@ -7,5 +7,4 @@ import { DetectPitch } from './detectpitch'
 //         render(<Provider store={Store}><DetectPitch cb={callback} /></Provider>)
 //         expect(screen.getByText("Please Start AudioContext")).toBeInTheDocument()
 //     })
-//     //TODO more tests need to be done
 // })

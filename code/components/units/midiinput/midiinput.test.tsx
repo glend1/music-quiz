@@ -22,5 +22,4 @@ import { MidiInput } from './midiinput'
 //         //console.log(root.toJSON())
 //         // expect(screen.getByText("Midi not available in this browser")).toBeInTheDocument()
 //     })
-    //TODO more tests need to be done
 // })

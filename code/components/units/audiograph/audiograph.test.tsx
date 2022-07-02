@@ -2,7 +2,6 @@ import { render, RenderResult, waitFor } from "@testing-library/react"
 import { AudioGraph } from "./audiograph"
 import { queries } from "@testing-library/dom/types/"
 
-//TODO this can't be unit tested
 describe("audiograph", () => {
     // beforeAll(() => {
     //     class ResizeObserver {

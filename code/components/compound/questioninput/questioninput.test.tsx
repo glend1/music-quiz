@@ -4,7 +4,6 @@ import { IStdNote } from '../../../util/extensions/notes/notes'
 import { useArray } from '../../../util/hooks/customhooks/customhooks'
 import { QuestionInput } from './questioninput'
 
-//TODO this might need more testing
 describe("questioninput", () => {
     describe("show keyboard", () => {
         it("Should not show a keyboard", () => {
