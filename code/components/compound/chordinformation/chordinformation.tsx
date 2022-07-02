@@ -25,7 +25,6 @@ export function ChordInformation({notes}: TNotes) {
     <Image onClick={(e) => {
         let el = (e.target as HTMLElement).parentElement!.parentElement!
         let generated = el.querySelector(".generated")
-        console.log(generated)
         if (generated) {
             generated.remove()
         } else {
