@@ -1,4 +1,4 @@
-  export function randomFromArray<Type>(array: Type[]) {
+export function randomFromArray<Type>(array: Type[]) {
     return array[Math.floor(Math.random() * array.length)];
   }
 
@@ -15,16 +15,27 @@ export function randomFromRange(min: number, max: number) {
 }
 
 export function randomWeight<T>(options: {percent: number, value: T}[], defaultValue: T) {
-  //TODO normalize this
-    let random = Math.random()
-    let total = 0;
-    for (let i = 0; i < options.length; i++) {
-      total += options[i].percent
-      if (total > 1) { 
-        return null 
-      } else if (total >= random) {
-        return options[i].value
-      }
-    } 
-    return defaultValue
+  let random = Math.random()
+  let total = 0
+  let {acc, array} = normalizeArray(
+    options, 
+    (total, item) => { return total += item.percent}, 
+    (i , total) => {return {...i, percent: i.percent *= (1/total)}}
+  )
+  if (acc > 1) {
+    options = array
+  }
+  for (let i = 0; i < options.length; i++) {
+    total += options[i].percent
+    if (total >= random) {
+      return options[i].value
+    }
+  } 
+  return defaultValue
+}
+
+export function normalizeArray<T>(array: T[], reduce: (total: number, item: T) => number, mapAndTotal: (item: T, total: number) => T) {
+  const arrCopy = JSON.parse(JSON.stringify(array))
+  let acc = arrCopy.reduce(reduce, 0)
+  return {acc, array: arrCopy.map((item: T) => { return mapAndTotal(item, acc) })}
 }

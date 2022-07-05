@@ -87,6 +87,20 @@ describe("randomWeights", () => {
     it("should return an error that the chance is too great", () => {
         jest.spyOn(global.Math, 'random').mockReturnValue(0.8);
         const randomVal = Test.randomWeight([{percent: 1/2, value: 2}, {percent: 1, value: 3}], 1)
-        expect(randomVal).toBeNull()
+        expect(randomVal).toBe(3)
+    })
+})
+describe("normalizeArray", () => {
+    it("Should return a scaled down array", () => {
+        const result = Test.normalizeArray([.5, .2, .7], (total, item) => {return total += item}, (item, total) => {return item *= (1/total)})
+        expect(result).toEqual({ acc: 1.4, array: [ 0.35714285714285715, 0.14285714285714288, 0.5 ] })
+    })
+    it("Should return a scaled up array", () => {
+        const result = Test.normalizeArray([.5, .2], (total, item) => {return total += item}, (item, total) => {return item *= (1/total)})
+        expect(result).toEqual({ acc: .7, array: [ 0.7142857142857143, 0.28571428571428575 ] })
+    })
+    it("Should return the same array", () => {
+        const result = Test.normalizeArray([.2, .3, .5], (total, item) => {return total += item}, (item, total) => {return item *= (1/total)})
+        expect(result).toEqual({ acc: 1, array: [ 0.2, 0.3, 0.5 ] })
     })
 })
