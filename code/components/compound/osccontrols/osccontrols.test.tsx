@@ -4,21 +4,22 @@ import { AudioContext, OscillatorNode, registrar } from 'standardized-audio-cont
 import userEvent from '@testing-library/user-event';
 import { act, renderHook } from '@testing-library/react-hooks/dom';
 import { useState } from 'react';
+import { StdNote } from '../../../util/extensions/notes/notes';
 
 
-// describe("OscControls", () => {
-//     const ac = global.AudioContext
-//     beforeEach(() => {
-//         global.AudioContext = AudioContext as any;
-//     })
-//     afterEach(() => {
-//         global.AudioContext = ac
-//     })
-//     it("Should wait on an AudioContext", () => {
-        // const callback = jest.fn();
-        // render(<Provider store={Store}><OscControls setAudioEvent={callback}></OscControls></Provider>)
-        // expect(screen.getByText("Please Start AudioContext")).toBeInTheDocument()
-    // })
+describe("OscControls", () => {
+    const ac = global.AudioContext
+    beforeEach(() => {
+        global.AudioContext = AudioContext as any;
+    })
+    afterEach(() => {
+        global.AudioContext = ac
+    })
+    it("Should wait on an AudioContext", () => {
+        const callback = jest.fn();
+        render(<OscControls setAudioEvent={callback} question={[StdNote("C4")]} />)
+        expect(screen.getByText("Please Start AudioContext")).toBeInTheDocument()
+    })
     // it("Should have a mute button when there is an AudioContext", () => {
         // const callback = jest.fn();
         // render(<Provider store={Store}><OscControls setAudioEvent={callback}></OscControls></Provider>)
@@ -57,4 +58,4 @@ import { useState } from 'react';
     //         expect(oscnode.start).toHaveBeenCalledTimes(1)
     //     })
     // })
-// })
+})

@@ -2,11 +2,11 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { AudioControls } from "./audiocontrols";
 import { AudioContext as ACMock } from 'standardized-audio-context-mock';
 
-// describe("audiocontrols", () => {
-//     it("Should ask for a audiocontext", () => {
-        // render(<Provider store={Store}><AudioControls /></Provider>)
-        // expect(screen.getByText("Please Start AudioContext")).toBeInTheDocument()
-    // })
+describe("audiocontrols", () => {
+    it("Should ask for a audiocontext", () => {
+        render(<AudioControls />)
+        expect(screen.getByText("Please Start AudioContext")).toBeInTheDocument()
+    })
     // it("Should wait for the user to unmute the audio", () => {
         // const ac = global.AudioContext
         // global.AudioContext = ACMock as any;
@@ -23,4 +23,4 @@ import { AudioContext as ACMock } from 'standardized-audio-context-mock';
         // fireEvent.click(screen.getByRole("button"))
         // global.AudioContext = ac
 //     })
-// })
+})

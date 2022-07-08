@@ -5,7 +5,8 @@ import { OscSettings, setupOscillator } from "../../../components/compound/oscco
 import { useAudioContext } from "../../context/audiocontext";
 
 
-export type IAudioEvent = {setAudioEvent: Dispatch<SetStateAction<((type: string, data: IStdNote) => void) | undefined>>}
+export type IAudioEventType = ((type: string, data: IStdNote) => void) | undefined
+export type IAudioEvent = {setAudioEvent: Dispatch<SetStateAction<IAudioEventType>>}
 type IMidiOsc = IAudioEvent & OscSettings
 type IHeld = { data: IStdNote; oscilator: OscillatorNode };
 

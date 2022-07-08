@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`questionosc Should render the default component 1`] = `"<body><div><div>No question to play</div></div></body>"`;
