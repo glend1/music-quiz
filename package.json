@@ -16,7 +16,7 @@
     "next": "^12.0.3",
     "pitchy": "^4.0.2",
     "react": "^17.0.2",
-    "react-dom" : "^17.0.2",
+    "react-dom": "^17.0.2",
     "uuid": "^8.3.2",
     "webmidi": "^3.0.20"
   },
@@ -26,6 +26,7 @@
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
     "@types/uuid": "^8.3.4",
+    "canvas": "^2.9.3",
     "cross-env": "^7.0.3",
     "eslint-config-next": "^12.0.4",
     "identity-obj-proxy": "^3.0.0",
