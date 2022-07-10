@@ -1,20 +1,20 @@
 import styles from '../styles/index.module.css'
-import { RandomNote } from '../code/components/compound/randomnote/randomnote';
-import { RandomChord } from '../code/components/compound/randomchord/randomchord';
-import { QuestionInput } from '../code/components/compound/questioninput/questioninput';
-import { AudioControls } from '../code/components/compound/audiocontrols/audiocontrols';
-import { Result } from '../code/components/compound/result/result';
-import { CreateAudio } from '../code/components/units/createaudio/createaudio';
-import { Interval } from '../code/components/units/interval/interval';
+import { RandomNote } from '../src/components/compound/randomnote/randomnote';
+import { RandomChord } from '../src/components/compound/randomchord/randomchord';
+import { QuestionInput } from '../src/components/compound/questioninput/questioninput';
+import { AudioControls } from '../src/components/compound/audiocontrols/audiocontrols';
+import { Result } from '../src/components/compound/result/result';
+import { CreateAudio } from '../src/components/units/createaudio/createaudio';
+import { Interval } from '../src/components/units/interval/interval';
 import { useState } from 'react';
-import { useArray } from '../code/util/hooks/customhooks/customhooks';
-import { IStdNote } from '../code/util/extensions/notes/notes';
+import { useArray } from '../src/util/hooks/customhooks/customhooks';
+import { IStdNote } from '../src/util/extensions/notes/notes';
 import Link from 'next/link';
-import { Stave } from '../code/components/units/stave/stave';
-import { OscControls } from '../code/components/compound/osccontrols/osccontrols';
-import { useQuestionGeneration } from '../code/util/hooks/usequestiongeneration/usequestiongeneration';
-import { QuestionControls } from '../code/components/compound/questioncontrols/questioncontrols';
-import { AudioEvent } from '../code/util/hooks/midievents/midievents';
+import { Stave } from '../src/components/units/stave/stave';
+import { OscControls } from '../src/components/compound/osccontrols/osccontrols';
+import { useQuestionGeneration } from '../src/util/hooks/usequestiongeneration/usequestiongeneration';
+import { QuestionControls } from '../src/components/compound/questioncontrols/questioncontrols';
+import { AudioEvent } from '../src/util/hooks/midievents/midievents';
 
 export default function Index() {
   const answer = useArray<IStdNote>()

@@ -2,8 +2,8 @@ import styles from '../styles/index.module.css'
 import Link from "next/link";
 import { useState } from 'react';
 import React from 'react';
-import { AddChord, TChords } from '../code/components/units/dictionaryutils/dictionaryutils';
-import { ChordGroup } from '../code/components/compound/chordgroup/chordgroup';
+import { AddChord, TChords } from '../src/components/units/dictionaryutils/dictionaryutils';
+import { ChordGroup } from '../src/components/compound/chordgroup/chordgroup';
 
 export default function Dictionary() {
     const [chords, setChords] = useState<TChords>({})
