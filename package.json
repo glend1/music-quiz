@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "dependencies": {
     "@tonaljs/tonal": "^4.6.5",
@@ -28,9 +30,11 @@
     "@types/uuid": "^8.3.4",
     "canvas": "^2.9.3",
     "cross-env": "^7.0.3",
+    "cypress": "^10.3.0",
     "eslint-config-next": "^12.0.4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.1",
+    "local-cypress": "^1.2.6",
     "react-test-renderer": "^17.0.2",
     "standardized-audio-context-mock": "^9.0.0",
     "ts-node": "^10.4.0",
