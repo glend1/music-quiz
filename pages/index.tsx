@@ -21,8 +21,6 @@ export default function Index() {
 	const questionGeneration = useQuestionGeneration();
 	const [audioEvent, setAudioEvent] = useState<AudioEvent | undefined>();
 	//TODO use useId
-	//TODO testing setup
-	//TODO debug setup
 	return (
 		<>
 			<div className={styles.float}>
