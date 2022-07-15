@@ -1,6 +1,4 @@
 module.exports = {
-    "presets": [
-        "next/babel"
-    ],
-    "plugins": []
-}
+	presets: ["next/babel"],
+	plugins: [],
+};

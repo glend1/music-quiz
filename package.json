@@ -1,43 +1,45 @@
 {
-  "name": "music-quiz",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "cross-env NODE_OPTIONS='--inspect' next dev",
-    "build": "next build",
-    "start": "next start",
-    "test": "jest",
-    "lint": "next lint",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
-  },
-  "dependencies": {
-    "@tonaljs/tonal": "^4.6.5",
-    "abcjs": "^6.0.0-beta.35",
-    "chart.js": "^3.6.0",
-    "next": "^12.0.3",
-    "pitchy": "^4.0.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "uuid": "^8.3.2",
-    "webmidi": "^3.0.20"
-  },
-  "devDependencies": {
-    "@testing-library/jest-dom": "^5.15.1",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/react-hooks": "^7.0.2",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/uuid": "^8.3.4",
-    "canvas": "^2.9.3",
-    "cross-env": "^7.0.3",
-    "cypress": "^10.3.0",
-    "eslint-config-next": "^12.0.4",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.3.1",
-    "local-cypress": "^1.2.6",
-    "react-test-renderer": "^17.0.2",
-    "standardized-audio-context-mock": "^9.0.0",
-    "ts-node": "^10.4.0",
-    "web-midi-test": "^1.2.0"
-  }
+	"name": "music-quiz",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "cross-env NODE_OPTIONS='--inspect' next dev",
+		"build": "next build",
+		"start": "next start",
+		"test": "jest",
+		"lint": "next lint",
+		"cypress:open": "cypress open",
+		"cypress:run": "cypress run"
+	},
+	"dependencies": {
+		"@tonaljs/tonal": "^4.6.5",
+		"abcjs": "^6.0.0-beta.35",
+		"chart.js": "^3.6.0",
+		"next": "^12.0.3",
+		"pitchy": "^4.0.2",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"uuid": "^8.3.2",
+		"webmidi": "^3.0.20"
+	},
+	"devDependencies": {
+		"@testing-library/jest-dom": "^5.15.1",
+		"@testing-library/react": "^12.1.2",
+		"@testing-library/react-hooks": "^7.0.2",
+		"@testing-library/user-event": "^13.5.0",
+		"@types/uuid": "^8.3.4",
+		"canvas": "^2.9.3",
+		"cross-env": "^7.0.3",
+		"cypress": "^10.3.0",
+		"eslint-config-next": "^12.0.4",
+		"eslint-config-prettier": "^8.5.0",
+		"identity-obj-proxy": "^3.0.0",
+		"jest": "^27.3.1",
+		"local-cypress": "^1.2.6",
+		"prettier": "^2.7.1",
+		"react-test-renderer": "^17.0.2",
+		"standardized-audio-context-mock": "^9.0.0",
+		"ts-node": "^10.4.0",
+		"web-midi-test": "^1.2.0"
+	}
 }
