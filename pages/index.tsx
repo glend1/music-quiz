@@ -23,8 +23,6 @@ export default function Index() {
 	//TODO use useId
 	//TODO testing setup
 	//TODO debug setup
-	//TODO use undefined
-	//TODO use userEvent
 	return (
 		<>
 			<div className={styles.float}>
