@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import Head from "next/head";
 import { AppProps } from "next/app";
-import { GlobalAudioContext } from "../src/util/context/audiocontext";
+import { GlobalAudioContext } from "../src/audio/audiocontext/audiocontext";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 	return (

@@ -5,8 +5,8 @@ import React from "react";
 import {
 	AddChord,
 	TChords,
-} from "../src/components/units/dictionaryutils/dictionaryutils";
-import { ChordGroup } from "../src/components/compound/chordgroup/chordgroup";
+} from "../src/chords/dictionaryutils/dictionaryutils";
+import { ChordGroup } from "../src/chords/chordgroup/chordgroup";
 
 export default function Dictionary() {
 	const [chords, setChords] = useState<TChords>({});
