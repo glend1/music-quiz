@@ -1,9 +1,8 @@
-import styles from "../styles/index.module.css";
+import styles from "../styles/shared.module.css";
 import { CreateAudio } from "../src/audio/createaudio/createaudio";
 import { useState } from "react";
 import { useArray } from "../src/util/customhooks/customhooks";
 import { IStdNote } from "../src/notes/notes/notes";
-import Link from "next/link";
 import { Stave } from "../src/canvas/stave/stave";
 import { useQuestionGeneration } from "../src/notes/usequestiongeneration/usequestiongeneration";
 import { AudioEvent } from "../src/midi/midievents/midievents";
@@ -23,12 +22,7 @@ export default function Debug() {
 	//TODO use useId
 	return (
 		<>
-			<div className={styles.float}>
-				<Link href={"/dictionary"}>
-					<a>Dictionary</a>
-				</Link>
-				<CreateAudio />
-			</div>
+			<CreateAudio />
 			<h2>Generate</h2>
 			<div className={styles.container}>
 				<div className={styles.card}>

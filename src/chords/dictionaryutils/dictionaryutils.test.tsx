@@ -2,12 +2,12 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useState } from "react";
 import { AddChord, DeleteParent, TChords } from "./dictionaryutils";
-import iStyles from "../../../../styles/index.module.css";
+import styles from "../../../../styles/shared.module.css";
 
 function MockAddChord() {
 	const [chords, setChords] = useState<TChords>({});
 	return (
-		<div className={iStyles.container}>
+		<div className={styles.container}>
 			<AddChord chords={setChords} />
 		</div>
 	);

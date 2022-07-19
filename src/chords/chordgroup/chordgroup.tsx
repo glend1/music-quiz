@@ -1,4 +1,4 @@
-import styles from "../../../styles/index.module.css";
+import styles from "../../../styles/shared.module.css";
 import { TChords } from "../dictionaryutils/dictionaryutils";
 import { Dispatch, SetStateAction } from "react";
 import { ChordSelector } from "../chordselector/chordselector";

@@ -1,5 +1,3 @@
-import styles from "../styles/index.module.css";
-import Link from "next/link";
 import { useState } from "react";
 import React from "react";
 import {
@@ -12,12 +10,7 @@ export default function Dictionary() {
 	const [chords, setChords] = useState<TChords>({});
 	return (
 		<>
-			<div className={styles.float}>
-				<Link href={"/"}>
-					<a>Go Home</a>
-				</Link>
-				<AddChord chords={setChords} />
-			</div>
+			<AddChord chords={setChords} />
 			<ChordGroup chords={chords} setChords={setChords} />
 		</>
 	);

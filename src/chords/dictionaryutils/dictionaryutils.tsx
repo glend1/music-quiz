@@ -1,7 +1,7 @@
 // import * as ReactDOM from 'react-dom/client';
 import ReactDOM from "react-dom";
-import iStyles from "../../../styles/index.module.css";
 import styles from "./dictionaryutils.module.css";
+import sStyles from "../../../styles/shared.module.css";
 import React, { Dispatch, SetStateAction } from "react";
 import { ChordSelector } from "../chordselector/chordselector";
 
@@ -14,11 +14,12 @@ export type TScale = { scale: string; root: string };
 export function AddChord({ chords }: TChordMethod) {
 	return (
 		<button
+			className={sStyles.float}
 			onClick={(e) => {
-				let container = document.querySelector(`.${iStyles.container}`);
+				let container = document.querySelector(`.${sStyles.container}`);
 				if (container) {
 					let div = document.createElement("div");
-					div.classList.add(iStyles.card);
+					div.classList.add(sStyles.card);
 					container.appendChild(div);
 					// ReactDOM.createRoot(div).render(<React.StrictMode><ChordSelector chords={chords}/></React.StrictMode>)
 					ReactDOM.render(
