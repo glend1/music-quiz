@@ -20,14 +20,14 @@ export function ChordGroup({
 	const scale = [...notes.keys()].sort();
 	return (
 		<>
-			<div className={styles.container}>
+			<section className={styles.container}>
 				<div className={styles.card}>
 					<ChordSelector chords={setChords} />
 				</div>
-			</div>
-			<div className={styles.card}>
+			</section>
+			<section className={styles.card}>
 				<Scales notes={scale} />
-			</div>
+			</section>
 		</>
 	);
 }

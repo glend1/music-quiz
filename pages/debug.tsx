@@ -23,78 +23,86 @@ export default function Debug() {
 	return (
 		<>
 			<CreateAudio />
-			<h2>Generate</h2>
-			<div className={styles.container}>
-				<div className={styles.card}>
-					<h2>Note</h2>
-					<RandomNote newQuestion={questionGeneration.newRoot} />
+			<section>
+				<h2>Generate</h2>
+				<div className={styles.container}>
+					<div className={styles.card}>
+						<h2>Note</h2>
+						<RandomNote newQuestion={questionGeneration.newRoot} />
+					</div>
+					<div className={styles.card}>
+						<h2>Chord</h2>
+						<RandomChord
+							newChord={questionGeneration.newChord}
+							root={questionGeneration.root}
+						/>
+					</div>
+					<div className={styles.card}>
+						<h2>Interval</h2>
+						<Interval
+							newInterval={questionGeneration.newInterval}
+							root={questionGeneration.root}
+						/>
+					</div>
 				</div>
-				<div className={styles.card}>
-					<h2>Chord</h2>
-					<RandomChord
-						newChord={questionGeneration.newChord}
-						root={questionGeneration.root}
-					/>
+			</section>
+			<section>
+				<h2>Questions</h2>
+				<div className={styles.container}>
+					<div className={styles.card}>
+						<h2>Question</h2>
+						<QuestionControls
+							current={questionGeneration.current}
+							question={questionGeneration.question}
+							type={questionGeneration.type}
+							chord={questionGeneration.chord}
+							interval={questionGeneration.interval}
+							root={questionGeneration.root}
+						/>
+					</div>
+					<div className={styles.card}>
+						<h2>Stave</h2>
+						<Stave
+							id={"stave"}
+							notes={questionGeneration.question}
+							current={questionGeneration.current}
+						/>
+					</div>
+					<div className={styles.card}>
+						<h2>Oscillator Output</h2>
+						<OscControls
+							question={questionGeneration.question}
+							setAudioEvent={setAudioEvent}
+						/>
+					</div>
 				</div>
-				<div className={styles.card}>
-					<h2>Interval</h2>
-					<Interval
-						newInterval={questionGeneration.newInterval}
-						root={questionGeneration.root}
-					/>
+			</section>
+			<section>
+				<h2>Answers</h2>
+				<div className={styles.container}>
+					<div className={styles.card}>
+						<h2>Input</h2>
+						<QuestionInput answer={answer} audioEvent={audioEvent} />
+					</div>
+					<div className={styles.card}>
+						<h2>Audio input pitch</h2>
+						<AudioControls />
+					</div>
 				</div>
-			</div>
-			<h2>Questions</h2>
-			<div className={styles.container}>
-				<div className={styles.card}>
-					<h2>Question</h2>
-					<QuestionControls
-						current={questionGeneration.current}
-						question={questionGeneration.question}
-						type={questionGeneration.type}
-						chord={questionGeneration.chord}
-						interval={questionGeneration.interval}
-						root={questionGeneration.root}
-					/>
+			</section>
+			<section>
+				<h2>Results</h2>
+				<div className={styles.container}>
+					<div className={styles.card}>
+						<h2>Result</h2>
+						<Result
+							nextQuestion={questionGeneration.nextQuestion}
+							question={questionGeneration.question[questionGeneration.current]}
+							answer={answer.array}
+						/>
+					</div>
 				</div>
-				<div className={styles.card}>
-					<h2>Stave</h2>
-					<Stave
-						id={"stave"}
-						notes={questionGeneration.question}
-						current={questionGeneration.current}
-					/>
-				</div>
-				<div className={styles.card}>
-					<h2>Oscillator Output</h2>
-					<OscControls
-						question={questionGeneration.question}
-						setAudioEvent={setAudioEvent}
-					/>
-				</div>
-			</div>
-			<h2>Answers</h2>
-			<div className={styles.container}>
-				<div className={styles.card}>
-					<h2>Input</h2>
-					<QuestionInput answer={answer} audioEvent={audioEvent} />
-				</div>
-				<div className={styles.card}>
-					<h2>Audio input pitch</h2>
-					<AudioControls />
-				</div>
-			</div>
-			<h2>Results</h2>
-			<div className={styles.container}>
-				<div className={styles.card}>
-					<h2>Result</h2>
-					<Result
-						nextQuestion={questionGeneration.nextQuestion}
-						question={questionGeneration.question[questionGeneration.current]}
-						answer={answer.array}
-					/>
-				</div>
-			</div>
+			</section>
 		</>
 	);
 }
