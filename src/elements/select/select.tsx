@@ -15,7 +15,7 @@ export function Select({ label, array, cb, id, forwardRef }: ISelect) {
 			<label className={styles.selectLabel} htmlFor={id}>
 				{label}
 			</label>
-			<select id={id} onChange={cb} ref={forwardRef}>
+			<select className="clickable" id={id} onChange={cb} ref={forwardRef}>
 				{array.map((e, index) => {
 					return (
 						<option key={index} value={e}>

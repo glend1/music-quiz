@@ -1,29 +1,32 @@
 .whiteKey,
 .temp {
-	stroke: #555555;
-	fill: #fffff7;
+	stroke: var(--accent-colour);
+	fill: var(--bg-colour);
 }
 .blackKey {
-	stroke: #979797;
-	fill: #4b4b4b;
+	stroke: var(--accent-colour);
+	fill: var(--body-colour);
 }
+
 .whiteKeyText {
 	/* font-size: 1.3rem; */
+	fill: var(--accent-colour);
 	pointer-events: none;
 	user-select: none;
 }
 .blackKeyText {
 	/* font-size: 1rem; */
-	fill: #fff;
 	/* font-weight: 200; */
+	fill: var(--accent-colour);
 	pointer-events: none;
 	user-select: none;
 }
 .show {
-	fill: #0070f3;
+	stroke: var(--main-colour);
+	fill: var(--accent-colour);
 }
 .show ~ text {
-	fill: #fff;
+	fill: var(--bg-colour);
 }
 .hide {
 	display: none;

@@ -7,6 +7,7 @@ import {
 	midiToNoteName,
 	offsetNotesFromFrequency,
 } from "../../notes/notes/notes";
+import colourStyle from "../../colorstyle/colorstyle";
 
 type IGraph = { freq: number | null };
 
@@ -15,8 +16,9 @@ export function AudioGraph({ freq }: IGraph) {
 	const history = 40;
 	const [chart, setChart] = useState<Chart<"line">>();
 	const used = useRef(false);
+	const colours = colourStyle();
 	useEffect(() => {
-		if (!used.current) {
+		if (!used.current && colours) {
 			used.current = true;
 			import("chart.js/auto").then((Chart) => {
 				if (ctx.current) {
@@ -28,8 +30,8 @@ export function AudioGraph({ freq }: IGraph) {
 								datasets: [
 									{
 										label: "Data",
-										backgroundColor: "rgb(0, 112, 243)",
-										borderColor: "rgb(0, 112, 243)",
+										backgroundColor: colours.accent,
+										borderColor: colours.main,
 										data: [],
 									},
 								],
@@ -55,10 +57,14 @@ export function AudioGraph({ freq }: IGraph) {
 										display: true,
 										type: "logarithmic",
 										grid: {
+											borderColor: colours.main,
+											borderWidth: 5,
 											display: true,
+											color: colours.main,
 										},
 										ticks: {
 											display: true,
+											color: colours.accent,
 										},
 									},
 								},
@@ -68,7 +74,7 @@ export function AudioGraph({ freq }: IGraph) {
 				}
 			});
 		}
-	}, []);
+	}, [used, colours]);
 	if (chart != null) {
 		let working = chart.data.datasets[0].data;
 		if (freq != null) {

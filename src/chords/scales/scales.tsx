@@ -19,6 +19,7 @@ export function Scales({ notes }: TNotes) {
 				<h2>Scales</h2>
 				<span className={dStyles.bold}>Select a Scale Root</span>
 				<Piano
+					clickable={true}
 					highlight={[]}
 					width={200}
 					height={75}
@@ -52,6 +53,7 @@ export function Scales({ notes }: TNotes) {
 										{root} {scale}
 									</span>
 									<Image
+										className="clickable"
 										onClick={(e) => {
 											let el = (e.target as HTMLElement).parentElement!
 												.parentElement!;

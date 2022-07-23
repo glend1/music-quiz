@@ -16,7 +16,9 @@ export function CheckBox({ id, label, bool, toggle }: TCheckBox) {
 				defaultChecked={bool}
 				onChange={toggle}
 			/>
-			<label htmlFor={id}>{label}</label>
+			<label className="clickable" htmlFor={id}>
+				{label}
+			</label>
 		</>
 	);
 }

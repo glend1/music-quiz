@@ -4,7 +4,7 @@ import styles from "./header.module.css";
 export default function Header() {
 	return (
 		<>
-			<header>logo</header>
+			<header>Music Quiz</header>
 			<nav className={styles.navigation}>
 				<Link href={"/"}>
 					<a>Home</a>

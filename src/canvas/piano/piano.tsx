@@ -9,6 +9,7 @@ type IPiano = {
 	higher?: boolean;
 	highlight: IStdNote[];
 	cb: MouseEventHandler<SVGGElement>;
+	clickable?: boolean;
 };
 
 //"xmlns": "http://www.w3.org/2000/svg",
@@ -20,6 +21,7 @@ export function Piano({
 	higher = false,
 	highlight,
 	cb,
+	clickable,
 }: IPiano) {
 	const octaves = ["lower", "higher"];
 	const notes = [
@@ -54,7 +56,11 @@ export function Piano({
 	}
 	return (
 		<div>
-			<svg width={width} viewBox={`0 0 ${width} ${height}`}>
+			<svg
+				className={clickable ? "clickable" : undefined}
+				width={width}
+				viewBox={`0 0 ${width} ${height}`}
+			>
 				{octaves.map((octave) => {
 					if (octave == "lower" || (higher == true && octave == "higher")) {
 						return notes.map((noteName) => {

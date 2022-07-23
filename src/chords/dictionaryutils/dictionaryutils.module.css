@@ -6,7 +6,7 @@
 	margin: 0.2rem;
 	padding: 0.2rem;
 	color: inherit;
-	border: 1px solid #bdbdbd;
+	border: 1px solid var(--bg-colour);
 	border-radius: 10px;
 	display: inline-block;
 	vertical-align: top;

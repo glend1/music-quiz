@@ -1,5 +1,5 @@
 .highlight {
-	color: #0070f3;
+	color: var(--accent-colour);
 }
 
 .answer span {

@@ -68,7 +68,7 @@ export function QuestionInput({
 					max={6}
 				/>
 				<Keyboard cb={key} />
-				<Piano highlight={answer.array} cb={mouse} />
+				<Piano clickable={true} highlight={answer.array} cb={mouse} />
 				<button
 					onClick={() => {
 						answer.clear();

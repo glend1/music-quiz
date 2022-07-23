@@ -15,6 +15,7 @@ export function ChordSelector({ chords }: TChordMethod) {
 			<h2>Chord</h2>
 			<span className={dStyles.bold}>Select a Chord</span>
 			<Piano
+				clickable={true}
 				higher={true}
 				highlight={[]}
 				cb={(e: React.MouseEvent<SVGElement>): void => {

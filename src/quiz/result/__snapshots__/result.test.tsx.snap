@@ -36,6 +36,7 @@ exports[`answer Test results give you the correct score 1`] = `
       type="checkbox"
     />
     <label
+      class="clickable"
       for="results_visibility"
     >
       Show Results?
@@ -121,6 +122,7 @@ exports[`answer Test results give you the correct score 2`] = `
       type="checkbox"
     />
     <label
+      class="clickable"
       for="results_visibility"
     >
       Show Results?

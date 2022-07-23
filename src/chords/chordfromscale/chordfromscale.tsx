@@ -19,6 +19,7 @@ export function ChordsFromScale({ notes: scale }: TNotes) {
 						<div className={dStyles.bubble} key={chordCollection.name}>
 							<span className={dStyles.align}>{chordCollection.name}</span>
 							<Image
+								className="clickable"
 								onClick={(e) => {
 									let el = (e.target as HTMLElement).parentElement!
 										.parentElement!;

@@ -32,6 +32,7 @@ export function ChordInformation({ notes }: TNotes) {
 					<div className={dStyles.bubble}>
 						<span className={dStyles.align}>{chord}</span>
 						<Image
+							className="clickable"
 							onClick={(e) => {
 								let el = (e.target as HTMLElement).parentElement!
 									.parentElement!;

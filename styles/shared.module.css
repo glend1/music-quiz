@@ -1,6 +1,6 @@
 .float {
 	float: right;
-	background: #fff;
+	/* background: #fff; */
 }
 
 .container {
@@ -14,7 +14,7 @@
 	text-align: left;
 	color: inherit;
 	text-decoration: none;
-	border: 1px solid #bdbdbd;
+	border: 1px solid var(--bg-colour);
 	border-radius: 10px;
 }
 
