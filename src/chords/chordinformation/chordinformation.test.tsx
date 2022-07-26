@@ -17,16 +17,16 @@ describe("chordInformation", () => {
 		render(<ChordInformation notes={["C", "D", "E"]} />);
 		expect(screen.getByText("No Chord found")).toBeVisible();
 	});
-	it("Should click on the image to show more information", () => {
+	it("Should click on the image to show more information", async () => {
 		render(<ChordInformation notes={["C", "E", "G"]} />);
-		userEvent.click(screen.getByRole("img"));
+		await userEvent.click(screen.getByRole("img"));
 		expect(screen.getByText("Notes")).toBeVisible();
 	});
-	it("Should delete .generated", () => {
+	it("Should delete .generated", async () => {
 		render(<ChordInformation notes={["C", "E", "G"]} />);
-		userEvent.click(screen.getByRole("img"));
+		await userEvent.click(screen.getByRole("img"));
 		expect(screen.getByText("Notes")).toBeVisible();
-		userEvent.click(screen.getByRole("img"));
+		await userEvent.click(screen.getByRole("img"));
 		expect(screen.queryByText("Notes")).toBeNull();
 	});
 });

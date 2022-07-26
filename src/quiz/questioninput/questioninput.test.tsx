@@ -1,5 +1,10 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import { renderHook, act } from "@testing-library/react-hooks/dom";
+import {
+	fireEvent,
+	render,
+	screen,
+	renderHook,
+	act,
+} from "@testing-library/react";
 import { IStdNote } from "../../notes/notes/notes";
 import { useArray } from "../../util/customhooks/customhooks";
 import { QuestionInput } from "./questioninput";

@@ -1,4 +1,10 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import {
+	fireEvent,
+	render,
+	screen,
+	act,
+	renderHook,
+} from "@testing-library/react";
 import { OscControls } from "./osccontrols";
 import {
 	AudioContext,
@@ -6,7 +12,6 @@ import {
 	registrar,
 } from "standardized-audio-context-mock";
 import userEvent from "@testing-library/user-event";
-import { act, renderHook } from "@testing-library/react-hooks/dom";
 import { useState } from "react";
 import { StdNote } from "../../notes/notes/notes";
 

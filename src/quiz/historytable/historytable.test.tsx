@@ -7,9 +7,9 @@ describe("historytable", () => {
 		render(<HistoryTable history={[]} />);
 		expect(screen.queryByRole("table")).toBeFalsy();
 	});
-	it("Should show the table", () => {
+	it("Should show the table", async () => {
 		render(<HistoryTable history={[]} />);
-		userEvent.click(screen.getByRole("checkbox"));
+		await userEvent.click(screen.getByRole("checkbox"));
 		expect(screen.queryByRole("table")).toBeInTheDocument();
 	});
 	describe("Test values in the table", () => {
@@ -26,9 +26,9 @@ describe("historytable", () => {
 			{ type: "hit", time: 15 },
 			{ type: "hit", time: 4 },
 		];
-		beforeEach(() => {
+		beforeEach(async () => {
 			render(<HistoryTable history={data} />);
-			userEvent.click(screen.getByRole("checkbox"));
+			await userEvent.click(screen.getByRole("checkbox"));
 		});
 		it("Should display the amount of data", () => {
 			expect(screen.getAllByRole("row")).toHaveLength(8);

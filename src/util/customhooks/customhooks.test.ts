@@ -1,14 +1,10 @@
 import * as hooks from "./customhooks";
-import {
-	renderHook,
-	act,
-	RenderResult,
-} from "@testing-library/react-hooks/dom";
+import { renderHook, act } from "@testing-library/react";
 import { ChangeEventHandler, Dispatch, SetStateAction } from "react";
 
 describe("customHooks", () => {
 	describe("UseArray: This creates a stateful array object", () => {
-		var array: RenderResult<hooks.IArray<number>>;
+		var array: { current: hooks.IArray<number> };
 		beforeEach(() => {
 			({ result: array } = renderHook(() => hooks.useArray<number>([1, 3, 2])));
 		});
@@ -49,11 +45,13 @@ describe("customHooks", () => {
 		});
 	});
 	describe("UseBoolean: This create a stateful boolean object", () => {
-		var boolean: RenderResult<{
-			bool: boolean;
-			set: Dispatch<SetStateAction<boolean>>;
-			toggle: () => void;
-		}>;
+		var boolean: {
+			current: {
+				bool: boolean;
+				set: Dispatch<SetStateAction<boolean>>;
+				toggle: () => void;
+			};
+		};
 		beforeEach(() => {
 			({ result: boolean } = renderHook(() => hooks.useBoolean()));
 		});
@@ -65,12 +63,14 @@ describe("customHooks", () => {
 		});
 	});
 	describe("UseCounter: This creates a stateful counter", () => {
-		var counter: RenderResult<{
-			i: number;
-			set: Dispatch<SetStateAction<number>>;
-			increment: (j?: number) => void;
-			decrement: (j?: number) => void;
-		}>;
+		var counter: {
+			current: {
+				i: number;
+				set: Dispatch<SetStateAction<number>>;
+				increment: (j?: number) => void;
+				decrement: (j?: number) => void;
+			};
+		};
 		beforeEach(() => {
 			({ result: counter } = renderHook(() => hooks.useCounter(10)));
 		});
@@ -88,10 +88,12 @@ describe("customHooks", () => {
 		});
 	});
 	describe("UseInterval: This creates a stateful interval", () => {
-		var interval: RenderResult<{
-			set: (callback: () => void, delay: number) => void;
-			clear: () => void;
-		}>;
+		var interval: {
+			current: {
+				set: (callback: () => void, delay: number) => void;
+				clear: () => void;
+			};
+		};
 		var callback: jest.Mock<any, any>;
 		beforeEach(() => {
 			jest.useFakeTimers();
@@ -134,9 +136,12 @@ describe("customHooks", () => {
 		});
 	});
 	describe("UseFormState: This creates a stateful form state", () => {
-		var formState: RenderResult<
-			[string, ChangeEventHandler<HTMLInputElement | HTMLSelectElement>]
-		>;
+		var formState: {
+			current: [
+				string,
+				ChangeEventHandler<HTMLInputElement | HTMLSelectElement>
+			];
+		};
 		beforeEach(() => {
 			({ result: formState } = renderHook(() => hooks.useFormState("test")));
 		});
@@ -148,12 +153,14 @@ describe("customHooks", () => {
 		});
 	});
 	describe("UseStopwatch: This creates a stateful stopwatch", () => {
-		var stopwatch: RenderResult<{
-			time: number;
-			start: () => void;
-			stop: () => void;
-			reset: () => void;
-		}>;
+		var stopwatch: {
+			current: {
+				time: number;
+				start: () => void;
+				stop: () => void;
+				reset: () => void;
+			};
+		};
 		beforeEach(() => {
 			jest.useFakeTimers();
 			({ result: stopwatch } = renderHook(() => hooks.useStopwatch()));

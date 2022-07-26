@@ -1,4 +1,4 @@
-import { renderHook } from "@testing-library/react-hooks/dom";
+import { renderHook } from "@testing-library/react";
 import { useState } from "react";
 import { StdNote } from "../../notes/notes/notes";
 import { IAudioEventType, MidiOsc } from "./midiosc";

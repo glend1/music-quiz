@@ -13,11 +13,11 @@ describe("chordfromscale", () => {
 		expect(screen.getByText("C5")).toBeVisible();
 		expect(screen.getByText("Em#5")).toBeVisible();
 	});
-	it("Should show chord information", () => {
+	it("Should show chord information", async () => {
 		const component = render(
 			<ChordsFromScale notes={["A", "B", "C", "D", "E", "F", "G"]} />
 		);
-		userEvent.click(component.getAllByRole("img")[0]);
+		await userEvent.click(component.getAllByRole("img")[0]);
 		expect(component.baseElement).toMatchSnapshot();
 	});
 	it("Should remove chord information", () => {

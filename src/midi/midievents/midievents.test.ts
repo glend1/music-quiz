@@ -1,9 +1,5 @@
 import { MidiEvents } from "./midievents";
-import {
-	renderHook,
-	act,
-	RenderResult,
-} from "@testing-library/react-hooks/dom";
+import { renderHook, act } from "@testing-library/react";
 import { IArray, useArray } from "../../util/customhooks/customhooks";
 import { IStdNote } from "../../notes/notes/notes";
 
@@ -50,7 +46,7 @@ describe("midiEvents: These are the events used in midicontrols component", () =
 		});
 	});
 	describe("midiKeyboard: Should trigger when you press a button on a midikeyboard", () => {
-		var array: RenderResult<IArray<IStdNote>>;
+		let array: { current: IArray<IStdNote> };
 		function fireEvent(inputType: string, note: { note: { number: number } }) {
 			let i: any = {
 				addListener(type: string, fn: (e: any) => void) {

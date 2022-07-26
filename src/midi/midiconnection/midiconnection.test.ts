@@ -1,22 +1,18 @@
-import {
-	renderHook,
-	act,
-	RenderResult,
-} from "@testing-library/react-hooks/dom";
+import { renderHook, act, RenderResult, waitFor } from "@testing-library/react";
 import { MidiConnection, TMidiConnection } from "./midiconnection";
 import * as WMT from "web-midi-test";
 import { useState } from "react";
+import { wait } from "@testing-library/user-event/dist/types/utils";
 
 describe("midiConnection", () => {
 	describe("Enabling Midi", () => {
 		it("Should fail if the platofrm doesn't support midi", async () => {
-			const { result, waitForNextUpdate } = renderHook(() => {
+			const { result } = renderHook(() => {
 				return MidiConnection();
 			});
-			act(() => {
+			await act(async () => {
 				result.current.enable();
 			});
-			await waitForNextUpdate();
 			expect(result.current.error).toBe(
 				"navigator.requestMIDIAccess is not a function"
 			);

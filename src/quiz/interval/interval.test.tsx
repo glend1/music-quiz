@@ -26,20 +26,20 @@ describe("Interval Component", () => {
 	afterAll(() => {
 		jest.spyOn(global.Math, "random").mockRestore();
 	});
-	it("Should prompt to the user that they select an Descending Minor Third", () => {
+	it("Should prompt to the user that they select an Descending Minor Third", async () => {
 		jest.spyOn(global.Math, "random").mockReturnValue(0.5);
 		render(<MockInterval />);
 		fireEvent.change(screen.getByRole("slider"), { target: { value: "6" } });
-		userEvent.click(screen.getByRole("button"));
+		await userEvent.click(screen.getByRole("button"));
 		expect(screen.getByRole("heading")).toHaveTextContent(
 			"Descending Minor Third"
 		);
 	});
-	it("Should change the direction of the interval", () => {
+	it("Should change the direction of the interval", async () => {
 		render(<MockInterval />);
-		userEvent.selectOptions(screen.getByRole("combobox"), ["Ascending"]);
+		await userEvent.selectOptions(screen.getByRole("combobox"), ["Ascending"]);
 		fireEvent.change(screen.getByRole("slider"), { target: { value: "6" } });
-		userEvent.click(screen.getByRole("button"));
+		await userEvent.click(screen.getByRole("button"));
 		expect(screen.getByRole("heading")).toHaveTextContent("Ascending");
 	});
 	it("Should fail to generate an interval", () => {

@@ -25,19 +25,19 @@ describe("chordgroup", () => {
 		render(<MockChordGroup />);
 		expect(screen.getAllByRole("heading")[1]).toHaveTextContent("Chord");
 	});
-	it("Should render", () => {
+	it("Should render", async () => {
 		const component = render(<MockChordGroup />);
 		const add = screen.getAllByRole("button")[0];
-		userEvent.click(add);
-		userEvent.click(add);
+		await userEvent.click(add);
+		await userEvent.click(add);
 		const paths = component.baseElement.querySelectorAll("path");
-		userEvent.click(paths[0]);
-		userEvent.click(paths[5]);
-		userEvent.click(paths[6]);
-		userEvent.click(paths[25]);
-		userEvent.click(paths[32]);
-		userEvent.click(paths[51]);
-		userEvent.click(paths[70]);
+		await userEvent.click(paths[0]);
+		await userEvent.click(paths[5]);
+		await userEvent.click(paths[6]);
+		await userEvent.click(paths[25]);
+		await userEvent.click(paths[32]);
+		await userEvent.click(paths[51]);
+		await userEvent.click(paths[70]);
 		expect(screen.getAllByRole("heading")[0]).toHaveTextContent("C,F,GD,AE,B");
 	});
 });

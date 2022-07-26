@@ -1,5 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { act } from "react-dom/test-utils";
 import { Keyboard } from "./keyboard";
 
 describe("keyboard", () => {
@@ -18,15 +19,15 @@ describe("keyboard", () => {
 			userEvent.keyboard("u");
 			expect(callback).not.toBeCalled();
 		});
-		it("Should use the correct layout", () => {
+		it("Should use the correct layout", async () => {
 			const callback = jest.fn();
 			render(<Keyboard cb={callback}></Keyboard>);
 			const select = screen.getByRole("combobox");
-			userEvent.selectOptions(select, ["Layout"]);
-			userEvent.keyboard("z");
+			await userEvent.selectOptions(select, ["Layout"]);
+			await userEvent.keyboard("z");
 			expect(callback).toHaveBeenNthCalledWith(1, { natural: "C" }, "keydown");
 			expect(callback).toHaveBeenNthCalledWith(2, { natural: "C" }, "keyup");
-			userEvent.keyboard("s");
+			await userEvent.keyboard("s");
 			expect(callback).toHaveBeenNthCalledWith(
 				3,
 				{ sharp: "C#", flat: "Db" },
@@ -37,10 +38,10 @@ describe("keyboard", () => {
 				{ sharp: "C#", flat: "Db" },
 				"keyup"
 			);
-			userEvent.keyboard("x");
+			await userEvent.keyboard("x");
 			expect(callback).toHaveBeenNthCalledWith(5, { natural: "D" }, "keydown");
 			expect(callback).toHaveBeenNthCalledWith(6, { natural: "D" }, "keyup");
-			userEvent.keyboard("d");
+			await userEvent.keyboard("d");
 			expect(callback).toHaveBeenNthCalledWith(
 				7,
 				{ sharp: "D#", flat: "Eb" },
@@ -51,13 +52,13 @@ describe("keyboard", () => {
 				{ sharp: "D#", flat: "Eb" },
 				"keyup"
 			);
-			userEvent.keyboard("c");
+			await userEvent.keyboard("c");
 			expect(callback).toHaveBeenNthCalledWith(9, { natural: "E" }, "keydown");
 			expect(callback).toHaveBeenNthCalledWith(10, { natural: "E" }, "keyup");
-			userEvent.keyboard("v");
+			await userEvent.keyboard("v");
 			expect(callback).toHaveBeenNthCalledWith(11, { natural: "F" }, "keydown");
 			expect(callback).toHaveBeenNthCalledWith(12, { natural: "F" }, "keyup");
-			userEvent.keyboard("g");
+			await userEvent.keyboard("g");
 			expect(callback).toHaveBeenNthCalledWith(
 				13,
 				{ sharp: "F#", flat: "Gb" },
@@ -68,10 +69,10 @@ describe("keyboard", () => {
 				{ sharp: "F#", flat: "Gb" },
 				"keyup"
 			);
-			userEvent.keyboard("b");
+			await userEvent.keyboard("b");
 			expect(callback).toHaveBeenNthCalledWith(15, { natural: "G" }, "keydown");
 			expect(callback).toHaveBeenNthCalledWith(16, { natural: "G" }, "keyup");
-			userEvent.keyboard("h");
+			await userEvent.keyboard("h");
 			expect(callback).toHaveBeenNthCalledWith(
 				17,
 				{ sharp: "G#", flat: "Ab" },
@@ -82,10 +83,10 @@ describe("keyboard", () => {
 				{ sharp: "G#", flat: "Ab" },
 				"keyup"
 			);
-			userEvent.keyboard("n");
+			await userEvent.keyboard("n");
 			expect(callback).toHaveBeenNthCalledWith(19, { natural: "A" }, "keydown");
 			expect(callback).toHaveBeenNthCalledWith(20, { natural: "A" }, "keyup");
-			userEvent.keyboard("j");
+			await userEvent.keyboard("j");
 			expect(callback).toHaveBeenNthCalledWith(
 				21,
 				{ sharp: "A#", flat: "Bb" },
@@ -96,7 +97,7 @@ describe("keyboard", () => {
 				{ sharp: "A#", flat: "Bb" },
 				"keyup"
 			);
-			userEvent.keyboard("m");
+			await userEvent.keyboard("m");
 			expect(callback).toHaveBeenNthCalledWith(23, { natural: "B" }, "keydown");
 			expect(callback).toHaveBeenNthCalledWith(24, { natural: "B" }, "keyup");
 		});
@@ -110,15 +111,15 @@ describe("keyboard", () => {
 			userEvent.keyboard("u");
 			expect(callback).not.toBeCalled();
 		});
-		it("Should use the correct layout", () => {
+		it("Should use the correct layout", async () => {
 			const callback = jest.fn();
 			render(<Keyboard cb={callback}></Keyboard>);
 			const select = screen.getByRole("combobox");
-			userEvent.selectOptions(select, ["Alphabetical"]);
-			userEvent.keyboard("c");
+			await userEvent.selectOptions(select, ["Alphabetical"]);
+			await userEvent.keyboard("c");
 			expect(callback).toHaveBeenNthCalledWith(1, { natural: "C" }, "keydown");
 			expect(callback).toHaveBeenNthCalledWith(2, { natural: "C" }, "keyup");
-			userEvent.keyboard("C");
+			await userEvent.keyboard("C");
 			expect(callback).toHaveBeenNthCalledWith(
 				3,
 				{ sharp: "C#", flat: "B" },
@@ -129,10 +130,10 @@ describe("keyboard", () => {
 				{ sharp: "C#", flat: "B" },
 				"keyup"
 			);
-			userEvent.keyboard("d");
+			await userEvent.keyboard("d");
 			expect(callback).toHaveBeenNthCalledWith(5, { natural: "D" }, "keydown");
 			expect(callback).toHaveBeenNthCalledWith(6, { natural: "D" }, "keyup");
-			userEvent.keyboard("D");
+			await userEvent.keyboard("D");
 			expect(callback).toHaveBeenNthCalledWith(
 				7,
 				{ sharp: "D#", flat: "Db" },
@@ -143,10 +144,10 @@ describe("keyboard", () => {
 				{ sharp: "D#", flat: "Db" },
 				"keyup"
 			);
-			userEvent.keyboard("e");
+			await userEvent.keyboard("e");
 			expect(callback).toHaveBeenNthCalledWith(9, { natural: "E" }, "keydown");
 			expect(callback).toHaveBeenNthCalledWith(10, { natural: "E" }, "keyup");
-			userEvent.keyboard("E");
+			await userEvent.keyboard("E");
 			expect(callback).toHaveBeenNthCalledWith(
 				11,
 				{ sharp: "F", flat: "Eb" },
@@ -157,10 +158,10 @@ describe("keyboard", () => {
 				{ sharp: "F", flat: "Eb" },
 				"keyup"
 			);
-			userEvent.keyboard("f");
+			await userEvent.keyboard("f");
 			expect(callback).toHaveBeenNthCalledWith(13, { natural: "F" }, "keydown");
 			expect(callback).toHaveBeenNthCalledWith(14, { natural: "F" }, "keyup");
-			userEvent.keyboard("F");
+			await userEvent.keyboard("F");
 			expect(callback).toHaveBeenNthCalledWith(
 				15,
 				{ sharp: "F#", flat: "E" },
@@ -171,10 +172,10 @@ describe("keyboard", () => {
 				{ sharp: "F#", flat: "E" },
 				"keyup"
 			);
-			userEvent.keyboard("g");
+			await userEvent.keyboard("g");
 			expect(callback).toHaveBeenNthCalledWith(17, { natural: "G" }, "keydown");
 			expect(callback).toHaveBeenNthCalledWith(18, { natural: "G" }, "keyup");
-			userEvent.keyboard("G");
+			await userEvent.keyboard("G");
 			expect(callback).toHaveBeenNthCalledWith(
 				19,
 				{ sharp: "G#", flat: "Gb" },
@@ -185,10 +186,10 @@ describe("keyboard", () => {
 				{ sharp: "G#", flat: "Gb" },
 				"keyup"
 			);
-			userEvent.keyboard("a");
+			await userEvent.keyboard("a");
 			expect(callback).toHaveBeenNthCalledWith(21, { natural: "A" }, "keydown");
 			expect(callback).toHaveBeenNthCalledWith(22, { natural: "A" }, "keyup");
-			userEvent.keyboard("A");
+			await userEvent.keyboard("A");
 			expect(callback).toHaveBeenNthCalledWith(
 				23,
 				{ sharp: "A#", flat: "Ab" },
@@ -199,10 +200,10 @@ describe("keyboard", () => {
 				{ sharp: "A#", flat: "Ab" },
 				"keyup"
 			);
-			userEvent.keyboard("b");
+			await userEvent.keyboard("b");
 			expect(callback).toHaveBeenNthCalledWith(25, { natural: "B" }, "keydown");
 			expect(callback).toHaveBeenNthCalledWith(26, { natural: "B" }, "keyup");
-			userEvent.keyboard("B");
+			await userEvent.keyboard("B");
 			expect(callback).toHaveBeenNthCalledWith(
 				27,
 				{ sharp: "C", flat: "Bb" },
@@ -217,20 +218,12 @@ describe("keyboard", () => {
 	});
 	it("Should remove listeners when changing the combobox", async () => {
 		const callback = jest.fn();
-		await waitFor(() => {
-			render(<Keyboard cb={callback}></Keyboard>);
-		})
-			.then(() => {
-				userEvent.selectOptions(screen.getByRole("combobox"), ["Layout"]);
-			})
-			.then(() => {
-				userEvent.selectOptions(screen.getByRole("combobox"), ["Alphabetical"]);
-			})
-			.then(() => {
-				userEvent.keyboard("c");
-			})
-			.then(() => {
-				expect(callback).toBeCalledTimes(2);
-			});
+		render(<Keyboard cb={callback}></Keyboard>);
+		await userEvent.selectOptions(screen.getByRole("combobox"), ["Layout"]);
+		await userEvent.selectOptions(screen.getByRole("combobox"), [
+			"Alphabetical",
+		]);
+		await userEvent.keyboard("c");
+		expect(callback).toBeCalledTimes(2);
 	});
 });

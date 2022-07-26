@@ -1,5 +1,10 @@
-import { render, screen, act, fireEvent } from "@testing-library/react";
-import { renderHook } from "@testing-library/react-hooks/dom";
+import {
+	render,
+	screen,
+	act,
+	fireEvent,
+	renderHook,
+} from "@testing-library/react";
 import { useBoolean } from "../../util/customhooks/customhooks";
 import { CheckBox } from "./checkbox";
 

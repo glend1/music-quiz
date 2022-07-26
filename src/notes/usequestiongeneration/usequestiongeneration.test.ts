@@ -1,16 +1,11 @@
-import {
-	renderHook,
-	act,
-	WaitForNextUpdate,
-	RenderResult,
-} from "@testing-library/react-hooks/dom";
+import { renderHook, act } from "@testing-library/react";
 import {
 	TQuestionGeneration,
 	useQuestionGeneration,
 } from "./usequestiongeneration";
 
 describe("useQuestionGeneration", () => {
-	let result: RenderResult<TQuestionGeneration>;
+	let result: { current: TQuestionGeneration };
 	// let waitForNextUpdate: WaitForNextUpdate
 	beforeEach(() => {
 		// ({result, waitForNextUpdate} = renderHook(() => useQuestionGeneration()))

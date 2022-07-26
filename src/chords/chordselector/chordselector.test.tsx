@@ -22,28 +22,28 @@ describe("chordselector", () => {
 		render(<ChordSelector chords={callback} />);
 		expect(screen.getByRole("heading")).toHaveTextContent("Chord");
 	});
-	it("Should select a chord", () => {
+	it("Should select a chord", async () => {
 		const selector = render(<MockSelector />);
-		userEvent.click(selector.baseElement.querySelectorAll("path")[0]);
-		userEvent.click(selector.baseElement.querySelectorAll("path")[6]);
+		await userEvent.click(selector.baseElement.querySelectorAll("path")[0]);
+		await userEvent.click(selector.baseElement.querySelectorAll("path")[6]);
 		expect(screen.getByText("C5")).toBeVisible();
 	});
-	it("Should delete itself", () => {
+	it("Should delete itself", async () => {
 		const selector = render(<MockSelector />);
-		userEvent.click(selector.baseElement.querySelectorAll("path")[0]);
-		userEvent.click(selector.baseElement.querySelectorAll("path")[6]);
+		await userEvent.click(selector.baseElement.querySelectorAll("path")[0]);
+		await userEvent.click(selector.baseElement.querySelectorAll("path")[6]);
 		expect(screen.getAllByRole("heading")[0]).not.toHaveTextContent("Chord");
-		userEvent.click(screen.getByRole("button"));
+		await userEvent.click(screen.getByRole("button"));
 		expect(screen.getByRole("heading")).toBeEmptyDOMElement();
 	});
-	it("Should select a Minor Chord, show information and remove it", () => {
+	it("Should select a Minor Chord, show information and remove it", async () => {
 		const selector = render(<MockSelector />);
-		userEvent.click(selector.baseElement.querySelectorAll("path")[0]);
-		userEvent.click(selector.baseElement.querySelectorAll("path")[6]);
-		userEvent.click(selector.baseElement.querySelectorAll("path")[4]);
-		userEvent.click(screen.getByRole("img"));
+		await userEvent.click(selector.baseElement.querySelectorAll("path")[0]);
+		await userEvent.click(selector.baseElement.querySelectorAll("path")[6]);
+		await userEvent.click(selector.baseElement.querySelectorAll("path")[4]);
+		await userEvent.click(screen.getByRole("img"));
 		expect(screen.getAllByText("Cm")).toHaveLength(2);
-		userEvent.click(selector.baseElement.querySelectorAll("path")[0]);
+		await userEvent.click(selector.baseElement.querySelectorAll("path")[0]);
 		expect(screen.queryByText("Cm")).toBeNull();
 	});
 });

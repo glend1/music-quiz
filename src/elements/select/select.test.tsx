@@ -20,7 +20,7 @@ describe("Select", () => {
 			expect(container.querySelectorAll("option")).toHaveLength(3);
 		});
 	});
-	it("Should trigger the callback when the select has recieved a change event", () => {
+	it("Should trigger the callback when the select has recieved a change event", async () => {
 		const callback = jest.fn();
 		render(
 			<Select
@@ -31,7 +31,7 @@ describe("Select", () => {
 			/>
 		);
 		const select = screen.getByRole("combobox");
-		userEvent.selectOptions(select, ["data2"]);
+		await userEvent.selectOptions(select, ["data2"]);
 		expect(callback).toHaveBeenCalledTimes(1);
 	});
 });

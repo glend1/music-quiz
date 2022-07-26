@@ -1,4 +1,4 @@
-import { render, waitFor } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { StdNote } from "../../notes/notes/notes";
 import { Piano } from "./piano";
@@ -14,17 +14,9 @@ describe("Piano", () => {
 		it("Should call the callback", async () => {
 			const callback = jest.fn();
 			var element: HTMLElement;
-			await waitFor(() => {
-				({ container: element } = render(
-					<Piano highlight={[]} cb={callback} />
-				));
-			})
-				.then(() => {
-					userEvent.click(element.querySelectorAll("g")[0]);
-				})
-				.then(() => {
-					expect(callback).toHaveBeenCalledTimes(1);
-				});
+			({ container: element } = render(<Piano highlight={[]} cb={callback} />));
+			await userEvent.click(element.querySelectorAll("g")[0]);
+			expect(callback).toHaveBeenCalledTimes(1);
 		});
 	});
 	describe("displayHighlight", () => {

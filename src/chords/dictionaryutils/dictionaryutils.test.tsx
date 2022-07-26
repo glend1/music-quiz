@@ -31,9 +31,9 @@ describe("dictionaryutils", () => {
 			render(<MockAddChord />);
 			expect(screen.getByRole("button")).toHaveTextContent("Add");
 		});
-		it("Should add a new chord", () => {
+		it("Should add a new chord", async () => {
 			render(<MockAddChord />);
-			userEvent.click(screen.getByRole("button"));
+			await userEvent.click(screen.getByRole("button"));
 			expect(screen.getByRole("heading")).toBeInTheDocument();
 		});
 	});
@@ -42,15 +42,15 @@ describe("dictionaryutils", () => {
 			render(<DeleteParent />);
 			expect(screen.getByRole("button")).toHaveTextContent("Remove");
 		});
-		it("Should delete the parent", () => {
+		it("Should delete the parent", async () => {
 			render(<MockDeleteParent />);
-			userEvent.click(screen.getByRole("button"));
+			await userEvent.click(screen.getByRole("button"));
 			expect(screen.getAllByRole("heading")).toHaveLength(1);
 		});
-		it("Should call the optional callback", () => {
+		it("Should call the optional callback", async () => {
 			const fn = jest.fn();
 			render(<DeleteParent cb={fn} />);
-			userEvent.click(screen.getByRole("button"));
+			await userEvent.click(screen.getByRole("button"));
 			expect(fn).toBeCalledTimes(1);
 		});
 	});

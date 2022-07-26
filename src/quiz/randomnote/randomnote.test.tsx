@@ -25,23 +25,23 @@ describe("RandomNote", () => {
 		afterEach(() => {
 			jest.spyOn(global.Math, "random").mockRestore();
 		});
-		it("Should generate a random note", () => {
+		it("Should generate a random note", async () => {
 			render(<MockRandomNote />);
-			userEvent.click(screen.getByRole("button"));
+			await userEvent.click(screen.getByRole("button"));
 			expect(screen.getByRole("heading")).toHaveTextContent("D4");
 		});
-		it("Should change the type of accidental", () => {
+		it("Should change the type of accidental", async () => {
 			render(<MockRandomNote />);
-			userEvent.click(screen.getByRole("checkbox"));
-			userEvent.click(screen.getByRole("button"));
+			await userEvent.click(screen.getByRole("checkbox"));
+			await userEvent.click(screen.getByRole("button"));
 			expect(screen.getByRole("heading")).toHaveTextContent("D#4");
 		});
-		it("Should change the note range", () => {
+		it("Should change the note range", async () => {
 			render(<MockRandomNote />);
 			const sliders = screen.getAllByRole("slider");
 			fireEvent.change(sliders[0], { target: { value: "3" } });
 			fireEvent.change(sliders[1], { target: { value: "6" } });
-			userEvent.click(screen.getByRole("button"));
+			await userEvent.click(screen.getByRole("button"));
 			expect(screen.getByRole("heading")).toHaveTextContent("A2");
 		});
 	});

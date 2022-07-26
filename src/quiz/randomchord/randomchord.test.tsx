@@ -37,17 +37,17 @@ describe("randomchord: this will generate a random chord", () => {
 		beforeEach(() => {
 			jest.spyOn(global.Math, "random").mockReturnValue(0.5);
 		});
-		it("Should generate a randomChord", () => {
+		it("Should generate a randomChord", async () => {
 			render(<MockRandomChord />);
-			userEvent.click(screen.getByRole("button"));
+			await userEvent.click(screen.getByRole("button"));
 			expect(screen.getByText("CMb5")).toBeVisible();
 		});
-		it("Should change the difficulty", () => {
+		it("Should change the difficulty", async () => {
 			render(<MockRandomChord />);
 			const sliders = screen.getAllByRole("slider");
 			fireEvent.change(sliders[0], { target: { value: "5" } });
 			fireEvent.change(sliders[1], { target: { value: "7" } });
-			userEvent.click(screen.getByRole("button"));
+			await userEvent.click(screen.getByRole("button"));
 			expect(screen.getByText("C9#11")).toBeVisible();
 		});
 	});
