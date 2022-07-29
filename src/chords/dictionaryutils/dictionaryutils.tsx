@@ -1,5 +1,5 @@
-// import * as ReactDOM from 'react-dom/client';
-import ReactDOM from "react-dom";
+import * as ReactDOM from "react-dom/client";
+// import ReactDOM from "react-dom";
 import styles from "./dictionaryutils.module.css";
 import sStyles from "../../../styles/shared.module.css";
 import React, { Dispatch, SetStateAction } from "react";
@@ -21,13 +21,17 @@ export function AddChord({ chords }: TChordMethod) {
 					let div = document.createElement("div");
 					div.classList.add(sStyles.card);
 					container.appendChild(div);
-					// ReactDOM.createRoot(div).render(<React.StrictMode><ChordSelector chords={chords}/></React.StrictMode>)
-					ReactDOM.render(
+					ReactDOM.createRoot(div).render(
 						<React.StrictMode>
 							<ChordSelector chords={chords} />
-						</React.StrictMode>,
-						div
+						</React.StrictMode>
 					);
+					// ReactDOM.render(
+					// 	<React.StrictMode>
+					// 		<ChordSelector chords={chords} />
+					// 	</React.StrictMode>,
+					// 	div
+					// );
 				}
 			}}
 		>
