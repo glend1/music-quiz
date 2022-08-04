@@ -16,9 +16,7 @@
 	text-align: left;
 	color: inherit;
 	text-decoration: none;
-	border: 1px solid var(--outline-colour);
 	background-color: var(--body-colour);
-	border-radius: 10px;
 }
 
 .card h2 {

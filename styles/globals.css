@@ -1,8 +1,8 @@
 :root {
 	--bg-colour: #150321;
-	--dark-outline-colour: hsl(276, 80%, 20%);
+	--dark-outline-colour: #3b0a5c;
 	--outline-colour: #be89e1;
-	--main-colour: #e3f8e3;
+	--main-colour: hsl(120, 50%, 96%);
 	--body-colour: #01060a;
 	--dark-accent-colour: #df8807;
 	--accent-colour: #fab700;
@@ -29,7 +29,6 @@ a {
 }
 
 table {
-	border-radius: 1rem;
 	border-spacing: 0;
 }
 
@@ -71,23 +70,23 @@ tbody tr td:last-child {
 thead th:first-child {
 	border-width: 1px;
 	border-width: 1px 0px 1px 1px;
-	border-top-left-radius: 1rem;
+	border-top-left-radius: 0.25rem;
 }
 
 thead th:last-child {
 	border-width: 1px;
 	border-width: 1px 1px 1px 0px;
-	border-top-right-radius: 1rem;
+	border-top-right-radius: 0.25rem;
 }
 
 tfoot td:first-child {
 	border-width: 1px 0px 1px 1px;
-	border-bottom-left-radius: 1rem;
+	border-bottom-left-radius: 0.25rem;
 }
 
 tfoot td:last-child {
 	border-width: 1px 1px 1px 0px;
-	border-bottom-right-radius: 1rem;
+	border-bottom-right-radius: 0.25rem;
 }
 
 tbody tr:nth-child(2n) {
@@ -154,7 +153,7 @@ select {
 
 button {
 	background-color: var(--accent-colour);
-	border-radius: 3px;
+	border-radius: 0.3rem;
 	border: 1px solid var(--dark-outline-colour);
 	/* box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset; */
 	box-sizing: border-box;
@@ -198,9 +197,9 @@ button:active {
 }
 
 button:disabled {
-	background-color: var(--body-colour);
-	color: var(--bg-colour);
-	border-color: var(--bg-colour);
+	background-color: var(--bg-colour);
+	color: var(--body-colour);
+	border-color: var(--body-colour);
 }
 
 /*********** Baseline, reset styles ***********/
@@ -225,20 +224,28 @@ input[type="range"]::-webkit-slider-runnable-track {
 	margin: 0.3rem;
 }
 
+input[type="range"]:disabled::-webkit-slider-runnable-track {
+	background-color: var(--dark-outline-colour);
+}
+
 /* slider thumb */
 input[type="range"]::-webkit-slider-thumb {
 	-webkit-appearance: none; /* Override default look */
 	appearance: none;
 	margin-top: -4px; /* Centers thumb on the track */
-	background-color: var(--main-colour);
+	background-color: var(--accent-colour);
 	border-radius: 0.5rem;
 	height: 1rem;
 	width: 1rem;
 }
 
 input[type="range"]:hover::-webkit-slider-thumb {
-	background-color: var(--accent-colour);
+	background-color: var(--dark-accent-colour);
 	outline-offset: 0.125rem;
+}
+
+input[type="range"]:disabled::-webkit-slider-thumb {
+	background-color: var(--dark-outline-colour);
 }
 
 /*********** Firefox styles ***********/
@@ -250,9 +257,13 @@ input[type="range"]::-moz-range-track {
 	margin: 0.3rem;
 }
 
+input[type="range"]:disabled::-moz-range-track {
+	background-color: var(--dark-outline-colour);
+}
+
 /* slider thumb */
 input[type="range"]::-moz-range-thumb {
-	background-color: var(--main-colour);
+	background-color: var(--accent-colour);
 	border: none; /*Removes extra border that FF applies*/
 	border-radius: 0.5rem;
 	height: 1rem;
@@ -260,6 +271,10 @@ input[type="range"]::-moz-range-thumb {
 }
 
 input[type="range"]:hover::-moz-range-thumb {
-	background-color: var(--accent-colour);
+	background-color: var(--dark-accent-colour);
 	outline-offset: 0.125rem;
+}
+
+input[type="range"]:disabled::-moz-range-thumb {
+	background-color: var(--dark-outline-colour);
 }

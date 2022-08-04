@@ -30,8 +30,8 @@ export function AudioGraph({ freq }: IGraph) {
 								datasets: [
 									{
 										label: "Data",
-										backgroundColor: colours.accent,
-										borderColor: colours.main,
+										backgroundColor: colours.darkAccent,
+										borderColor: colours.accent,
 										data: [],
 									},
 								],
