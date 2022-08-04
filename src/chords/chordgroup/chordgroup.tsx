@@ -12,7 +12,8 @@ export function ChordGroup({
 	setChords: Dispatch<SetStateAction<TChords>>;
 }) {
 	let notes = new Map();
-	Object.keys(chords).forEach((i) => {
+	let chordNumbers = Object.keys(chords);
+	chordNumbers.forEach((i) => {
 		chords[i].forEach((j) => {
 			notes.set(j, true);
 		});
@@ -25,9 +26,11 @@ export function ChordGroup({
 					<ChordSelector chords={setChords} />
 				</div>
 			</section>
-			<section className={styles.card}>
-				<Scales notes={scale} />
-			</section>
+			{chordNumbers.length >= 2 ? (
+				<section className={styles.card}>
+					<Scales notes={scale} />
+				</section>
+			) : null}
 		</>
 	);
 }

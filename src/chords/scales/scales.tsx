@@ -81,5 +81,5 @@ export function Scales({ notes }: TNotes) {
 			</>
 		);
 	}
-	return <div>Please provide some Notes</div>;
+	return null;
 }

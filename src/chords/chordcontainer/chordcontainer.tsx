@@ -4,9 +4,9 @@ import { TNotes } from "../dictionaryutils/dictionaryutils";
 import { Scales } from "../scales/scales";
 
 export function ChordContainer({ notes }: TNotes) {
-	if (!isChord(notes)) {
-		return <div>No valid Chord</div>;
-	}
+	// if (!isChord(notes)) {
+	// 	return <div>No valid Chord</div>;
+	// }
 	return (
 		<div>
 			<ChordInformation notes={notes} />
