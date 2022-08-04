@@ -3,23 +3,23 @@
 exports[`answer Test results give you the correct score 1`] = `
 <div>
   <div>
-    correct
+    Correct
   </div>
   <div>
     0.000
   </div>
   <div>
     <button>
-      start
+      Start
     </button>
     <button>
-      stop
+      Stop
     </button>
     <button>
-      reset
+      Reset
     </button>
     <button>
-      reset stats
+      Reset Stats
     </button>
   </div>
   <div>
@@ -45,15 +45,15 @@ exports[`answer Test results give you the correct score 1`] = `
   <table>
     <thead>
       <tr>
-        <td>
-          position
-        </td>
-        <td>
-          time
-        </td>
-        <td>
-          misses
-        </td>
+        <th>
+          Position
+        </th>
+        <th>
+          Time
+        </th>
+        <th>
+          Misses
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -72,7 +72,7 @@ exports[`answer Test results give you the correct score 1`] = `
     <tfoot>
       <tr>
         <td>
-          avg
+          Average
         </td>
         <td>
           3.136
@@ -89,23 +89,23 @@ exports[`answer Test results give you the correct score 1`] = `
 exports[`answer Test results give you the correct score 2`] = `
 <div>
   <div>
-    reset
+    Reset
   </div>
   <div>
     0.000
   </div>
   <div>
     <button>
-      start
+      Start
     </button>
     <button>
-      stop
+      Stop
     </button>
     <button>
-      reset
+      Reset
     </button>
     <button>
-      reset stats
+      Reset Stats
     </button>
   </div>
   <div>
@@ -131,22 +131,22 @@ exports[`answer Test results give you the correct score 2`] = `
   <table>
     <thead>
       <tr>
-        <td>
-          position
-        </td>
-        <td>
-          time
-        </td>
-        <td>
-          misses
-        </td>
+        <th>
+          Position
+        </th>
+        <th>
+          Time
+        </th>
+        <th>
+          Misses
+        </th>
       </tr>
     </thead>
     <tbody />
     <tfoot>
       <tr>
         <td>
-          avg
+          Average
         </td>
         <td />
         <td />

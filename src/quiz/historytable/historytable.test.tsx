@@ -34,14 +34,14 @@ describe("historytable", () => {
 			expect(screen.getAllByRole("row")).toHaveLength(8);
 		});
 		it("Should add up misses", () => {
-			expect(screen.getAllByRole("cell")[4 * 3 + 2]).toHaveTextContent("2");
+			expect(screen.getAllByRole("cell")[3 * 3 + 2]).toHaveTextContent("2");
 		});
 		it("Should use the lastest time", () => {
-			expect(screen.getAllByRole("cell")[4 * 3 + 1]).toHaveTextContent("9");
+			expect(screen.getAllByRole("cell")[3 * 3 + 1]).toHaveTextContent("9");
 		});
 		it("Should use averages for the last row", () => {
-			expect(screen.getAllByRole("cell")[7 * 3 + 1]).toHaveTextContent("5.83");
-			expect(screen.getAllByRole("cell")[7 * 3 + 2]).toHaveTextContent("0.83");
+			expect(screen.getAllByRole("cell")[6 * 3 + 1]).toHaveTextContent("5.83");
+			expect(screen.getAllByRole("cell")[6 * 3 + 2]).toHaveTextContent("0.83");
 		});
 	});
 });

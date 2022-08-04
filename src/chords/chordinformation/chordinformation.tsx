@@ -3,7 +3,6 @@ import { TNotes } from "../dictionaryutils/dictionaryutils";
 import Image from "next/image";
 import dStyles from "../dictionaryutils/dictionaryutils.module.css";
 import * as ReactDOM from "react-dom/client";
-// import ReactDOM from "react-dom";
 import React from "react";
 import { list } from "../../elements/images";
 import { Chord } from "../chord/chord";
@@ -48,12 +47,6 @@ export function ChordInformation({ notes }: TNotes) {
 											<Chord notes={notes} />
 										</React.StrictMode>
 									);
-									// ReactDOM.render(
-									// 	<React.StrictMode>
-									// 		<Chord notes={notes} />
-									// 	</React.StrictMode>,
-									// 	div
-									// );
 								}
 							}}
 							src={list}

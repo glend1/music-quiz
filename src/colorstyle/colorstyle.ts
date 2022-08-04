@@ -2,7 +2,16 @@ import { useEffect, useState } from "react";
 
 export default function ColourStyle() {
 	const [colours, setColours] = useState<
-		{ body: string; main: string; bg: string; accent: string } | undefined
+		| {
+				body: string;
+				main: string;
+				bg: string;
+				accent: string;
+				outline: string;
+				darkAccent: string;
+				darkOutline: string;
+		  }
+		| undefined
 	>();
 	useEffect(() => {
 		setColours({
@@ -17,6 +26,15 @@ export default function ColourStyle() {
 			),
 			accent: getComputedStyle(document.documentElement).getPropertyValue(
 				"--accent-colour"
+			),
+			outline: getComputedStyle(document.documentElement).getPropertyValue(
+				"--outline-colour"
+			),
+			darkAccent: getComputedStyle(document.documentElement).getPropertyValue(
+				"--dark-accent-colour"
+			),
+			darkOutline: getComputedStyle(document.documentElement).getPropertyValue(
+				"--dark-outline-colour"
 			),
 		});
 	}, []);

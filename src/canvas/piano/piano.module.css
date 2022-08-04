@@ -1,33 +1,38 @@
 .whiteKey,
 .temp {
-	stroke: var(--accent-colour);
-	fill: var(--bg-colour);
+	stroke: var(--dark-outline-colour);
+	fill: var(--main-colour);
 }
 .blackKey {
-	stroke: var(--accent-colour);
+	stroke: var(--dark-outline-colour);
 	fill: var(--body-colour);
 }
 
 .whiteKeyText {
 	/* font-size: 1.3rem; */
-	fill: var(--accent-colour);
+	fill: var(--dark-outline-colour);
 	pointer-events: none;
 	user-select: none;
 }
 .blackKeyText {
 	/* font-size: 1rem; */
 	/* font-weight: 200; */
-	fill: var(--accent-colour);
+	fill: var(--main-colour);
 	pointer-events: none;
 	user-select: none;
 }
 .show {
-	stroke: var(--main-colour);
+	stroke: var(--dark-outline-colour);
 	fill: var(--accent-colour);
+}
+.show.blackKey {
+	stroke: var(--dark-outline-colour);
+	fill: var(--dark-accent-colour);
 }
 .show ~ text {
 	fill: var(--bg-colour);
 }
+
 .hide {
 	display: none;
 }

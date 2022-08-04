@@ -57,14 +57,14 @@ export function AudioGraph({ freq }: IGraph) {
 										display: true,
 										type: "logarithmic",
 										grid: {
-											borderColor: colours.main,
+											borderColor: colours.outline,
 											borderWidth: 5,
 											display: true,
-											color: colours.main,
+											color: colours.outline,
 										},
 										ticks: {
 											display: true,
-											color: colours.accent,
+											color: colours.main,
 										},
 									},
 								},

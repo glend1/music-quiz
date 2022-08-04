@@ -1,10 +1,10 @@
 .navigation {
-    text-align: center;
-    background-color: var(--bg-colour);
+	text-align: center;
+	background-color: var(--bg-colour);
 }
 
 .navigation a {
-    padding: 1rem;
-    font-size: 2rem;
-    font-weight: bold;
+	padding: 1rem;
+	font-size: 2rem;
+	font-weight: bold;
 }

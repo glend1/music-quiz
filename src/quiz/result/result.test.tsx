@@ -24,7 +24,7 @@ describe("answer", () => {
 	it("Should render a default component", () => {
 		render(<MockResult answer={[]} />);
 		expect(screen.getByText("0.000")).toBeVisible();
-		expect(screen.getByText("no attempt")).toBeVisible();
+		expect(screen.getByText("No Attempt")).toBeVisible();
 		expect(screen.getByText("0/0")).toBeVisible();
 	});
 	describe("Timer test", () => {
@@ -37,7 +37,7 @@ describe("answer", () => {
 		it("Should start the timer", () => {
 			render(<MockResult answer={[]} />);
 			act(() => {
-				fireEvent.click(screen.getByText("start"));
+				fireEvent.click(screen.getByText("Start"));
 				jest.advanceTimersByTime(1568);
 			});
 			expect(screen.getByText("1.568")).toBeVisible();
@@ -45,11 +45,11 @@ describe("answer", () => {
 		it("Should stop the timer", () => {
 			render(<MockResult answer={[]} />);
 			act(() => {
-				fireEvent.click(screen.getByText("start"));
+				fireEvent.click(screen.getByText("Start"));
 				jest.advanceTimersByTime(1568);
 			});
 			act(() => {
-				fireEvent.click(screen.getByText("stop"));
+				fireEvent.click(screen.getByText("Stop"));
 				jest.advanceTimersByTime(1568);
 			});
 			expect(screen.getByText("1.568")).toBeVisible();
@@ -57,12 +57,12 @@ describe("answer", () => {
 		it("Should reset the timer", () => {
 			render(<MockResult answer={[]} />);
 			act(() => {
-				fireEvent.click(screen.getByText("start"));
+				fireEvent.click(screen.getByText("Start"));
 				jest.advanceTimersByTime(1568);
 			});
 			act(() => {
-				fireEvent.click(screen.getByText("stop"));
-				fireEvent.click(screen.getByText("reset"));
+				fireEvent.click(screen.getByText("Stop"));
+				fireEvent.click(screen.getByText("Reset"));
 				jest.advanceTimersByTime(1568);
 			});
 			expect(screen.getByText("0.000")).toBeVisible();
@@ -79,7 +79,7 @@ describe("answer", () => {
 			const component = render(<MockResult answer={[]} />);
 			act(() => {
 				fireEvent.click(screen.getByText("Show Results?"));
-				fireEvent.click(screen.getByText("start"));
+				fireEvent.click(screen.getByText("Start"));
 				jest.advanceTimersByTime(1568);
 				component.rerender(<MockResult answer={[StdNote("D5")]} />);
 			});
@@ -91,7 +91,7 @@ describe("answer", () => {
 			});
 			expect(component.container).toMatchSnapshot();
 			act(() => {
-				fireEvent.click(screen.getByText("reset stats"));
+				fireEvent.click(screen.getByText("Reset Stats"));
 			});
 			expect(component.container).toMatchSnapshot();
 		});

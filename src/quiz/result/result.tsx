@@ -20,7 +20,7 @@ export function Result({ question, answer, nextQuestion }: IAnswer) {
 		increment: incrementMisses,
 		set: setMisses,
 	} = useCounter();
-	const [message, setMessage] = useState("no attempt");
+	const [message, setMessage] = useState("No Attempt");
 	const { time, start, stop, reset } = useStopwatch();
 	const {
 		array: history,
@@ -37,12 +37,12 @@ export function Result({ question, answer, nextQuestion }: IAnswer) {
 				})
 			) {
 				nextQuestion();
-				setMessage("correct");
+				setMessage("Correct");
 				reset();
 				incrementHits();
 				pushHistory({ type: "hit", time });
 			} else {
-				setMessage("wrong");
+				setMessage("Wrong");
 				incrementMisses();
 				pushHistory({ type: "miss", time });
 			}
@@ -53,18 +53,18 @@ export function Result({ question, answer, nextQuestion }: IAnswer) {
 			<div>{message}</div>
 			<div>{time.toFixed(3)}</div>
 			<div>
-				<button onClick={start}>start</button>
-				<button onClick={stop}>stop</button>
-				<button onClick={reset}>reset</button>
+				<button onClick={start}>Start</button>
+				<button onClick={stop}>Stop</button>
+				<button onClick={reset}>Reset</button>
 				<button
 					onClick={() => {
-						setMessage("reset");
+						setMessage("Reset");
 						setHits(0);
 						setMisses(0);
 						clearHistory();
 					}}
 				>
-					reset stats
+					Reset Stats
 				</button>
 			</div>
 			<div>

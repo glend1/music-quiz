@@ -6,7 +6,6 @@ import { Piano } from "../../canvas/piano/piano";
 import { INote, matchScales, normalizeNote } from "../../notes/notes/notes";
 import Image from "next/image";
 import * as ReactDOM from "react-dom/client";
-// import ReactDOM from "react-dom";
 import React from "react";
 import { ScaleInformation } from "../scaleinformation/scaleinformation";
 import { list } from "../../elements/images";
@@ -69,12 +68,6 @@ export function Scales({ notes }: TNotes) {
 														<ScaleInformation scale={scale} root={root} />
 													</React.StrictMode>
 												);
-												// ReactDOM.render(
-												// 	<React.StrictMode>
-												// 		<ScaleInformation scale={scale} root={root} />
-												// 	</React.StrictMode>,
-												// 	div
-												// );
 											}
 										}}
 										src={list}

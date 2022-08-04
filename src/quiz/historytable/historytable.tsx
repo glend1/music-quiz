@@ -28,9 +28,9 @@ export function HistoryTable({ history }: History) {
 				<table>
 					<thead>
 						<tr>
-							<td key="position">position</td>
-							<td key="time">time</td>
-							<td key="misses">misses</td>
+							<th key="position">Position</th>
+							<th key="time">Time</th>
+							<th key="misses">Misses</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -56,7 +56,7 @@ export function HistoryTable({ history }: History) {
 					</tbody>
 					<tfoot>
 						<tr>
-							<td>avg</td>
+							<td>Average</td>
 							<td>
 								{position > 1 ? (totalTime / (position - 1)).toFixed(3) : ""}
 							</td>

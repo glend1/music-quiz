@@ -1,5 +1,4 @@
 import * as ReactDOM from "react-dom/client";
-// import ReactDOM from "react-dom";
 import styles from "./dictionaryutils.module.css";
 import sStyles from "../../../styles/shared.module.css";
 import React, { Dispatch, SetStateAction } from "react";
@@ -26,12 +25,6 @@ export function AddChord({ chords }: TChordMethod) {
 							<ChordSelector chords={chords} />
 						</React.StrictMode>
 					);
-					// ReactDOM.render(
-					// 	<React.StrictMode>
-					// 		<ChordSelector chords={chords} />
-					// 	</React.StrictMode>,
-					// 	div
-					// );
 				}
 			}}
 		>
