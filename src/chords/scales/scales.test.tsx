@@ -4,8 +4,8 @@ import { Scales } from "./scales";
 
 describe("scales", () => {
 	it("Should render a default component", () => {
-		render(<Scales notes={[]} />);
-		expect(screen.getByText("Please provide some Notes")).toBeVisible();
+		const component = render(<Scales notes={[]} />);
+		expect(component.container.outerHTML).toBe("<div></div>");
 	});
 	it("Should render scales", async () => {
 		const test = render(<Scales notes={["C", "D", "E"]} />);
