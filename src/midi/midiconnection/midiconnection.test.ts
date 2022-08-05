@@ -2,7 +2,6 @@ import { renderHook, act, RenderResult, waitFor } from "@testing-library/react";
 import { MidiConnection, TMidiConnection } from "./midiconnection";
 import * as WMT from "web-midi-test";
 import { useState } from "react";
-import { wait } from "@testing-library/user-event/dist/types/utils";
 
 describe("midiConnection", () => {
 	describe("Enabling Midi", () => {
