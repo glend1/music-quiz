@@ -1,5 +1,4 @@
 import { useId, useState } from "react";
-// import { v4 as uuid } from "uuid";
 import { Piano } from "../../canvas/piano/piano";
 import kStyles from "../../canvas/piano/piano.module.css";
 import dStyles from "../dictionaryutils/dictionaryutils.module.css";
@@ -8,7 +7,6 @@ import { DeleteParent } from "../dictionaryutils/dictionaryutils";
 import { ChordContainer } from "../chordcontainer/chordcontainer";
 
 export function ChordSelector({ chords }: TChordMethod) {
-	// const [uid] = useState(uuid());
 	const uid = useId();
 	const [notes, setNotes] = useState<string[]>([]);
 	return (
@@ -46,16 +44,6 @@ export function ChordSelector({ chords }: TChordMethod) {
 								prev[uid] = selected;
 								return { ...prev };
 							});
-							let keyContainer = key.parentNode;
-							if (keyContainer) {
-								let card = keyContainer.parentNode;
-								if (card) {
-									let generated = card.querySelector(`.generated`);
-									if (generated) {
-										generated.remove();
-									}
-								}
-							}
 						}
 					}
 				}}

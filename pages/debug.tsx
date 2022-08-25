@@ -19,7 +19,6 @@ export default function Debug() {
 	const answer = useArray<IStdNote>();
 	const questionGeneration = useQuestionGeneration();
 	const [audioEvent, setAudioEvent] = useState<AudioEvent | undefined>();
-	//TODO use useId
 	return (
 		<>
 			<CreateAudio />
