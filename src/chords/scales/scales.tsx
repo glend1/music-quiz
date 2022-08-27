@@ -5,13 +5,18 @@ import kStyles from "../../canvas/piano/piano.module.css";
 import { Piano } from "../../canvas/piano/piano";
 import { INote, matchScales, normalizeNote } from "../../notes/notes/notes";
 import Image from "next/image";
-import * as ReactDOM from "react-dom/client";
 import React from "react";
 import { ScaleInformation } from "../scaleinformation/scaleinformation";
 import { list } from "../../elements/images";
+import {
+	GlobalModalContext,
+	useModalContext,
+} from "../../elements/modalcontext/modalcontext";
+import { capitalizeFirstLetter } from "../../util/string/string";
 
 export function Scales({ notes }: TNotes) {
 	const [root, setRoot] = useState<string | undefined>();
+	const modal = useModalContext();
 	if (notes.length > 0) {
 		return (
 			<>
@@ -47,32 +52,23 @@ export function Scales({ notes }: TNotes) {
 						<span className={dStyles.bold}>Scale Names</span>
 						{matchScales(notes, root).map((scale, i) => {
 							return (
-								<div className={dStyles.bubble} key={scale}>
+								<div
+									onClick={modal((data) => {
+										return (
+											<React.StrictMode>
+												<GlobalModalContext>
+													<ScaleInformation scale={scale} root={root} />
+												</GlobalModalContext>
+											</React.StrictMode>
+										);
+									})}
+									className={`${dStyles.bubble} clickable`}
+									key={scale}
+								>
 									<span className={dStyles.align}>
-										{root} {scale}
+										{capitalizeFirstLetter(`${root} ${scale}`)}
 									</span>
-									<Image
-										className="clickable"
-										onClick={(e) => {
-											let el = (e.target as HTMLElement).parentElement!
-												.parentElement!;
-											let generated = el.querySelector(".generated");
-											if (generated) {
-												generated.remove();
-											} else {
-												let div = document.createElement("div");
-												div.className = "generated";
-												el.appendChild(div);
-												ReactDOM.createRoot(div).render(
-													<React.StrictMode>
-														<ScaleInformation scale={scale} root={root} />
-													</React.StrictMode>
-												);
-											}
-										}}
-										src={list}
-										alt="Scale Information"
-									/>
+									<Image src={list} alt="Scale Information" />
 								</div>
 							);
 						})}

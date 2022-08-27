@@ -7,7 +7,7 @@ import { ChordSelector } from "../chordselector/chordselector";
 type OptionalCallback = { cb?: () => void };
 export type TChords = { [key: string]: Array<string> } & Object;
 export type TChordMethod = { chords: Dispatch<SetStateAction<TChords>> };
-export type TNotes = { notes: string[] };
+export type TNotes = { notes: string[]; name?: string };
 export type TScale = { scale: string; root: string };
 
 export function AddChord({ chords }: TChordMethod) {

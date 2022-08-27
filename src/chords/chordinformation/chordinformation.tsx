@@ -2,10 +2,13 @@ import { getSingleChord } from "../../notes/notes/notes";
 import { TNotes } from "../dictionaryutils/dictionaryutils";
 import Image from "next/image";
 import dStyles from "../dictionaryutils/dictionaryutils.module.css";
-import * as ReactDOM from "react-dom/client";
 import React from "react";
 import { list } from "../../elements/images";
 import { Chord } from "../chord/chord";
+import {
+	GlobalModalContext,
+	useModalContext,
+} from "../../elements/modalcontext/modalcontext";
 
 export function ChordInformation({ notes }: TNotes) {
 	var chordMessage: string | null;
@@ -20,6 +23,7 @@ export function ChordInformation({ notes }: TNotes) {
 	} else {
 		chordMessage = "Click a Key to begin Chord selection";
 	}
+	const modal = useModalContext();
 	return (
 		<div>
 			{chordMessage ? (
@@ -28,30 +32,20 @@ export function ChordInformation({ notes }: TNotes) {
 				<>
 					{" "}
 					<span className={dStyles.bold}>Chord Name</span>
-					<div className={dStyles.bubble}>
+					<div
+						className={`${dStyles.bubble} clickable`}
+						onClick={modal((data) => {
+							return (
+								<React.StrictMode>
+									<GlobalModalContext>
+										<Chord name={chord} notes={notes} />
+									</GlobalModalContext>
+								</React.StrictMode>
+							);
+						})}
+					>
 						<span className={dStyles.align}>{chord}</span>
-						<Image
-							className="clickable"
-							onClick={(e) => {
-								let el = (e.target as HTMLElement).parentElement!
-									.parentElement!;
-								let generated = el.querySelector(".generated");
-								if (generated) {
-									generated.remove();
-								} else {
-									let div = document.createElement("div");
-									div.className = "generated";
-									el.appendChild(div);
-									ReactDOM.createRoot(div).render(
-										<React.StrictMode>
-											<Chord notes={notes} />
-										</React.StrictMode>
-									);
-								}
-							}}
-							src={list}
-							alt="Chord Information"
-						/>
+						<Image src={list} alt="Chord Information" />
 					</div>
 				</>
 			)}

@@ -41,9 +41,6 @@ describe("chordselector", () => {
 		await userEvent.click(selector.baseElement.querySelectorAll("path")[0]);
 		await userEvent.click(selector.baseElement.querySelectorAll("path")[6]);
 		await userEvent.click(selector.baseElement.querySelectorAll("path")[4]);
-		await userEvent.click(screen.getByRole("img"));
-		expect(screen.getAllByText("Cm")).toHaveLength(2);
-		await userEvent.click(selector.baseElement.querySelectorAll("path")[0]);
-		expect(screen.queryByText("Cm")).toBeNull();
+		expect(screen.getByText("Cm")).toBeVisible();
 	});
 });

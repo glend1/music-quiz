@@ -4,7 +4,7 @@ import dStyles from "../dictionaryutils/dictionaryutils.module.css";
 import { TNotes } from "../dictionaryutils/dictionaryutils";
 import { Inversions } from "../inversions/inversions";
 
-export function Chord({ notes }: TNotes) {
+export function Chord({ notes, name }: TNotes) {
 	if (isChord(notes)) {
 		let simplified: IStdNote[] = [];
 		notes.forEach((note) => {
@@ -12,6 +12,7 @@ export function Chord({ notes }: TNotes) {
 		});
 		return (
 			<>
+				<h3>{name}</h3>
 				<Piano
 					width={100}
 					height={50}

@@ -1,8 +1,26 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import * as ReactDOM from "react-dom/client";
+import {
+	GlobalModalContext,
+	useModalContext,
+} from "../../elements/modalcontext/modalcontext";
 import { ChordInformation } from "./chordinformation";
 
+jest.mock("../../elements/modalcontext/modalcontext");
+
 describe("chordInformation", () => {
+	beforeEach(() => {
+		(GlobalModalContext as jest.Mock).mockReturnValue(<h3>Modal</h3>);
+		(useModalContext as jest.Mock).mockReturnValue((PassedNode: any) => {
+			return (e: { target: { parentNode: { parentNode: any } } }) => {
+				let topElement = e.target.parentNode.parentNode;
+				let div = document.createElement("div");
+				topElement.appendChild(div);
+				ReactDOM.createRoot(topElement).render(<PassedNode />);
+			};
+		});
+	});
 	it("Should render the component", () => {
 		render(<ChordInformation notes={[]} />);
 		expect(
@@ -20,13 +38,6 @@ describe("chordInformation", () => {
 	it("Should click on the image to show more information", async () => {
 		render(<ChordInformation notes={["C", "E", "G"]} />);
 		await userEvent.click(screen.getByRole("img"));
-		expect(screen.getByText("Notes")).toBeVisible();
-	});
-	it("Should delete .generated", async () => {
-		render(<ChordInformation notes={["C", "E", "G"]} />);
-		await userEvent.click(screen.getByRole("img"));
-		expect(screen.getByText("Notes")).toBeVisible();
-		await userEvent.click(screen.getByRole("img"));
-		expect(screen.queryByText("Notes")).toBeNull();
+		expect(screen.getAllByRole("heading")[0]).toHaveTextContent("Modal");
 	});
 });
