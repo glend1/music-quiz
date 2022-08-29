@@ -1,0 +1,7 @@
+.container {
+	border-radius: 0.3rem;
+	border: 1px solid var(--outline-colour);
+	max-height: 15vh;
+	padding: 0.3rem;
+	overflow-y: auto;
+}

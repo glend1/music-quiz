@@ -1,4 +1,4 @@
-import { chordsFromScale, isChord } from "../../notes/notes/notes";
+import { chordsFromScale } from "../../notes/notes/notes";
 import { TNotes } from "../dictionaryutils/dictionaryutils";
 import Image from "next/image";
 import dStyles from "../dictionaryutils/dictionaryutils.module.css";
@@ -9,6 +9,7 @@ import {
 	GlobalModalContext,
 	useModalContext,
 } from "../../elements/modalcontext/modalcontext";
+import styles from "./chordfromscale.module.css";
 
 export function ChordsFromScale({ notes: scale }: TNotes) {
 	const scales = chordsFromScale(scale);
@@ -17,29 +18,31 @@ export function ChordsFromScale({ notes: scale }: TNotes) {
 		return (
 			<>
 				<span className={dStyles.bold}>Chords in Scale</span>
-				{scales.map((chordCollection) => {
-					return (
-						<div
-							onClick={modal((data) => {
-								return (
-									<React.StrictMode>
-										<GlobalModalContext>
-											<Chord
-												name={chordCollection.name}
-												notes={chordCollection.notes}
-											/>
-										</GlobalModalContext>
-									</React.StrictMode>
-								);
-							})}
-							className={`${dStyles.bubble} clickable`}
-							key={chordCollection.name}
-						>
-							<span className={dStyles.align}>{chordCollection.name}</span>
-							<Image src={list} alt="Chord Information" />
-						</div>
-					);
-				})}
+				<div className={styles.container}>
+					{scales.map((chordCollection) => {
+						return (
+							<div
+								onClick={modal((data) => {
+									return (
+										<React.StrictMode>
+											<GlobalModalContext>
+												<Chord
+													name={chordCollection.name}
+													notes={chordCollection.notes}
+												/>
+											</GlobalModalContext>
+										</React.StrictMode>
+									);
+								})}
+								className={`${dStyles.bubble} clickable`}
+								key={chordCollection.name}
+							>
+								<span className={dStyles.align}>{chordCollection.name}</span>
+								<Image src={list} alt="Chord Information" />
+							</div>
+						);
+					})}
+				</div>
 			</>
 		);
 	}

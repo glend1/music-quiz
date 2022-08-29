@@ -55,12 +55,18 @@ exports[`useModalContext Should open the modal 1`] = `
     <div
       class="card"
     >
-      <h3>
-        Rendered
-      </h3>
-      <button>
-        Close
-      </button>
+      <div>
+        <h3>
+          Rendered
+        </h3>
+      </div>
+      <div
+        class="close"
+      >
+        <button>
+          Close
+        </button>
+      </div>
     </div>
   </div>
 </div>

@@ -23,8 +23,10 @@ function Modal() {
 				modalElement.appendChild(div);
 				ReactDOM.createRoot(div).render(
 					<>
-						{cb(data)}
-						<button onClick={closeModal}>Close</button>
+						<div>{cb(data)}</div>
+						<div className={styles.close}>
+							<button onClick={closeModal}>Close</button>
+						</div>
 					</>
 				);
 				if (!modalElement.classList.contains(styles.unhide)) {
@@ -37,7 +39,7 @@ function Modal() {
 	let closeModal: MouseEventHandler<HTMLElement> = (e) => {
 		let modalElement = document.getElementById(styles.modal);
 		if (modalElement) {
-			let elem = (e.target as HTMLElement).parentNode;
+			let elem = (e.target as HTMLElement).parentNode?.parentNode;
 			if (elem) {
 				modalElement.removeChild(elem);
 			}

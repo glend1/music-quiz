@@ -1,11 +1,18 @@
 #modal {
 	display: none;
 	backdrop-filter: blur(1rem) brightness(80%);
-	min-height: 100%;
-	width: 100vw;
-	position: absolute;
+	height: 100%;
+	width: 100%;
+	position: fixed;
 	top: 0px;
 	left: 0px;
+	overflow: scroll;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+#modal::-webkit-scrollbar {
+	display: none;
 }
 
 #modal.unhide {
@@ -21,10 +28,13 @@
 	border: 1px solid var(--outline-colour);
 	padding: 1rem;
 	margin: 1rem;
-	width: 30%;
-	min-height: 50%;
+	width: 23vw;
+	min-height: 40vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-.card button {
-	float: right;
+.close {
+	text-align: right;
 }
