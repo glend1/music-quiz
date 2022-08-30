@@ -19,7 +19,7 @@ export function ScaleInformation({ scale, root }: TScale) {
 		});
 		return (
 			<div>
-				<h3>{capitalizeFirstLetter(`${root} ${scale}`)}</h3>
+				<h3>Scale: {capitalizeFirstLetter(`${root} ${scale}`)}</h3>
 				<Piano
 					width={100}
 					height={50}

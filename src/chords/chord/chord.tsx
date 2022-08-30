@@ -12,7 +12,7 @@ export function Chord({ notes, name }: TNotes) {
 		});
 		return (
 			<>
-				<h3>{name}</h3>
+				<h3>Chord: {name}</h3>
 				<Piano
 					width={100}
 					height={50}

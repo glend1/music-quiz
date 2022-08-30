@@ -5,6 +5,7 @@ exports[`scaleinformation Should render a Scale 1`] = `
   <div>
     <div>
       <h3>
+        Scale: 
         C# Ionian
       </h3>
       <div>
