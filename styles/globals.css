@@ -1,5 +1,5 @@
 :root {
-	--bg-colour: #150321;
+	--bg-colour: hsl(276, 83%, 9%);
 	--dark-outline-colour: #3b0a5c;
 	--outline-colour: #be89e1;
 	--main-colour: hsl(120, 50%, 96%);
@@ -17,6 +17,17 @@ body {
 	background-color: var(--body-colour);
 	color: var(--main-colour);
 	accent-color: var(--accent-colour);
+	scrollbar-color: var(--outline-colour) var(--dark-outline-colour);
+}
+
+::-webkit-scrollbar {
+	background-color: var(--dark-outline-colour);
+	width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background-color: var(--outline-colour);
 }
 
 a {
