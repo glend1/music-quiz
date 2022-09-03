@@ -1,7 +1,6 @@
 .float {
 	float: right;
 	margin: 1rem;
-	/* background: #fff; */
 }
 
 .container {
@@ -13,6 +12,7 @@
 .card {
 	margin: 1rem;
 	padding: 1.5rem;
+	min-height: 38vh;
 	text-align: left;
 	color: inherit;
 	text-decoration: none;

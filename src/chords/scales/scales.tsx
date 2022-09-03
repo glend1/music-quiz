@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { TNotes } from "../dictionaryutils/dictionaryutils";
-import dStyles from "../dictionaryutils/dictionaryutils.module.css";
+import dStyles from "../deleteparent/deleteparent.module.css";
 import kStyles from "../../canvas/piano/piano.module.css";
 import { Piano } from "../../canvas/piano/piano";
 import { INote, matchScales, normalizeNote } from "../../notes/notes/notes";
@@ -13,6 +12,7 @@ import {
 	useModalContext,
 } from "../../elements/modalcontext/modalcontext";
 import { capitalizeFirstLetter } from "../../util/string/string";
+import { TNotes } from "../types";
 
 export function Scales({ notes }: TNotes) {
 	const [root, setRoot] = useState<string | undefined>();

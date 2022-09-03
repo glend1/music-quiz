@@ -1,15 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useState } from "react";
-import { AddChord, TChords } from "../dictionaryutils/dictionaryutils";
+import { TChords } from "../types";
 import { ChordGroup } from "./chordgroup";
 
 function MockChordGroup() {
 	const [chords, setChords] = useState<TChords>({});
-
 	return (
 		<>
-			<AddChord chords={setChords} />
 			<h3>
 				{Object.entries(chords).map((chord, i) => {
 					return <div key={i}>{chord[1].join()}</div>;
@@ -27,7 +25,7 @@ describe("chordgroup", () => {
 	});
 	it("Should render", async () => {
 		const component = render(<MockChordGroup />);
-		const add = screen.getAllByRole("button")[0];
+		const add = screen.getAllByRole("heading")[2];
 		await userEvent.click(add);
 		await userEvent.click(add);
 		const paths = component.baseElement.querySelectorAll("path");

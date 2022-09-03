@@ -1,0 +1,12 @@
+.add {
+	border-radius: 0.3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 0.3rem dashed var(--bg-colour);
+	padding: 0.3rem;
+	background-image: url(../../../public/plus_24dp.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 40%;
+}

@@ -1,6 +1,6 @@
 import { ChordInformation } from "../chordinformation/chordinformation";
-import { TNotes } from "../dictionaryutils/dictionaryutils";
 import { Scales } from "../scales/scales";
+import { TNotes } from "../types";
 
 export function ChordContainer({ notes }: TNotes) {
 	return (

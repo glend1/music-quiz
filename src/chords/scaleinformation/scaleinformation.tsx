@@ -5,10 +5,10 @@ import {
 	simplify,
 	StdNote,
 } from "../../notes/notes/notes";
-import { TScale } from "../dictionaryutils/dictionaryutils";
-import dStyles from "../dictionaryutils/dictionaryutils.module.css";
+import dStyles from "../deleteparent/deleteparent.module.css";
 import { ChordsFromScale } from "../chordfromscale/chordfromscale";
 import { capitalizeFirstLetter } from "../../util/string/string";
+import { TScale } from "../types";
 
 export function ScaleInformation({ scale, root }: TScale) {
 	if (scale && root) {

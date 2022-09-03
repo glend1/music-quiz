@@ -1,7 +1,6 @@
 import { getSingleChord } from "../../notes/notes/notes";
-import { TNotes } from "../dictionaryutils/dictionaryutils";
 import Image from "next/image";
-import dStyles from "../dictionaryutils/dictionaryutils.module.css";
+import dStyles from "../deleteparent/deleteparent.module.css";
 import React from "react";
 import { list } from "../../elements/images";
 import { Chord } from "../chord/chord";
@@ -9,6 +8,7 @@ import {
 	GlobalModalContext,
 	useModalContext,
 } from "../../elements/modalcontext/modalcontext";
+import { TNotes } from "../types";
 
 export function ChordInformation({ notes }: TNotes) {
 	var chordMessage: string | null;

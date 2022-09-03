@@ -1,7 +1,6 @@
 import { chordsFromScale } from "../../notes/notes/notes";
-import { TNotes } from "../dictionaryutils/dictionaryutils";
 import Image from "next/image";
-import dStyles from "../dictionaryutils/dictionaryutils.module.css";
+import dStyles from "../deleteparent/deleteparent.module.css";
 import React from "react";
 import { list } from "../../elements/images";
 import { Chord } from "../chord/chord";
@@ -10,6 +9,7 @@ import {
 	useModalContext,
 } from "../../elements/modalcontext/modalcontext";
 import styles from "./chordfromscale.module.css";
+import { TNotes } from "../types";
 
 export function ChordsFromScale({ notes: scale }: TNotes) {
 	const scales = chordsFromScale(scale);

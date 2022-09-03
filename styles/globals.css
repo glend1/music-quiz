@@ -1,8 +1,8 @@
 :root {
-	--bg-colour: hsl(276, 83%, 9%);
+	--bg-colour: #2a0641;
 	--dark-outline-colour: #3b0a5c;
 	--outline-colour: #be89e1;
-	--main-colour: hsl(120, 50%, 96%);
+	--main-colour: #f0faf0;
 	--body-colour: #01060a;
 	--dark-accent-colour: #df8807;
 	--accent-colour: #fab700;

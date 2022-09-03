@@ -1,17 +1,9 @@
 import { useState } from "react";
 import React from "react";
-import {
-	AddChord,
-	TChords,
-} from "../src/chords/dictionaryutils/dictionaryutils";
 import { ChordGroup } from "../src/chords/chordgroup/chordgroup";
+import { TChords } from "../src/chords/types";
 
 export default function Dictionary() {
 	const [chords, setChords] = useState<TChords>({});
-	return (
-		<>
-			<AddChord chords={setChords} />
-			<ChordGroup chords={chords} setChords={setChords} />
-		</>
-	);
+	return <ChordGroup chords={chords} setChords={setChords} />;
 }

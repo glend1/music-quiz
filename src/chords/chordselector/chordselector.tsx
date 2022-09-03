@@ -1,10 +1,10 @@
 import { useId, useState } from "react";
 import { Piano } from "../../canvas/piano/piano";
 import kStyles from "../../canvas/piano/piano.module.css";
-import dStyles from "../dictionaryutils/dictionaryutils.module.css";
-import { TChordMethod } from "../dictionaryutils/dictionaryutils";
-import { DeleteParent } from "../dictionaryutils/dictionaryutils";
+import dStyles from "../deleteparent/deleteparent.module.css";
+import { DeleteParent } from "../deleteparent/deleteparent";
 import { ChordContainer } from "../chordcontainer/chordcontainer";
+import { TChordMethod } from "../types";
 
 export function ChordSelector({ chords }: TChordMethod) {
 	const uid = useId();

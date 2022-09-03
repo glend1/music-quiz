@@ -1,6 +1,6 @@
-import dStyles from "../dictionaryutils/dictionaryutils.module.css";
+import dStyles from "../deleteparent/deleteparent.module.css";
 import { uniqueChords } from "../../notes/notes/notes";
-import { TNotes } from "../dictionaryutils/dictionaryutils";
+import { TNotes } from "../types";
 
 export function Inversions({ notes }: TNotes) {
 	const chords = uniqueChords(notes);

@@ -1,8 +1,8 @@
 import { Piano } from "../../canvas/piano/piano";
 import { isChord, IStdNote, simplify, StdNote } from "../../notes/notes/notes";
-import dStyles from "../dictionaryutils/dictionaryutils.module.css";
-import { TNotes } from "../dictionaryutils/dictionaryutils";
+import dStyles from "../deleteparent/deleteparent.module.css";
 import { Inversions } from "../inversions/inversions";
+import { TNotes } from "../types";
 
 export function Chord({ notes, name }: TNotes) {
 	if (isChord(notes)) {
