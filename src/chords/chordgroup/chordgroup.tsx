@@ -1,4 +1,5 @@
-import styles from "../../../styles/shared.module.css";
+import sharedStyles from "../../../styles/shared.module.css";
+import styles from "./chordgroup.module.css";
 import { Dispatch, SetStateAction } from "react";
 import { ChordSelector } from "../chordselector/chordselector";
 import { Scales } from "../scales/scales";
@@ -21,18 +22,16 @@ export function ChordGroup({
 	});
 	const scale = [...notes.keys()].sort();
 	return (
-		<>
-			<section className={styles.container}>
-				<div className={styles.card}>
+		<div className={styles.flex}>
+			<section className={`${styles.container} ${styles.wide}`}>
+				<div className={sharedStyles.card}>
 					<ChordSelector chords={setChords} />
 				</div>
 				<AddChord chords={setChords} />
 			</section>
-			{chordNumbers.length >= 2 ? (
-				<section className={styles.card}>
-					<Scales notes={scale} />
-				</section>
-			) : null}
-		</>
+			<aside className={`${sharedStyles.card} ${styles.thin}`}>
+				<Scales notes={scale} title="Global Scales" />
+			</aside>
+		</div>
 	);
 }

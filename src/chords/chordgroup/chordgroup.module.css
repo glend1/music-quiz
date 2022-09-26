@@ -1,0 +1,23 @@
+.flex {
+	display: flex;
+	align-items: flex-start;
+}
+
+.wide {
+	flex-grow: 2;
+}
+
+.thin {
+	flex-grow: 1;
+	width: 30%;
+	/* background-color: var(--bg-colour); */
+	border: 1px solid var(--bg-colour);
+	align-self: stretch;
+	border-radius: 0.3rem;
+}
+
+.container {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 1fr 1fr;
+}

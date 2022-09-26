@@ -21,7 +21,7 @@ export function ChordInformation({ notes }: TNotes) {
 			chordMessage = null;
 		}
 	} else {
-		chordMessage = "Click a Key to begin Chord selection";
+		chordMessage = "Select a Chord by Clicking the Notes";
 	}
 	const modal = useModalContext();
 	return (

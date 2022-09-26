@@ -1,5 +1,6 @@
 import { MouseEventHandler } from "react";
 import sharedStyles from "../../../styles/shared.module.css";
+import chordGroupStyles from "../chordgroup/chordgroup.module.css";
 import styles from "./addchord.module.css";
 import * as ReactDOM from "react-dom/client";
 import React from "react";
@@ -8,7 +9,7 @@ import { TChordMethod } from "../types";
 
 export default function AddChord({ chords }: TChordMethod) {
 	const add: MouseEventHandler<HTMLAnchorElement | HTMLElement> = (e) => {
-		let container = document.querySelector(`.${sharedStyles.container}`);
+		let container = document.querySelector(`.${chordGroupStyles.container}`);
 		let add = document.querySelector(`.${styles.add}`);
 		if (container && add) {
 			let div = document.createElement("div");
