@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import Dictionary from "./dictionary";
+import Dictionary from "../pages/dictionary";
 
 describe("dictionary", () => {
 	it("Should render the component", () => {

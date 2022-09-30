@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import Index from "./debug";
+import Index from "../pages/debug";
 
 describe("dictionary", () => {
 	it("Should render the component", () => {
