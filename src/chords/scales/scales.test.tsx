@@ -23,7 +23,7 @@ describe("scales", () => {
 	});
 	it("Should render a default component", () => {
 		const component = render(<Scales notes={[]} />);
-		expect(component.container.outerHTML).toBe("<div></div>");
+		expect(component.container.outerHTML).toMatchSnapshot();
 	});
 	it("Should render scales", async () => {
 		const test = render(<Scales notes={["C", "D", "E"]} />);

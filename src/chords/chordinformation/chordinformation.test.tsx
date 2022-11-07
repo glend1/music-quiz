@@ -24,7 +24,7 @@ describe("chordInformation", () => {
 	it("Should render the component", () => {
 		render(<ChordInformation notes={[]} />);
 		expect(
-			screen.getByText("Click a Key to begin Chord selection")
+			screen.getByText("Select a Chord by Clicking the Notes")
 		).toBeVisible();
 	});
 	it("Should render the chord information", () => {
