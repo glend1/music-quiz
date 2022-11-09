@@ -7,13 +7,13 @@ export default function Header() {
 			<header>Music Quiz</header>
 			<nav className={styles.navigation}>
 				<Link href={"/"}>
-					<a>Home</a>
+					Home
 				</Link>
 				<Link href={"/dictionary"}>
-					<a>Dictionary</a>
+					Dictionary
 				</Link>
 				<Link href={"/debug"}>
-					<a>Debug</a>
+					Debug
 				</Link>
 			</nav>
 		</>
