@@ -56,9 +56,11 @@ export function AudioGraph({ freq }: IGraph) {
 									y: {
 										display: true,
 										type: "logarithmic",
+										border: {
+											color: colours.outline,
+											width: 5,
+										},
 										grid: {
-											borderColor: colours.outline,
-											borderWidth: 5,
 											display: true,
 											color: colours.outline,
 										},

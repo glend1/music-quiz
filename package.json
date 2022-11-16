@@ -14,11 +14,12 @@
 	"dependencies": {
 		"@tonaljs/tonal": "^4.6.5",
 		"abcjs": "^6.0.0-beta.35",
-		"chart.js": "^3.6.0",
+		"chart.js": "^4.0.1",
 		"next": "^13.0.2",
 		"pitchy": "^4.0.6",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
+		"uuid": "^9.0.0",
 		"webmidi": "^3.0.20"
 	},
 	"devDependencies": {
