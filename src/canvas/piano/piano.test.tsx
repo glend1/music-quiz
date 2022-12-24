@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { StdNote } from "../../notes/notes/notes";
-import { Piano } from "./piano";
+import { Piano } from "./deletepiano";
 
 describe("Piano", () => {
 	it("Should render a correct Piano", () => {

@@ -3,10 +3,17 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border: 0.3rem dashed var(--bg-colour);
-	padding: 0.3rem;
+	border: 0.3rem dashed var(--accent-colour);
 	background-image: url(../../../public/plus_24dp.svg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 40%;
+	margin: 1rem;
+	min-width: 20%;
+	padding: 1.5rem;
+}
+
+.add span {
+	white-space: nowrap;
+	font-weight: bold;
 }

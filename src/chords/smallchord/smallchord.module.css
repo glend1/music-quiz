@@ -1,0 +1,29 @@
+.chord {
+	/* border: 1px solid var(--bg-colour); */
+	border-radius: 0.3rem;
+	margin: 1rem;
+	/* padding: 1rem; */
+	cursor: pointer;
+}
+
+.chord:hover {
+	background-color: var(--bg-colour);
+}
+
+.chord img {
+	float: right;
+	margin: 0.3rem;
+}
+
+.chord div {
+	margin: 0rem 1rem 0rem 1rem;
+}
+
+.chord span {
+	display: block;
+	margin: 0.5rem;
+}
+
+.chord.active {
+	background-color: var(--dark-outline-colour);
+}

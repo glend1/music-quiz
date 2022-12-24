@@ -1,10 +1,13 @@
 import sharedStyles from "../../../styles/shared.module.css";
 import styles from "./chordgroup.module.css";
-import { Dispatch, SetStateAction } from "react";
-import { ChordSelector } from "../chordselector/chordselector";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Scales } from "../scales/scales";
-import AddChord from "../addchord/addchord";
 import { TChords } from "../types";
+import { SmallChord } from "../smallchord/smallchord";
+import SmallAddChord from "../smalladdchord/smalladdchord";
+import { ChordSelector } from "../chordselector/chordselector";
+import { v4 as uuid } from "uuid";
+import { StdNote } from "../../notes/notes/notes";
 
 export function ChordGroup({
 	chords,
@@ -13,21 +16,40 @@ export function ChordGroup({
 	chords: TChords;
 	setChords: Dispatch<SetStateAction<TChords>>;
 }) {
-	let notes = new Map();
-	let chordNumbers = Object.keys(chords);
-	chordNumbers.forEach((i) => {
-		chords[i].forEach((j) => {
-			notes.set(j, true);
+	const id = uuid();
+	const [active, setActive] = useState(id);
+	useEffect(() => {
+		setChords({ [id]: [] });
+	}, []);
+	let notes = new Set<string>();
+	if (chords) {
+		let chordKeys = Object.keys(chords);
+		chordKeys.forEach((key) => {
+			chords[key].forEach((note) => {
+				notes.add(StdNote(note)!.name);
+			});
 		});
-	});
+	}
 	const scale = [...notes.keys()].sort();
 	return (
-		<div className={styles.flex}>
-			<section className={`${styles.container} ${styles.wide}`}>
-				<div className={sharedStyles.card}>
-					<ChordSelector chords={setChords} />
-				</div>
-				<AddChord chords={setChords} />
+		<div className={styles.layout}>
+			<section className={styles.selector}>
+				{Object.keys(chords).map((i) => {
+					return (
+						<SmallChord
+							key={i}
+							id={i}
+							active={active}
+							setActive={setActive}
+							chords={chords}
+							setChords={setChords}
+						/>
+					);
+				})}
+				<SmallAddChord setActive={setActive} setChords={setChords} />
+			</section>
+			<section className={styles.main}>
+				<ChordSelector active={active} chords={chords} setChords={setChords} />
 			</section>
 			<aside className={`${sharedStyles.card} ${styles.thin}`}>
 				<Scales notes={scale} title="Global Scales" />

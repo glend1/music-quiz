@@ -36,10 +36,14 @@ describe("scales", () => {
 		await userEvent.click(test.baseElement.querySelectorAll("path")[0]);
 		expect(screen.queryAllByRole("img").length).toBe(0);
 	});
-	it("Should show/unshow scales", async () => {
-		const test = render(<Scales notes={["C", "D", "E"]} />);
+	it("Should show modal", async () => {
+		const test = render(
+			<div>
+				<Scales notes={["C", "D", "E"]} />
+			</div>
+		);
 		await userEvent.click(test.baseElement.querySelectorAll("path")[5]);
 		await userEvent.click(screen.getAllByRole("img")[0]);
-		expect(screen.getAllByRole("heading")[1]).toHaveTextContent("Modal");
+		expect(screen.getAllByRole("heading")[0]).toHaveTextContent("Modal");
 	});
 });

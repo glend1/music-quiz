@@ -1,4 +1,4 @@
-import { Piano } from "../../canvas/piano/piano";
+import { Piano } from "../../canvas/piano/deletepiano";
 import {
 	getScaleNotes,
 	IStdNote,

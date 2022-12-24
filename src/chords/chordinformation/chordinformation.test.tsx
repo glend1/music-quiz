@@ -36,8 +36,9 @@ describe("chordInformation", () => {
 		expect(screen.getByText("No Chord found")).toBeVisible();
 	});
 	it("Should click on the image to show more information", async () => {
-		render(<ChordInformation notes={["C", "E", "G"]} />);
+		let html = render(<ChordInformation notes={["C", "E", "G"]} />);
 		await userEvent.click(screen.getByRole("img"));
 		expect(screen.getAllByRole("heading")[0]).toHaveTextContent("Modal");
+		console.log(html.baseElement.innerHTML);
 	});
 });

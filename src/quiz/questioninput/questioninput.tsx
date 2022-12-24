@@ -11,7 +11,7 @@ import {
 import { MidiEvents } from "../../midi/midievents/midievents";
 import { IStdNote } from "../../notes/notes/notes";
 import { Input } from "webmidi";
-import { Piano } from "../../canvas/piano/piano";
+import { Piano } from "../../canvas/piano/deletepiano";
 import { Slider } from "../../elements/slider/slider";
 import { AudioEvent } from "../../midi/midievents/midievents";
 
