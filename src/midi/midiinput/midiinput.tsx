@@ -4,8 +4,8 @@ import { Select } from "../../elements/select/select";
 import { MidiConnection } from "../midiconnection/midiconnection";
 
 type IInput = {
-	midiDevice: false | Input;
-	setMidiDevice: Dispatch<SetStateAction<false | Input>>;
+	midiDevice: undefined | Input;
+	setMidiDevice: Dispatch<SetStateAction<undefined | Input>>;
 };
 
 export function MidiInput({ midiDevice, setMidiDevice }: IInput) {
@@ -19,7 +19,7 @@ export function MidiInput({ midiDevice, setMidiDevice }: IInput) {
 	useEffect(() => {
 		if (midiDevice) {
 			if (!midi.ports.find((i) => i == midiDevice.name)) {
-				setMidiDevice(false);
+				setMidiDevice(undefined);
 			}
 		}
 	}, [midi.ports, midiDevice]);

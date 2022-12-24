@@ -16,7 +16,7 @@ describe("midiinput", () => {
 		let root;
 		act(() => {
 			root = render(
-				<MidiInput setMidiDevice={callback} midiDevice={false}></MidiInput>
+				<MidiInput setMidiDevice={callback} midiDevice={undefined}></MidiInput>
 			);
 		});
 

@@ -27,7 +27,7 @@ export function QuestionInput({
 	const { bool: hideKeyboard, toggle: toggleKeyboard } = useBoolean();
 	const { bool: sharp, toggle: toggleSharp } = useBoolean(true);
 	const [octave, setOctave] = useFormState("4");
-	const [midiDevice, setMidiDevice] = useState<Input | false>(false);
+	const [midiDevice, setMidiDevice] = useState<Input | undefined>();
 	const { key, mouse } = MidiEvents(
 		answer,
 		sharp,
