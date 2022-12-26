@@ -1,15 +1,12 @@
 .add {
 	border-radius: 0.3rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	border: 0.3rem dashed var(--accent-colour);
 	background-image: url(../../../public/plus_24dp.svg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 40%;
 	margin: 1rem;
-	min-width: 20%;
+	min-width: 9rem;
 	padding: 1.5rem;
 }
 
