@@ -51,7 +51,7 @@ export function ChordGroup({
 			<section className={styles.main}>
 				<ChordSelector active={active} chords={chords} setChords={setChords} />
 			</section>
-			<aside className={`${sharedStyles.card} ${styles.thin}`}>
+			<aside className={styles.thin}>
 				<Scales notes={scale} title="Global Scales" />
 			</aside>
 		</div>
