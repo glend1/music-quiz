@@ -39,6 +39,5 @@ describe("chordInformation", () => {
 		let html = render(<ChordInformation notes={["C", "E", "G"]} />);
 		await userEvent.click(screen.getByRole("img"));
 		expect(screen.getAllByRole("heading")[0]).toHaveTextContent("Modal");
-		console.log(html.baseElement.innerHTML);
 	});
 });
