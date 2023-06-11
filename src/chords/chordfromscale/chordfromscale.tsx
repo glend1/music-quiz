@@ -5,7 +5,7 @@ import React from "react";
 import { list } from "../../elements/images";
 import { Chord } from "../chord/chord";
 import {
-	GlobalModalContext,
+	ModalContext,
 	useModalContext,
 } from "../../elements/modalcontext/modalcontext";
 import styles from "./chordfromscale.module.css";
@@ -13,7 +13,7 @@ import { TNotes } from "../types";
 
 export function ChordsFromScale({ notes: scale }: TNotes) {
 	const scales = chordsFromScale(scale);
-	const modal = useModalContext();
+	const [, setModalState] = useModalContext();
 	if (scales.length > 0) {
 		return (
 			<>
@@ -22,18 +22,21 @@ export function ChordsFromScale({ notes: scale }: TNotes) {
 					{scales.map((chordCollection) => {
 						return (
 							<div
-								onClick={modal((data) => {
-									return (
-										<React.StrictMode>
-											<GlobalModalContext>
+								onClick={() => {
+									setModalState((prev) => [
+										...prev,
+										{
+											title: chordCollection.name,
+											node: (
 												<Chord
+													key={prev.length}
 													name={chordCollection.name}
 													notes={chordCollection.notes}
 												/>
-											</GlobalModalContext>
-										</React.StrictMode>
-									);
-								})}
+											),
+										},
+									]);
+								}}
 								className={`${dStyles.bubble} clickable`}
 								key={chordCollection.name}
 							>

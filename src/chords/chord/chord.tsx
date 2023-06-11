@@ -19,14 +19,16 @@ export function Chord({ notes, name }: TNotes) {
 					highlight={simplified}
 					cb={(e: React.MouseEvent<SVGElement>): void => {}}
 				></Piano>
-				<span className={dStyles.bold}>Notes</span>
-				{notes.map((note) => {
-					return (
-						<div className={dStyles.bubble} key={note}>
-							{note}
-						</div>
-					);
-				})}
+				<div>
+					<span className={dStyles.bold}>Notes</span>
+					{notes.map((note) => {
+						return (
+							<div className={dStyles.bubble} key={note}>
+								{note}
+							</div>
+						);
+					})}
+				</div>
 				<Inversions notes={notes}></Inversions>
 			</>
 		);

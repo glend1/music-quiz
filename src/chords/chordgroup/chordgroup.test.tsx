@@ -16,6 +16,7 @@ function MockChordGroup() {
 	);
 }
 
+//TODO this causes errors in the console
 describe("chordgroup", () => {
 	it("Should render the default component", () => {
 		render(<MockChordGroup />);

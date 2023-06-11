@@ -106,6 +106,7 @@ tbody tr:nth-child(2n) {
 
 .clickable {
 	cursor: pointer;
+	vertical-align: bottom;
 }
 
 .mark {

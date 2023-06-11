@@ -4,7 +4,7 @@ import { AppProps } from "next/app";
 import { GlobalAudioContext } from "../src/audio/audiocontext/audiocontext";
 import Header from "../src/layout/header/header";
 import Footer from "../src/layout/footer/footer";
-import { GlobalModalContext } from "../src/elements/modalcontext/modalcontext";
+import { ModalContext } from "../src/elements/modalcontext/modalcontext";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 	return (
@@ -13,13 +13,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 				<title>Music Quiz</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<GlobalModalContext modal={true}>
+			<ModalContext>
 				<Header />
 				<GlobalAudioContext>
 					<Component {...pageProps} />
 				</GlobalAudioContext>
 				<Footer />
-			</GlobalModalContext>
+			</ModalContext>
 		</>
 	);
 }

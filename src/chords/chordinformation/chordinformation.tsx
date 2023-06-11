@@ -5,7 +5,7 @@ import React from "react";
 import { list } from "../../elements/images";
 import { Chord } from "../chord/chord";
 import {
-	GlobalModalContext,
+	ModalContext,
 	useModalContext,
 } from "../../elements/modalcontext/modalcontext";
 import { TNotes } from "../types";
@@ -23,26 +23,25 @@ export function ChordInformation({ notes }: TNotes) {
 	} else {
 		chordMessage = "Select a Chord by Clicking the Notes";
 	}
-	const modal = useModalContext();
+	const [, setModalState] = useModalContext();
 	return (
 		<div>
 			{chordMessage ? (
 				chordMessage
 			) : (
 				<>
-					{" "}
 					<span className={dStyles.bold}>Chord Name</span>
 					<div
 						className={`${dStyles.bubble} clickable`}
-						onClick={modal((data) => {
-							return (
-								<React.StrictMode>
-									<GlobalModalContext>
-										<Chord name={chord} notes={notes} />
-									</GlobalModalContext>
-								</React.StrictMode>
-							);
-						})}
+						onClick={() => {
+							setModalState((prev) => [
+								...prev,
+								{
+									title: chord || "N/A",
+									node: <Chord key={prev.length} name={chord} notes={notes} />,
+								},
+							]);
+						}}
 					>
 						<span className={dStyles.align}>{chord}</span>
 						<Image src={list} alt="Chord Information" />

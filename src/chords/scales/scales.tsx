@@ -7,10 +7,7 @@ import Image from "next/image";
 import React from "react";
 import { ScaleInformation } from "../scaleinformation/scaleinformation";
 import { list } from "../../elements/images";
-import {
-	GlobalModalContext,
-	useModalContext,
-} from "../../elements/modalcontext/modalcontext";
+import { useModalContext } from "../../elements/modalcontext/modalcontext";
 import { capitalizeFirstLetter } from "../../util/string/string";
 import { TNotes } from "../types";
 
@@ -19,7 +16,7 @@ export function Scales({
 	title = "Scales",
 }: TNotes & { title?: string }) {
 	const [root, setRoot] = useState<string | undefined>();
-	const modal = useModalContext();
+	const [, setModalState] = useModalContext();
 	return (
 		<>
 			<h2>{title}</h2>
@@ -50,20 +47,25 @@ export function Scales({
 			/>
 			{root && notes ? (
 				<>
-					{" "}
 					<span className={dStyles.bold}>Scale Names</span>
 					{matchScales(notes, root).map((scale, i) => {
 						return (
 							<div
-								onClick={modal((data) => {
-									return (
-										<React.StrictMode>
-											<GlobalModalContext>
-												<ScaleInformation scale={scale} root={root} />
-											</GlobalModalContext>
-										</React.StrictMode>
-									);
-								})}
+								onClick={() => {
+									setModalState((prev) => [
+										...prev,
+										{
+											title: `${root} ${scale}`,
+											node: (
+												<ScaleInformation
+													key={prev.length}
+													scale={scale}
+													root={root}
+												/>
+											),
+										},
+									]);
+								}}
 								className={`${dStyles.bubble} clickable`}
 								key={scale}
 							>

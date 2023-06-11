@@ -23,7 +23,6 @@
 	padding: 1rem;
 	margin: 1rem;
 	width: 23vw;
-	height: 43vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -31,4 +30,9 @@
 
 .close {
 	text-align: right;
+}
+
+.breadcrumbs {
+	font-size: 0.8rem;
+	float: right;
 }
